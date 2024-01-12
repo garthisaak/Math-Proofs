@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-pigeonhole-intro">
+  <title>Pigeonhole Principle</title>
+
+  
+<exploration>
+    <statement>
+      <p>
+        A class has 15 students.
+
+        Is it possible that everyone has their birthday in a different month?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        No, the are 15 people and 12  months. There must be a duplicate.
+      </p>
+    </solution>
+</exploration>
+
+<p>
+  This simple, intuitive idea is formalized in the 
+  <idx><h>pigeonhole principle</h></idx> <term> pigeonhole principle </term>. 
+</p>
+
+<p>
+The statement above clearly captures the idea of a proof but we 
+will need to do a little more to make it a full proof and add some 
+notation to capture the general idea, not just for numbers 
+15 and 12 but any integers <m> m \gt n</m>.
+</p>
+
+<p>
+Note that with 12 months and anywhere from 13 to 24 students 
+we must have some month with 2 birthdays. More could happen. 
+Its quite possible that there are several such instances, 
+say two students  born in January and 2 others born in October, 
+or even 3 all born in the same month. However, neither of these is 
+guaranteed if there are 24 or fewer students. With 24 students 
+each month could have 2 shared birthdays or one month could have 
+all birthdays.   However with 25 or more students then some month 
+must have 3 birthdays. We can extend this pattern to larger values. 
+</p>
+
+<p>
+To state the pigeonhole principle we need notation for rounding up. 
+</p>
+
+<definition xml:id="def-ceilfloor">
+  <statement>
+    <p>
+      The <term> ceiling function </term> <m>\lceil x \rceil</m>  rounds <m> x</m>  up the next integer. That is, <m> \lceil x \rceil</m> 
+	is the smallest integer greater than or equal to <m> x</m>. 
+    </p>
+    <p>
+	The <term> floor function </term>  <m> \lfloor x \rfloor</m>  rounds <m> x</m>  down the next integer. That is,  <m> \lfloor x \rfloor</m> 
+	is the largest integer less than or equal to <m> x</m>. 
+    </p>
+  </statement>
+</definition>
+
+<theorem xml:id="thm-pigeonhole">
+  <title>Pigeonhole Principle</title>
+  
+  
+  <statement>
+    <p>
+      For positive integers <m> m > n</m>  if a set of size <m> m</m>  is partitioned into <m> n</m>  parts then some part has 
+ 	size at least <m> \lceil \frac{m}{n} \rceil</m>.
+    </p>
+  </statement>
+</theorem>
+
+<p>
+  A special case is: If more than <m>n</m> pigeons are placed 
+  into <m>n</m> pigeonholes then some pigeonhole has at least 2 pigeons.
+</p>
+
+<theorem xml:id="thm-pigeonhole-alt">
+  <title>Pigeonhole Principle - alternate notation</title>
+  
+  
+  <statement>
+    <p>
+      If a set of size at least <m> kn+1</m>  is partitioned into <m> n </m>  parts then some part has 
+	size at least <m> k+1</m>.
+    </p>
+  </statement>
+</theorem>
+
+<p>
+  It is a matter of style as to which version is preferred. The alternate notation will be 
+  more convenient for our short proofs. 
+</p>
+
+
+<p> We will give two slight variants on the same proof of the Pigeonhole 
+Principle, one using a proof by <term> contradiction </term>  and one 
+using the <term> contrapositive </term>. 
+</p>
+
+<theorem xml:id="thm-pigeonhole-contrapositive">
+  <title>Pigeonhole Principle Contrpositive </title>
+  
+  
+  <statement>
+    <p>
+      If a set is partitioned into <m>n</m>
+      parts, each with size at most <m>k</m>, then the set size is at most <m> kn</m>.
+    </p>
+  </statement>
+</theorem>
+
+<proof>
+  <title>Proof of Pigeonhole Principle (alternate notation) by Contradiction</title>
+  
+  <p>
+    Let  <m> s_i</m>  denote the size of the <m> i^{th}</m>  part. 
+    Assume, for contradiction that all parts have size at most <m> k</m>. 
+    That is, assume that <m> s_i \leq k</m>  for <m> i = 1,2, \ldots, n</m>. Then the set has size
+<m> s_1 + s_2 + \cdots + + s_n \leq kn</m> . This contradicts size 
+at least <m> kn+1</m>. So some <m> s)i \geq k+1</m> . <m> \Box</m> 
+  </p>
+</proof>
+
+<proof>
+  <title>Proof of Pigeonhole Principle Contrapositive </title>
+  
+  <p>
+    Let  <m> s_i</m>  denote the size of the <m> i^{th}</m>  part. 
+     With each <m> s_i \leq k</m>  we have
+set size <m> s_1 + s_2 + \cdots + + s_n \leq k+ k + \cdots + k \leq kn</m>.  <m> \Box</m> 
+  </p>
+</proof>
+
+<p>
+  We used the word contrapositive without defining it. We can use this 
+  example as a guide
+</p> 
+
+<p> The intuition from the examples above shows that we can prove a 
+  statement directly or via the contrapositive.
+We will first illustrate and then formally define the contrapositive.
+</p>
+
+<p> Here, informally, we have the original statement as 
+
+  <men xml:id="pigh-direct">   \text{set size at least  } kn+1  \Rightarrow  \text{some  }  
+  s_i \text{  has size at least  }  k+1   </men>
+
+  Negating <q> some <m> s_i</m>  has size at least <m> k+1</m> </q> 
+  we get <q> all <m> s_i</m>  have size at most <m> k</m> </q>. Negating
+  <q> set size at least <m> kn+1</m> </q> we get <q> set 
+    size at most <m> kn</m> </q>. 
+    
+  </p> 
+  
+  <p> The contrapositive  is then
+  <men xml:id="pigh-cont"> 
+    \text{all  }  s_i   \text{  have size at most  }  k
+    \Rightarrow  \text{  set size at most  }  kn 
+  </men>
+
+ Could <xref ref="pigh-direct" /> be true and <xref  ref="pigh-cont" /> 
+ be false?
+</p> 
+
+<p>
+  For <xref  ref="pigh-cont" /> false, there just needs to 
+  be a single specific counterexample with all part sizes at most <m>k</m>
+  and set size at least <m>kn+1 </m>. Then 
+   <xref ref="pigh-direct" />  applies and we conclude that
+   some part size is at least <m>k+1</m>, which is a contradiction.
+   Similarly we cannot have
+    false <xref  ref="pigh-cont" /> and <xref ref="pigh-direct" /> true. 
+
+</p>
+
+  <definition xml:id="def-contrapositive">
+ 
+  <statement> <p>
+For a statement of the form <m> P</m>  implies <m> Q</m> ,
+ the <term> contrapositve </term> is <em> Not  <m> P</m> </em> 
+ implies <em> Not   <m> Q</m> </em>. 
+  </p> </statement> 
+  </definition> 
+
+  <fact xml:id="fact-contrapositive-equiv">
+    <statement>
+      <p>
+        A statement <m> P</m>  implies <m> Q</m>  and it's contrapositive
+         <em> Not <m> P</m>  </em> implies <em> Not <m> Q</m> </em>
+         are logically equivalent. Either both are true or both are false. 
+      </p>
+    </statement>
+  </fact>
+
+  <p>
+    While a proof using the contrapositive can always be translated 
+    into a proof by contradiction, there are proofs by contradiction 
+    that do not have a naturally stated contrapositve version as they 
+    are not in the form <m> P</m>  implies <m> Q</m>. One such example is
+    a proof that there are infinitely many primes in 
+    <xref ref="section-pigeonhole-infprimes" /> 
+  </p> 
+
+
+</section>

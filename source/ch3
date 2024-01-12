@@ -1,0 +1,283 @@
+	Some examples of delta-epsilon proofs for Fall 2023 Math 21 at Lehigh University \\
+	Note that this is one approach to these problems. There are other style of writing.
+
+{\bf Examples of  $\delta-\epsilon$ proofs for  quadratics.}
+
+{\sf Show, using the $\delta, \epsilon$ definition of limits,
+that $\displaystyle \lim_{x \to 3} x^2- x- 1=5$.}
+
+Here is a proof of this. {\em Note that this final version cannot be
+written down directly.  \\ Scratch work was needed first.} \\
+There are also other ways to do this.
+
+Given $\epsilon > 0$ let $\delta = \min\{1, \frac{\epsilon}{6}\}$. \\
+If $0 < |x - 3| < \delta$ then
+ $|x - 3| < 1 \Rightarrow -1 < x-3 < 1 \Rightarrow 4 < x+2 < 6$. \\
+Therefore,  $|x+2| < 6$. \\
+We also have,
+$|x-3| < \frac{\epsilon}{6}$, so \\
+ $|f(x) - L| =  |(x^2-x-1)-5| = |x^2-x-6| = |x+2||x-3| <
+6 \cdot \frac{\epsilon}{6} = \epsilon$. \\
+This shows that $ \lim_{x \to 3}x^2- x- 1=5$.
+
+Some comments on  this proof:
+
+\begin{itemize}
+
+\item The choice of 1 in $\delta = \min\{1, \epsilon/6\}$ is
+for convenient calculations. \\ Any positive number would also work.
+If instead you pick $1/13$ or
+$42$ or some other number \\ then other numbers in the proof  would change
+but the same basic outline would work.
+
+\item You must first start the computations on the fifth line,
+ $|(x^2-x-1)-5| = \cdots$ \\ to get the second factor $|x + 2|$. \\
+  The other factor will always be $x$ minus the value $a$ that $x$
+ is approaching \\(if not you made an algebra mistake).
+
+ \item Once you get $|x+2|$, this becomes the target in the second line,
+ $|x - 3| < 1 \Rightarrow \cdots$.\\  You get two numbers at the
+ end of this line, 4 and 6. \\ Use the larger absolute value (which could be either depending on signs)
+
+  \item In this case the larger absolute value is 6   which is
+  used \\ in the first, third, fourth
+ and end of the fifth lines to complete the proof.
+ \end{itemize}
+
+Next is a template for seeing where the various parts to be fill
+in. This is for quadratic functions. For other function that will follow the approach will be similar but
+some of the algebra will be a bit different. In particular for square root functions and rational functions
+we can't just pick  1 as part of the minimum. We must pick a number small enough to stay in the domain. That is, to avoid square root of a negative number or a 0 in the denominator. 
+
+\newpage
+
+A template for quadratic delta-epsilon proofs in which the coefficient on $x^2$ is 1. If this coefficient is not 1 there will a slight change in the $|x + \bigcirc|$ will have that coefficient on $x$. If the coefficient is negative we would need to be a little more careful in computing the bound $\Box$.
+
+$\bigcirc$ represents the number you get from your first computation
+at the start of the fifth line, a factorization of $f(x)-L$. \\
+$\bigcirc$ is then used in the second line to get $\Diamond$ and
+$\triangle$. \\
+Determine the larger absolute value of $\Diamond$ or $\triangle$
+and this becomes $\Box$ which now can be used in the first, third, fourth
+and end of the fifth lines to complete the proof.
+
+
+Given $\epsilon > 0$ let $\delta = \min\{1, \epsilon/\Box\}$. \\
+If $0 < |x - 3| < \delta$ then
+$|x - 3| < 1 \Rightarrow -1 < x-3 < 1 \Rightarrow \Diamond < x+\bigcirc < \triangle$ \\
+Therefore $ |x+\bigcirc| < \Box$. \\
+We also have,
+$|x-3| < \epsilon/\Box$, so \\
+$|f(x) - L| = |(x^2-x-1)-5| = |x^2-x-6| = |x+\bigcirc||x-3| <
+\Box \cdot \frac{\epsilon}{\Box} = \epsilon$. \\
+This shows that $\displaystyle \lim_{x \to 3}x^2- x- 1=5$.
+
+In other examples you will need to replace the numbers/coefficients $-1,3,5,6$ that you see above with appropriate numbers from the particular problem and these will in turn determine what you get
+for $\Box, \bigcirc, \triangle, \Diamond$.
+
+ Here are two more examples.
+ Again  {\em note that these final versions cannot be
+written down directly. \\ Scratch work was needed first.}
+
+%  Prove using the $\delta, \epsilon$ definition of limits
+% that $\displaystyle \lim_{x \to 2} x^2- 8x + 13 = 1$.
+
+
+{\sf Show, using the $\delta, \epsilon$ definition of limits,
+	that ${ \lim_{x \to 2} 3x^2 - 14x+ 5= -11}$.}
+
+Given $\epsilon > 0$ let $\delta = \min\{1, \frac{\epsilon}{5} \}$. \\
+If $0 < |x - 2| < \delta$ then
+ $|x - 2| < 1 \Rightarrow -1 < x-2 < 1 \Rightarrow 1 < x < 3 \Rightarrow 
+ -5 < 3x - 8 < 1$. \\
+Therefore,  $|3x + 16| < 5$. \\
+We also have,
+$|x-2| < \frac{\epsilon}{5}$, so \\
+ $|f(x) - L| = |(3x^2-14x+5)-(-11)| = |3x^2-14x+16| = |3x - 8| |x-2| <
+5 \cdot \frac{\epsilon}{5} = \epsilon$. \\
+This shows that ${ \lim_{x \to 2} 3x^2 - 14x+ 5= -11}$.
+
+
+and
+
+{\sf Show, using the $\delta, \epsilon$ definition of limits,
+	that ${ \lim_{x \to -3} x^2 + 6x - 2 = -11}$.}
+
+Given $\epsilon > 0$ let $\delta = \min\{1, \epsilon\}$. \\
+If $0 < |x - (-3)| < \delta$ then
+ $|x  + 3| < 1$ and $| x + 3| < \epsilon$. So \\
+ $|f(x) - L| = |(x^2+ 6x - 2)-(-11)| = |x^2+ 6x  + 9| = |x + 3||x+3| <
+1 \cdot \epsilon = \epsilon$. \\
+This shows that ${ \lim_{x \to -3} x^2 + 6x - 2 = -11}$.
+
+
+A comment on the second example:
+
+\begin{itemize}
+	\item In the second example both factors in the second to last line are the same. We treated each differently in terms of a bound to follow the patterns of the other quadratic proofs. It would also work to take $\delta = \sqrt{\epsilon}$ here. 
+	
+	
+\end{itemize}
+
+\newpage
+
+{\bf Examples of  $\delta-\epsilon$ proofs for certain square root functions.}
+
+Prove using the $\delta, \epsilon$ definition of limits
+that ${\displaystyle \lim_{x \to 5} \sqrt{8x + 9} =7}$.
+
+Here is a proof of this. {\em Note that this final version cannot be
+written down directly. \\ Scratch work was needed first.} \\
+There are also other ways to do this.
+
+Given $\epsilon > 0$ let $\delta = \min\{1, \frac{7}{8} \epsilon \}$. \\
+If $0 < |x -5| < \delta$ then
+ $|x - 5| < 1 \Rightarrow -1 < x-5 < 1 \Rightarrow 4 < x < 6
+ \Rightarrow 41 < 8x + 9 < 57$. \\
+Therefore,  $(8x+9) >  0$, so $\sqrt{8x+9}$ is defined and
+$\sqrt{8x+9} > 0$. \\
+Thus $\frac{8}{\sqrt{8x+9} + 7} < \frac {8}{7}$. \\
+We also have,
+$|x-5| < \frac{7}{8} \epsilon$, so \\
+ $|f(x) - L| = | \sqrt{8x+9} - 7| = |(\sqrt{8x+9} - 7) \cdot
+ \frac{\sqrt{8x+9} + 7}{\sqrt{8x+9} + 7}| =
+ |\frac{(8x+9)- 49}{\sqrt{8x+9} + 7}| = |\frac{8x-40}{\sqrt{8x+9} + 7}|=
+ \frac{8}{\sqrt{8x+9} + 7} \cdot |x-5| < \frac {8}{7}
+ \cdot \frac{7}{8} \epsilon = \epsilon$. \\
+This shows that ${\displaystyle \lim_{x \to 5} \sqrt{8x + 9} =7}$.
+
+Some comments on this proof:
+
+\begin{itemize}
+
+\item You cannot always use a 1 in $\delta = \min\{1, \frac{7}{8} \epsilon \}$.
+You need to pick a small enough number so that whatever is under the square root
+stays positive for the possible $x$ values.
+
+\item If the coefficient on $x$ under the square root is negative then you will need its
+absolute value in the fourth line.
+
+ \end{itemize}
+
+ % Here is another example where you cannot use 1 in the $\min$ in the first line.
+  % Again  \\ {\em note that this final version cannot be
+ % written down directly.  Scratch work was needed first.}
+
+ Here are two more examples.
+ Again  {\em note that these final versions cannot be
+written down directly. \\ Scratch work was needed first.}
+
+{\sf Show, using the $\delta, \epsilon$ definition of limits,
+	that ${\lim_{x \to 4} \sqrt{3x - 10} =\sqrt{2}}$.}
+
+Given $\epsilon > 0$ let $\delta = \min\{\frac{1}{6}, \frac{\sqrt{2}}{3} \epsilon \}$. \\
+If $0 < |x -4| < \delta$ then
+ $|x - 4| < \frac{1}{6} \Rightarrow -\frac{1}{6} < x-4 < \frac{1}{6} \Rightarrow
+  \frac{23}{6} < x < \frac{25}{6}
+ \Rightarrow  \frac{3}{2} < 3x-10 < \frac{5}{2}$. \\
+Therefore,  $(3x-10) >  0$, so $\sqrt{3x-10}$ is defined and
+$\sqrt{3x-10} > 0$. \\
+Thus $\frac{3}{\sqrt{3x- 10} + \sqrt{2}} < \frac {3}{\sqrt{2}}$. \\
+We also have,
+$|x-4| < \frac{\sqrt{2}}{3} \epsilon$, so \\
+ $|f(x) - L| = | \sqrt{3x-10} - \sqrt{2}| = |(\sqrt{3x-10} - \sqrt{2}) \cdot
+ \frac{\sqrt{3x-10} + \sqrt{2}}{\sqrt{3x-10} + \sqrt{2}}| =
+ |\frac{(3x-10)- 2}{\sqrt{3x-10} + \sqrt{2}}| = |\frac{3x-12}{\sqrt{3x-10} + \sqrt{2}}|$ \\ $=
+ \frac{3}{\sqrt{3x-10} + \sqrt{2}} \cdot |x-4| < \frac {3}{\sqrt{2}}
+ \cdot \frac{\sqrt{2}}{3} \epsilon = \epsilon$. \\
+This shows that ${\lim_{x \to 4} \sqrt{3x - 10} =\sqrt{2}}$.
+
+and 
+
+
+{\sf Show, using the $\delta, \epsilon$ definition of limits,
+	that ${\lim_{x \to 2} \sqrt{-4x + 15} =\sqrt{7}}$.}
+
+
+Given $\epsilon > 0$ let $\delta = \min\{1, \frac{\sqrt{7}}{4} \epsilon \}$. \\
+If $0 < |x -2| < \delta$ then
+ $|x - 2| < 1 \Rightarrow -1 < x-2 < 1 \Rightarrow
+  1 < x < 3
+ \Rightarrow  11 > -4x + 15 >  3$. \\
+Therefore,  $(-4x+15) >  0$, so $\sqrt{-4x+ 15}$ is defined and
+$\sqrt{-4x+15} > 0$. \\
+Thus $\frac{4}{\sqrt{-4x+ 15} + \sqrt{7}} < \frac {4}{\sqrt{7}}$. \\
+We also have,
+$|x-2| < \frac{\sqrt{7}}{4} \epsilon$, so \\
+ $|f(x) - L| = | \sqrt{-4x+15} - \sqrt{7}| = |(\sqrt{-4x+15} - \sqrt{7}) \cdot
+ \frac{\sqrt{-4x+15} + \sqrt{7}}{\sqrt{-4x+15} + \sqrt{7}}| =
+ |\frac{(-4x+15)- 7}{\sqrt{-4x+15} + \sqrt{7}}| = |\frac{-4x+8}{\sqrt{-4x+15} + \sqrt{7}}|$ \\ $=
+ \frac{4}{\sqrt{-4x+15} + \sqrt{7}} \cdot |x-2| < \frac {4}{\sqrt{7}}
+ \cdot \frac{\sqrt{7}}{4} \epsilon = \epsilon$. \\
+This shows that ${\lim_{x \to 2} \sqrt{-4x + 15} =\sqrt{7}}$.
+
+
+
+{\bf Examples of  $\delta-\epsilon$ proofs for certain rational functions.}
+
+Prove using the $\delta, \epsilon$ definition of limits
+that ${\displaystyle \lim_{x \to 3} \frac{21}{x} + 2 =9 }$.
+
+Here is a proof of this. {\em Note that this final version cannot be
+written down directly. \\ Scratch work was needed first.} \\
+There are also other ways to do this.
+
+Given $\epsilon > 0$ let $\delta = \min\{1, \frac{2}{7} \epsilon \}$. \\
+If $0 < |x - 3| < \delta$ then
+ $|x - 3| < 1 \Rightarrow -1 < x-3 < 1 \Rightarrow 2 < x < 4$. \\
+Therefore,  $\frac{1}{|x|} < \frac{1}{2}$. \\
+We also have,
+$|x-3| < \frac{2}{7} \epsilon $, so \\
+ $|f(x) - L| =  |(\frac{21}{x} + 2) - 9| = |\frac{21}{x} - 7| = |\frac{21-7x}{x}| =
+ 7 \cdot \frac{1}{|x|} \cdot |x - 3| <
+7 \cdot \frac{1}{2} \cdot  \frac{2}{7} \epsilon  = \epsilon$. \\
+This shows that $\lim_{x \to 3} \frac{21}{x} + 2 =9$.
+
+\begin{itemize}
+
+\item You cannot always use a 1 in $\delta = \min\{1, \frac{2}{7} \epsilon \}$.
+You need to pick a small enough number so that $x$ cannot be 0 (as division
+by 0 is impossible).
+
+\item In the third line we could have concluded further that $\frac {1}{|x|} < 1$ and
+eliminated the 2 in $\frac{2}{7} \epsilon$. However leaving it illustrates more generally
+what is done.
+
+ \end{itemize}
+
+ Here are two more examples.
+ Again  {\em note that these final versions cannot be
+written down directly. \\ Scratch work was needed first.}
+
+{\sf Show, using the $\delta, \epsilon$ definition of limits,
+	that $\lim_{x \to 1} \frac{4 + 2x}{x} =6$.}
+
+Given $\epsilon > 0$ let $\delta = \min\{\frac{1}{2}, \frac{1}{8} \epsilon \}$. \\
+If $0 < |x - 1| < \delta$ then
+ $|x - 1| < \frac{1}{2} \Rightarrow -\frac{1}{2} < x-1 < \frac{1}{2} \Rightarrow \frac{1}{2} < x < \frac{3}{2}$. \\
+Therefore,  $\frac{1}{|x|} < \frac{1}{1/2} = 2$. \\
+We also have,
+$|x-1| < \frac{1}{8} \epsilon $, so \\
+ $|f(x) - L| =  |(\frac{4+ 2x}{x} ) - 6| =  |\frac{4-4x}{x}| =
+ 4 \cdot \frac{1}{|x|} \cdot |x - 1| <
+4 \cdot 2 \cdot  \frac{1}{8} \epsilon  = \epsilon$. \\
+This shows that $\lim_{x \to 1} \frac{4}{x} + 2 =6$.
+
+and
+
+{\sf Show, using the $\delta, \epsilon$ definition of limits,
+	that $\lim_{x \to 2} \frac{2x}{3x -4} =2$.}
+
+Given $\epsilon > 0$ let $\delta = \min\{\frac{1}{2}, \frac{\epsilon}{8}  \}$. \\
+If $0 < |x - 2| < \delta$ then
+$|x - 2| < \frac{1}{2} \Rightarrow -\frac{1}{2} < x-2 < \frac{1}{2} \Rightarrow \frac{3}{2} < x < \frac{5}{2}
+\Rightarrow \frac{1}{2} < 3x-4 < \frac{7}{2}$.
+ \\
+Therefore,  $\frac{1}{|3x-4|} < \frac{1}{1/2} = 2$. \\
+We also have,
+$|x-2| = < \frac{\epsilon}{8} $, so \\
+ $|f(x) - L| =  |\frac{2x}{3x-4}  - 2| = |\frac{2x - 2(3x-4)}{3x-4}| = |\frac{-4x + 8}{3x-4}| =
+ |-4| \cdot \frac{1}{|3x-4|} \cdot |x  - 2| <
+4 \cdot 2 \cdot  \frac{\epsilon}{8}   = \epsilon$. \\
+This shows that $\lim_{x \to 2} \frac{2x}{3x -4} =2$.
+

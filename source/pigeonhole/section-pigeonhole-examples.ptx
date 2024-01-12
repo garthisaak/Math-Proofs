@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-pigeonhole-examples">
+  <title>Examples using the Pigeonhole Principle</title>
+
+ <p>
+  
+Returning to the pigeonhole principle we illustrate with several examples. 
+
+ </p> 
+
+<p> Recall that we can use long division to represent a rational number 
+  as a decimal.
+
+For example <m> \frac{3}{24} = \frac{1}{8} = .125</m>  exactly, 
+a terminating decimal and 
+<m> \frac{3}{7} = .4285742857\ldots = \overline{.42857}</m>  
+where the line over the <m> 42857</m>  indicate a pattern that 
+repeats infinitely often. 
+</p> 
+
+<p>
+
+Consider the long division
+
+<me>  \require{enclose}    7 \enclose{longdiv}{3.000000} 
+ 
+ </me>
+
+The key idea is that either a reminder of 0 is reached, 
+in which case the expansion terminates or some remainder repeats, 
+after which the pattern repeats. We guarantee that there is a repeat 
+because the reminders are strictly less than the denominator. 
+So if the denominator is <m> b</m> , the possible remainders are 
+<m> 0,1,2, \ldots, b-1</m> . If a remainder of 0 occurs by <m> b^{th}</m>  
+division the expansion terminates with at most <m> b-1</m>  decimals. 
+If no 0 occurs by the <m> b^{th}</m>  division there must be a repeat as 
+there are <m> b-1</m>  nonzero remainders. So  by the pigeonhole 
+principle the pattern repeats with at most <m> b-1</m>  terms.
+
+</p> 
+
+<p>
+While we haven't formally written out a full proof this gives an 
+ outline of a proof of the following based on the pigeonhole principle.
+</p> 
+
+ <proposition xml:id="prop-longdiv">
+  <statement>
+    <p>
+      The decimal expansion of any rational number either 
+      terminates or repeats. </p> 
+	
+	<p> Moreover, 
+  if the expansion repeats and the reduced form 
+  (no common factor in numerator and denominator) 
+  of the fraction is <m> \frac{a}{b} </m>  the pattern that repeats has 
+  length at most <m> b-1</m>.
+    </p>
+  </statement>
+ </proposition>
+
+ 
+
+<exploration xml:id="expl-pigeon-div">
+  Pick any 6 numbers from <m> \{1,2,3, \ldots, 10\}</m>  
+  and show that at least one divides another.
+  <solution>
+    <p>
+      
+      We could approach this as follows: 
+      <ul>
+        <li>
+          <p>
+            If 1 is selected we are done. It divides any other number
+          </p>
+        </li>
+        <li>
+          <p>
+            If 2 is selected then no other even 
+            number can be selected and only 4 odd numbers remain
+          </p>
+        </li> 
+         <li>  <p>
+            If 3 is selected then we can't pick 6 or 9 so all remaining 
+            numbers, including 4 and 8 must be selected
+          </p>
+        </li> 
+         <li>  <p>
+            etc.
+          </p>
+        </li>
+      </ul>
+      
+
+      This sort of reasoning will work for this small example. 
+      However, it would become very long and complicated for a larger 
+      example, say showing that picking 51 numbers 
+      from <m> 1,2,3, \ldots, 100</m>  will again yield a pair where 
+      one divides the other.
+
+    </p> 
+
+    <p>
+      We need another strategy, especially if we hope this to extend 
+      to a general result, picking from <m> 1,2,,3, \ldots, 2n</m>.
+    </p>
+  
+    
+    <p> Picking from <m> \{1,2,3, \ldots, 10\}</m> and avoiding one number 
+      dividing another
+      <ul>
+        <li>
+          <p>
+            we can pick at most one of <m> \{1,2,4,8\}</m>.
+    What remains is <m> 3,5,6,7,9,10</m> 
+          </p>
+        </li>
+        <li>
+          <p>
+            we can pick at most one of <m> \{3,6\}</m> and at most one of <m> \{5,10\}</m> 
+          </p>
+        </li>
+        <li>
+          <p>
+            Trivially we can pick at most 
+            one of <m> \{7\}</m>  and one of <m> \{9\}</m> 
+          </p>
+        </li>
+      </ul>
+      
+    We have partitioned <m> \{1,2, \ldots, 10\}</m>  into 5 sets 
+    (pigeonholes) with the property that if two numbers are selected 
+    from any part , one divides another. 
+    
+    By the pigeonhole principle, if we pick <em>any </em> 6 numbers, 
+    2 must be picked from some set. So we get our result
+    
+    </p>
+  </solution>
+</exploration>
+
+<p>
+  Extending the ideas from <xref ref="expl-pigeon-div"/> 
+  to larger numbers we get that we can pick at most one number from any of the following
+  if we want to avoid a number dividing another.
+<ul>
+  <li>
+    <p>
+      <m> \{1,2,4,8,16,32, \ldots \}</m>
+    </p>
+  </li>
+  <li>
+    <p>
+      <m> \{3,6,12,24,48,  \ldots \}</m> 
+    </p>
+  </li>
+  <li>
+    <p>
+      <m> \{5,10,20,40, \ldots \}</m> 
+    </p>
+  </li>
+  <li>
+    <p>
+      <m> \{7,14,28,56, \ldots \}</m> 
+    </p>
+  </li>
+</ul>  
+
+For each set we pick an odd number and keep doubling. Note that
+
+<ol>
+  <li> Each positive integer will appear in some list 
+    as any positive integer can be written as <m> 2^km</m>  for some <m> k</m>  and some odd number <m> m</m>. </li>
+    
+    <li> In each set  if we pick any pair, the smaller divides the larger.  </li>
+</ol>
+
+</p>
+
+<p>
+  To build toward a pigeonhole proof of a general result note the context. 
+  We are picking {\em any} subset of a given size from some larger set. 
+  We want to partition the larger set first and use this partition to 
+  define a partition of the smaller selected set. The partition of the 
+  larger set should have an appropriate property. 
+  In this example picking any pair, yield the desired divisibility.
+</p>
+
+<p> We can think of this as assigning pigeonholes for which each pigeon 
+  that might show up will go. If enough pigeons show up then some 
+  pigeonhole is guaranteed to have at least 2 pigeons. </p>
+
+<p> We can now use these ideas for a general result. </p> 
+
+<p> In the following we will make use of the fact that each positive 
+  integer has a unique prime factorization and hence can be 
+  written uniquely as <m> 2^km</m>  for an odd integer <m> m</m>. 
+  Uniqueness is not necessary for our proof but we may as well note it.
+</p> 
+
+<proposition xml:id="prop-pigeon-divt">
+  <statement>
+    <p>
+      If  <m> n+1</m>  distinct integers are selected from 
+      <m> [2n] = \{1,2, \ldots, 2n \}</m>  
+      then at least one of the selected numbers divides another.   
+    </p>
+    <p>
+      The bound <m> n+1</m>  is best possible. 
+    </p>
+  </statement>
+</proposition>
+
+<p> Note that we have in addition stated that the result is 
+  <term> best possible </term>.
+  By this we mean that we cannot reduce the <m>2n+1</m> in the statement 
+  to <m>2n</m>. We can pick a subset of <m>[2n] </m> with size <m>n</m>
+  for which no number divdes another. 
+</p>
+
+<proof> <p>
+ Write each integer as <m> 2^km</m>  for some <m> k</m>  and odd integer 
+ <m> m</m>. Note that <m> m \leq n-1</m>  for any integer 
+ at most <m> 2n</m>.  Partition the integers <m> \{1,2, \ldots, 2n\}</m>  
+into <m> P_1,P_3, \ldots, P_{2n-1}</m>  with <m> i \in P_m</m>  
+if <m> i = 2^km</m>.  Since any two integers in <m> P_m</m> 
+are of the form <m> 2^{k_1}m</m>  and <m> 2^{k_2}m</m>, one divides 
+the other. </p> 
+
+<p> Given any <m> n+1</m>  integers from <m> \{1,2,3, \ldots, 2n \}</m>, 
+  partition them based on the partitions <m> P_i</m>  for <m> i</m>  odd. 
+Since there are <m> n</m>  parts  and <m> n+1</m>  integers, 
+some part has size at least 2 by the pigeonhole principle. 
+Such a pair has the smaller dividing the larger. <m> \Box</m> 
+
+</p>
+</proof> 
+
+
+	<remark>
+  <p> 
+	Observe that the two previous examples made use of the pigeonhole 
+  principle in slightly different ways. </p> 
+
+  <p>  For the example on decimals, the pigeonholes were trivial to describe 
+   and having 2 in a box meant that we couldn't continue division 
+   infinitely without repeating. </p> 
+   
+   <p> 
+    For the division example, it took some work to discover 
+    appropriate pigeonholes so that any 2 in a box would have 
+    the desired property. 
+   </p> 
+
+</remark>
+
+<p>
+  In <xref provisional="ch-montone"/> we will look 
+    at monotone sequences. One of the result will require a non trivial application of the pigeonhole principle.
+    
+</p>
+
+
+
+  
+</section>

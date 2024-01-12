@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-quadratic-formula" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Quadratic Formula</title>
+
+  <introduction>
+    <objectives>
+      <ul>
+        <li>
+          <p>
+            tt
+          </p>
+        </li>
+      </ul>
+
+    </objectives>
+    
+        <p>  We begin with an exploration of a basic concept familiar to 
+        most students, the quadratic formula. We will eventually get to 
+        a derivation of this formula and proofs of its correctness. 
+        However, it will
+        take time to get there with comments and brief discussion of 
+        some of the many conventions of writing mathematics found even 
+        in this simple problem, as well as pointers the many other 
+        mathematical directions and questions that can arise.  </p>
+
+        
+  </introduction>
+
+  <!-- include sections -->
+  <xi:include href="section-quadraticformula-intro.ptx" />
+
+  <xi:include href="section-quadraticformula-proof.ptx" />
+
+  
+</chapter>

@@ -4,15 +4,22 @@
   <!-- we first include a file which contains the docinfo element: -->
   <xi:include href="./docinfo.ptx" />
 
-  <book xml:id="my-great-book">
-    <title>My Great Book</title>
-    <subtitle>An example to get you started</subtitle>
+  <book xml:id="IntroMRW">
+    <title>Introduction to Mathematical Reasoning and Writing</title>
+
 
     <!-- Include frontmatter -->
     <xi:include href="./frontmatter.ptx" />
 
     <!-- Include chapters -->
     <xi:include href="./ch-chapter-title.ptx" />
+
+    <!-- Include chapters -->
+    <xi:include href="./ch-quadraticformula.ptx" />
+
+    <xi:include href="./pigeonhole/ch-chapter-pigeonhole.ptx" />
+
+    <xi:include href="./monotone/ch-chapter-monotone.ptx" />
 
 
     <!-- Include backmatter -->

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-quadraticformula-proof">
+  <title>Quadratic Formula Derivation</title>
+
+  <p> The examples above suggest that we should look into a more 
+    general setting. Indeed, the roots for question \ref{q2} would typically be found using the familiar quadratic formula. 
+    Our aim here is to get to that. That is answer the following </p>
+
+    <alert>
+        <p>
+            What are the roots of <m> ax^2 +bx +c </m>. That is, solutions to
+            <m> ax^2 +bx +c =0 </m>?
+        </p>
+    </alert>
+
+   <remark>
+    <ul>
+        <li>
+            <p>
+                Here we are using symbols <m> a,b,c </m>  to represent a 
+                generic but fixed constant and <m>x </m>  to represent the 
+                variable. 
+                This follows a standard convention so we don't specify 
+                this in the statement.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                There is an additional implicit assumption here that 
+                <m> a \not = 0</m>. Otherwise it would be linear, not quadratic. </p>
+
+            <p> In our derivation of the quadratic formula we will 
+                divide by <m> a </m>  so this assumption is necessary. 
+                For the quadratic formula we sometimes do not explicitly 
+                state this assumption because it add clutter and is `clear' from context. 
+                In other settings, explicitly stating any assumptions or restrictions will 
+                be important.
+                
+            </p>
+        </li>
+        <li>
+            <p>
+                Why <m> a,b,c </m> and <m> x </m> ?  We could have written 
+                <m> \Delta z^2 + \Gamma z + \Psi = 0 </m> 
+                or <m>xa^2 + ya + z = 0</m> . These would give the same solution, just with symbols switched around.
+                It has become convention. in English, that usually 
+                (but not always) we use small Latin letters near the start of 
+                the alphabet for constants and small Latin letters near the 
+                end of the alphabet for variables. </p>
+                
+                <p> As we move to more complicated situations it 
+                    will be important to understand what each symbol 
+                    represents and if there are any constraints on it. 
+                
+            </p>
+        </li>
+    </ul>
+   </remark>
+
+  <remark>
+     <p>
+        We mentioned that in the quadratic formula there is an 
+        assumption that <m>a \not = 0</m>. For an example of why we 
+        need to be careful with these extra assumptions consider the 
+        following <em> false statement </em>
+
+        <me>
+         \mbox{if  } ax \lt ay \mbox{  then  }  x \lt y 
+        </me>
+    
+        Obviously this statement is false. 
+        If <m>a = -5</m> and <m>x = 3</m> and <m>y = 2</m>  
+        we would be asserting that since <m> -15 \lt -10</m> then 
+        <m>3 \lt 2</m> 
+        because <m>(-5) \cdot 3 = 15 \lt -10 = (-5) \cdot 2</m>
+        so the statement would then imply 
+        <m>3 \lt 2</m>, which is nonsense.
+     </p>
+
+     <p>
+        We can say the following, which is correct
+<me>  \mbox{For  } a \gt 0, \mbox{if  } ax \lt ay \mbox{  then  }  x \lt y </me>
+     </p>
+    
+  </remark>
+
+  
+
+
+
+</section> 

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-pigeonhole-infprimes">
+  <title>Infinitely Many Primes</title>
+
+ 
+  <p> 
+    Here is one 
+    standard example of a proof by contradiction.
+  </p> 
+  
+  <p>  The proof will assume an understanding of 
+    prime numbers, positive integers greater than 1 with no 
+    divisors other than 1 and the number itself and will also 
+    assume the fact that that every non 
+    prime is a product of primes.  
+Also we assume the following which can easily be checked.
+
+  </p>
+
+<fact xml:id="fact-ababplus1">
+  <statement>
+    <p>
+      If <m> a</m>  and <m> b</m>  are positive integers 
+      then <m> a</m>  does not divide <m> ab+1</m>  except when <m> a = 1</m> 
+    </p>
+  </statement>
+</fact>
+
+<p> 
+We also use additional notation. 
+</p>
+
+
+<definition xml:id="def-products">
+  <statement>
+    <p>
+      We use the following to indicate a product of multiple numbers
+	<me>   p_1p_2 \ldots p_k = \prod_{i=1}^k p_i </me> 
+    </p>
+  </statement>
+</definition>
+	
+<remark>
+  This notation isn't necessary here. We could simply have used 
+  $p_1p_2 \ldots p_k$. However it is useful to start to get used to the alternate notation for situations where the more compact form will make the display easier to read.
+</remark>
+
+<p> 
+We can now give another example of a proof using contradiction. 
+The result is attributed to Euclid who first published a proof over 
+2000 years ago, although his original proof was slightly different.
+</p>  
+
+<theorem xml:id="thm-infprimes">
+  <statement>
+    <p>
+      There are infinitely many primes. 
+    </p>
+  </statement>
+</theorem>
+
+	<proof>
+    <p>
+      Assume that there are finitely many primes, 
+      <m> p_1,p_2, \ldots, p_k</m>.
+ Consider the number  <m> m = 1 + \prod_{i=1}^k p_i</m>. 
+ If <m> m</m>  is not prime, it is a product of primes so <m> p_i</m>  
+ divides <m> m</m>  for at least one of the primes <m> p_i</m>. However,  by
+ <xref ref="fact-ababplus1"/>, <m> p_i</m>  does not divide <m> m</m>, 
+ a contradiction. So there must be infintely many primes. <m> \Box</m> 
+    </p> 
+</proof>
+ 
+ <p> Note that this proof does not imply that <m> 1 + \prod_{i=1}^k p_i</m>
+    is a prime, as we are producing a counterexample. Implicit in the 
+    proof is the fact that a number that is 1 more than a product of 
+    primes has none of those
+ primes as a factor. But it can have other prime factors. For example <m> 2 \cdot 3 + 1 = 7</m>  is prime, <m> 2 \cdot 3 \cdot 5 + 1= 31</m>  is prime, <m> \ldots</m>   <m> 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 + 1 = 2311</m> 
+ is prime. But, 
+ <m> 2 \cdot 3 \cdot 5 \cdot 7 \cdot 11 \cdot 13 + 1 = 30031 = 
+  59 \cdot 509</m>  is not prime but both of its prime factors are not
+  on the list of primes we used <m>2,3,5,7,11,13</m>.
+    </p>
+  
+</section>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-monotone-intro">
+  <title>Monot</title>
+
+  
+<exploration>
+    <statement>
+      <p>
+        A class has 15 students.
+
+        Is it possible that everyone has their birthday in a different month?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        No, the are 15 people and 12  months. There must be a duplicate.
+      </p>
+    </solution>
+</exploration>
+
+</section> 
