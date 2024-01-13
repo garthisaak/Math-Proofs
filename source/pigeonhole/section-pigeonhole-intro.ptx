@@ -7,9 +7,9 @@
 <exploration>
     <statement>
       <p>
-        A class has 15 students.
+        A class has 15 students. </p>
 
-        Is it possible that everyone has their birthday in a different month?
+        <p> Is it possible that everyone has their birthday in a different month?
       </p>
     </statement>
     <solution>

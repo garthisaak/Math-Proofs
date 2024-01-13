@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-quadraticformula-proof">
+  <title>Quadratic Formula Derivation</title>
+
+  <p> The examples above suggest that we should look into a more 
+    general setting. Indeed, the roots for <xref ref="example-roots2"/> would typically be found using the familiar quadratic formula. 
+    Our aim here is to derive the quadraticf ormula. That is answer the following: </p>
+
+    <alert>
+        <p>
+            What are the roots of <m> ax^2 +bx +c </m>. That is, solutions to
+            <m> ax^2 +bx +c =0 </m>?
+        </p>
+    </alert>
+
+   <remark>
+    <ul>
+        <li>
+            <p>
+                Here we are using symbols <m> a,b,c </m>  to represent a 
+                generic but fixed real number constants and <m>x </m>  to represent the 
+                variable. 
+                This follows a standard convention so we don't specify 
+                this in the statement.
+            </p>
+        </li>
+
+        <li>
+            <p>
+                There is an additional implicit assumption here that 
+                <m> a \not = 0</m>. Otherwise it would be linear, not quadratic. </p>
+
+            <p> In our derivation of the quadratic formula we will 
+                divide by <m> a </m>  so this assumption is necessary. 
+                For the quadratic formula we sometimes do not explicitly 
+                state this assumption because it adds clutter and 
+                is <q> clear</q>
+                 from context. 
+                In other settings, explicitly stating any assumptions or restrictions will 
+                be important.
+                
+            </p>
+        </li>
+        <li>
+            <p>
+                Why <m> a,b,c </m> and <m> x </m> ?  We could have written 
+                <m> \Delta z^2 + \Gamma z + \Psi = 0 </m> 
+                or <m>xa^2 + ya + z = 0</m> . These would give the same solution, just with symbols switched around.
+                It has become convention, in English, that usually 
+                (but not always) we use small Latin letters near the start of 
+                the alphabet for constants and small Latin letters near the 
+                end of the alphabet for variables. </p>
+                
+                <p> As we move to more complicated situations it 
+                    will be important to understand what each symbol 
+                    represents and if there are any constraints on it. 
+                
+            </p>
+        </li>
+    </ul>
+   </remark>
+
+  <remark>
+     <p>
+        We mentioned that in the quadratic formula there is an 
+        assumption that <m>a \not = 0</m>. For an example of why we 
+        need to be careful with these extra assumptions consider the 
+        following <em> false statement </em>
+
+        <me>
+         \mbox{if  } ax \lt ay \mbox{  then  }  x \lt y 
+        </me>
+    
+        Obviously this statement is false. 
+        If <m>a = -5</m> and <m>x = 3</m> and <m>y = 2</m>  
+        we would be asserting that <m> -15 \lt -10</m> implies that 
+        <m>3 \lt 2</m> 
+        because <m>(-5) \cdot 3 = 15 \lt -10 = (-5) \cdot 2</m>
+        so the statement would then imply 
+        <m>3 \lt 2</m>, which is nonsense. This single 
+        <term>counterexample</term>
+        is enough to demonstrate that the statement is false. 
+     </p>
+
+     <p>
+        We can say the following, which is correct
+<me>  \mbox{For  } a \gt 0, \mbox{if  } ax \lt ay \mbox{  then  }  x \lt y </me>
+     </p>
+    
+  </remark>
+
+ <p>  Assuming that we already know the quadratic formula, we can prove it 
+  along the lines of the examples above.
+ </p> 
+ 
+ <p> 
+    Proof that the roots of <m>ax^2 + bx + c</m> are 
+    <m>\frac{-b + \sqrt{b^2 - 4ac}}{2a}</m> and 
+    <m>\frac{-b - \sqrt{b^2 - 4ac}}{2a}</m>:
+    </p>
+    
+    <p> Version 1: For <m>x = \frac{-b + \sqrt{b^2 - 4ac}}{2a}</m> note that <md>
+        <mrow> ax^2 = a \left(\frac{-b + \sqrt{b^2 - 4ac}}{2a} \right)^2 =
+    a \frac{1}{4a^2}\left( b^2 - 2b\sqrt{b^2 - 4ac} + (b^2 - 4ac) \right)  </mrow>
+   <mrow> = \frac{1}{4a} \left( 2b^2 - 4ac - 2b\sqrt{b^2 - 4ac} + (b^2 - 4ac) \right) </mrow> </md> 
+    and that   
+    <me>bx = b \frac{-b + \sqrt{b^2 - 4ac}}{2a} = \frac{1}{4a}\left( -2b^2 + 2b\sqrt{b^2 - 4ac} \right)</me>.
+    </p>
+    
+    <p>
+    Then 
+    <me> \begin{array}{rcl}
+        ax^2 + bx + c \amp = \amp a\left(\frac{-b + \sqrt{b^2 - 4ac}}{2a}\right)^2 + b \frac{-b + \sqrt{b^2 - 4ac}}{2a}  + c  \\
+       \amp  = \amp  \frac{1}{4a} \left( 2b^2 - 4ac - 2b\sqrt{b^2 - 4ac} + (b^2 - 4ac) \right)  \\
+        
+        \amp \amp + \frac{1}{4a}\left( -2b^2 + 2b\sqrt{b^2 - 4ac} \right) + \frac{4ac}{4a} \\
+        \amp = \amp  0
+            \end{array}
+        </me> 
+    </p> 
+    
+    <p> Similar computations show that  <m>\frac{-b - \sqrt{b^2 - 4ac}}{2a}</m> is also a root.
+    </p> 
+
+    <p>
+        Version 2: 
+        <m>ax^2 + bx + c = a\left( x -  \frac{-b + \sqrt{b^2 - 4ac}}{2a}\right) \left( x -  \frac{-b - \sqrt{b^2 - 4ac}}{2a}\right)</m>
+        since expanding the right side we see that the coefficient of <m>x^2</m> is <m>a</m>, the coefficient of <m>x</m> is
+        <m>(-a) \left( \frac{-b + \sqrt{b^2 - 4ac}}{2a} + \frac{-b - \sqrt{b^2 - 4ac}}{2a} \right) =b</m> 
+        and the constant term is <m> a\cdot \frac{-b + \sqrt{b^2 - 4ac}}{2a} \cdot \frac{-b - \sqrt{b^2 - 4ac}}{2a} =
+        a \cdot \frac{b^2 - (b^2 - 4ac)}{4a^2} = c</m>.
+        </p>
+        
+        <p> <m>x^2 - x - 1  =    \left(x - \frac{1 + \sqrt{5}}{2}\right)\left(x - \frac{1 - \sqrt{5}}{2}\right)</m> since
+        since expanding the right side we see that coefficient of <m>x</m> is <m>- \frac{1 + \sqrt{5}}{2} -
+        \frac{1 - \sqrt{5}}{2} = -1</m> and the constant term is <m>\frac{1 + \sqrt{5}}{2} \cdot \frac{1 - \sqrt{5}}{2} = 
+        \frac{1^2 - (\sqrt{5})^2}{2^2} = \frac{1-5}{4} = -1</m>. So the roots are <m>\frac{1 + \sqrt{5}}{2}</m> and <m>\frac{1 - \sqrt{5}}{2}</m>. 
+    </p>
+
+    <p>
+    While correct, neither of these proofs is particularly satisfying. 
+    They include quite a lot of detailed algebra (which is sometimes necessary) 
+    and, as written, still omit some of these details. 
+    </p>
+
+    <p> 
+    More importantly, these proofs provide no motivation or explanation as 
+    to how the roots are found. 
+    </p>
+
+    <p> 
+    Instead we will aim for a derivation of the quadratic formula that will both show where it comes from and provide a proof of correctness.   
+    </p>
+
+    <remark> <ul> 
+		<li> It is sometimes convenient to start with a `proof by example'. 
+            In this case we will do examples using numbers rather than 
+            the generic symbols <m>a,b,c</m>. Then these examples 
+            can easily be extended to the generic version. The concrete examples
+            with nubers are <em>not </em> a proof. 
+        </li>
+		<li>In many cases (but not always), carefully selected examples can illustrate key ideas in a proof and provide understanding.
+        </li>
+		<li> When reading proofs, it can sometimes be useful to try to find examples (if they are not given) as an aid in understanding key ideas. 
+        </li>
+		<li>When writing proofs, examples can be useful guide for the reader. It should be noted that they are not full proofs, but examples. 
+            Whether or not to include these will depend on the context, the reading audience and whether or not <q>good </q> examples are 
+            available. There are many  such <q>style </q> choices for writing proofs.
+        </li>
+    </ul>
+    </remark> 
+
+    <p>
+        Quadratic polynomials can be written in several forms.
+        Recall function transformations. The graph of <m>f(x) = (x+5)^2 - 3</m>
+        is the basic parabola <m>y = x^2</m> shifted left 5 units and down 3
+        units.
+    </p>
+
+    <p>
+    Expanding the squared term we have <m> (x+5)^2 - 3 = (x^2 +10x
+    + 25) - 3 = x^2 + 10 x + 22</m>. 
+    </p>
+
+    <p> 
+        Once we introduce constants we need to be careful with the term
+        corresponding to <m>5^2 = 25</m> in the example above. It helps to
+        write a little more to be sure we don't make mistakes by trying to
+        do too much in our head.
+    </p>
+
+    <p> The original form is useful, for
+    example to find the vertex of the parabola and its roots. So we
+    will want to be able to reverse the process of expanding. First we will practice a bit with expanding quadratics.
+    </p>
+
+    <example>
+        <statement> Expand <m>(2x+3)^2 + 7</m>,
+            <m>(3\alpha x - \beta y)^2</m> and 
+            <m>(x + \frac{b}{2a})^2 </m> </statement> 
+        <solution>
+         <ul>
+                <li> <m>(2x+3)^2 + 7 = (2x)^2 + 2 \cdot 2x \cdot 3 + 3^2 + 7 = 4x^2 + 12x + 16</m>.
+                </li>
+		<li>  <m>(3\alpha x - \beta y)^2 = (3 \alpha x)^2 + 2 \cdot 3
+		\alpha x \cdot (-\beta y) + (-\beta y)^2 = 9 \alpha^2 x^2 -
+		6\alpha \beta xy + \beta^2 y^2</m>.
+        </li>
+		
+		<li> <m>(x + \frac{b}{2a})^2 = x^2 + 2 \cdot x \cdot \frac{b}{2a} +
+		\left( \frac{b}{2a} \right)^2 =
+		x^2 + \frac{bx}{a} + \frac{b^2}{4a^2}</m>.
+        </li>
+    </ul> 
+</solution>
+        
+    </example>
+
+   <p>  To get used to other symbols we will use <m>t</m> instead 
+    of <m>x</m> for the variable in the next example. </p>
+
+    <example> <statement>  Rewrite <m>t^2 + 8t - 5</m> as <m>(t-q)^2 + r</m> for some <m>q,r</m>. 
+	Use this to find the roots of  <m>t^2 + 8t - 5 = 0</m>. Do
+	<em> not </em> use the quadratic formula.  </statement> 
+	
+	<solution> 
+	<p> Completing the square gives  <m>t^2 + 8t - 5 = t^2 + 8t + (16 - 16) -
+	5 = (t^2 + 8t +16) - 21 = (t + 4)^2 - 21</m>. </p> 
+	
+	<p> This is the parabola <m>t^2</m> shifted left <m>4</m> units and down 21
+	units.  The vertex of the parabola is <m>(-4,-21)</m>.  </p> 
+	
+	<p> Solving the equation to find the roots we get </p>  
+        <md> <mrow> t^2 + 8t - 5 = 0 \Rightarrow (t+4)^2 - 21 = 0 \Rightarrow (t+4)^2 = 21 </mrow>
+	<mrow> \Rightarrow t+4 = \pm \sqrt{21} \Rightarrow t = -4 \pm \sqrt{21} </mrow> </md>.  
+    </solution> 
+	
+    </example>
+
+    <p>
+        We next repeat this idea on another concrete example (on the left) and then 
+on the right follow the <q> proof by example </q> by  replacing the numbers <m>3,5,7</m> with
+generic symbols <m>a,b,c</m> representing any numbers except that we we must assume <m>a \not = 0</m> to avoid division by 0. 
+
+<me> \begin{array}{ccc}
+	3x^2 + 5x + 7 = 0 \amp  \amp ax^2 + bx + c = 0 \\
+	\Updownarrow \amp\amp \Updownarrow \\
+	x^2 + \frac{5}{3} x  = - \frac{7}{3} \amp\amp
+	x^2 + \frac{b}{a} x  = - \frac{c}{a} \\
+	\Updownarrow \amp\amp \Updownarrow \\
+	x^2 + \frac{5}{3} x+\frac{5^2}{4 \cdot 3^2}= - \frac{7}{3} +
+	\frac{5^2}{4 \cdot 3^2} \amp\amp
+	x^2 + \frac{b}{a} x+\frac{b^2}{4a^2}=
+	- \frac{c}{a} + \frac{b^2}{4a^2} \\
+	\Updownarrow \amp\amp \Updownarrow \\
+	(x + \frac{5}{2 \cdot 3})^2 = \frac{5^2 - 4 \cdot 3 \cdot
+		7}{4\cdot 3^2} \amp\amp
+	(x + \frac{b}{2a})^2 = \frac{b^2 - 4ac}{4a^2} \\
+	\Updownarrow \amp\amp \Updownarrow \\
+	x + \frac{5}{2 \cdot 3} = \pm \sqrt{\frac{5^2 - 4 \cdot 3 \cdot
+			7}{4 \cdot 3^2}} \amp\amp
+	x + \frac{b}{2a} = \pm \sqrt{\frac{b^2 - 4ac}{4a^2}} \\
+	\Updownarrow \amp\amp \Updownarrow \\
+	x =\frac{-5}{2 \cdot 3}
+	\pm \frac{\sqrt{5^2 - 4 \cdot 3 \cdot 7}}{2 \cdot 3}
+	\amp\amp x = \frac{-b}{2a} \pm \frac{\sqrt{b^2 - 4ac}}{2a}
+\end{array} </me>
+
+One the right we get both a derivation of the quadratic formula and essentially a proof that is correctly provides the roots.
+The left is only an example for illustration and 
+would <em> not </em> be part of a formal proof. 
+    </p> 
+
+ <p> To complete a formal proof we would include the right along with a 
+    few sentences of explanation noting that each step is making use of 
+    basic algebra. The amount of detail added would depend on context and audience.
+    For a schoolage kids just learning algebra more detail would likely 
+    be appropriate than for a group of college math majors.
+
+    </p>
+
+    <remark>
+        <p> In the derivation of the quadratic formula above, we included <m>\Updownarrow</m>
+        between each line. Sometimes this is written without such, that is 
+        <me> \begin{array}{c}
+             ax^2 + bx + c = 0 \\
+            x^2 + \frac{b}{a} x  = - \frac{c}{a} \\
+            x^2 + \frac{b}{a} x+\frac{b^2}{4a^2}=
+            - \frac{c}{a} + \frac{b^2}{4a^2} \\
+            (x + \frac{b}{2a})^2 = \frac{b^2 - 4ac}{4a^2} \\
+            x + \frac{b}{2a} = \pm \sqrt{\frac{b^2 - 4ac}{4a^2}} \\
+             x = \frac{-b}{2a} \pm \frac{\sqrt{b^2 - 4ac}}{2a}
+        \end{array} </me>
+        </p> 
+
+        <p>
+        While not a problem in this simple example, it can be somewhat ambiguous. 
+        In English we read top to bottom, so does the display mean 
+        <m> \Downarrow</m> or <m> \Updownarrow </m>?
+        </p>
+
+        <p>
+            Consider 
+            <me>
+                \begin{array}{c}
+                x = -2 \\
+                x^2 = 4
+                \end{array} 
+            </me>
+            Certainly <m> \Downarrow </m> is correct here but
+            <m>\Updownarrow</m> is <em>not</em> as 
+            <m>x^2 = 4 \Rightarrow x = -2</m> is false, since <m>x</m> could be 2. 
+            It is safest to add the extra detail for implications to avoid any ambiguity.
+        </p>
+
+        <p> 
+           Written as above, without the <m>\Updownarrow</m> we might only assume
+           <m> \Downarrow </m> and the derivation only shows that if <m>x</m>
+           satsifies <m>ax^2 + bx + c = 0</m> then <m>x</m> is one of the two given values.
+           Technically the proof does not verify that these are indeed roots without
+           the implications going both directions. 
+           Consider <m> x^2 = 4 \Rightarrow \left( x = -2 \text{ or } x = 2 \text { or } 
+            x = 7 \right)
+           </m>. This is true but the <term> converse </term>, the implication
+           <m> \Leftarrow</m> is false since <m>7^2 \not = 4</m>. Adding the 7 is contrived
+           and in the quadratic formula derivation it is clear that
+           the converse implications are indeed also correct. However as we get
+           get to more complicated situations care is needed to clarify which diretion the implications 
+           go in a line of equations. 
+        </p>
+
+    </remark>
+
+    <remark>
+        <ul>
+            <li>
+                <p>
+                    How would we <q>discover</q> the derivation of the 
+                    quadratic formula? (Assuming that one doesn't make use 
+                    of hints from other sources such as other students, 
+                    web searches or AI systems). In this case, perhaps some recollection
+                    of graphing functions, parabolas in particular, with shifts and scaling
+                    might help. In general there are  no hard and fast rules for discovering proofs. This will depend on context, trying out small examples when possible, knowledge of proofs of similar ideas etc. Like many 
+                    non mathematical situations, practice helps. Reading proofs aiming to have a succinct understanding of key ideas and working to discover proofs will, over time, build skills to make it easier. 
+                </p>
+            </li>
+            <li>
+                <p>
+                    DO NOT MEMORIZE PROOFS. Why not? you will quickly forget, if you try to recreate on exam likely you make a minor mistake and it is all wrong. For example, in the quadratic formula derivation, attempting to memorize line by line and then recreate this on a quiz or exam is highly likely o end up with minor mistakes that clearly indicate memorization instead of understanding. For this example, remembering the key idea, complete the square along with some practice doing it yourself should suffice. A student in a math class at this level can trust your basic algebra skills to carry you through the steps without memorization.  
+                </p>
+            </li>
+        </ul>
+         
+
+    </remark>
+ 
+
+</section> 

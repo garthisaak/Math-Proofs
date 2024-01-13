@@ -3,9 +3,42 @@
 <section xml:id="section-quadraticformula-intro">
   <title>Warm Up Examples</title>
 
+<assemblage xml:id="assemblage-dd">
+  <title>fff</title>
+  <p>
+    dddd
+  </p>
+
+</assemblage>
+
+<p>
+   <xref ref="assemblage-dd"> hdhfg </xref>
+</p>
+
+<observation>
+  vmmmv
+</observation>
+
+<example>
+  <pre>
+  ghfh
+  </pre>
+
+  <task>
+    <statement>
+      <p>
+        sd;ffgk
+      </p>
+    </statement>
+  </task>
+</example>
 
 
    <example xml:id="example-roots1">
+    <p>
+      dlsldg
+    </p>
+
     <statement>
       <p>
         What are the roots of <m> x^2 - x - 2</m>? 
@@ -31,13 +64,15 @@
 
   <remark>
     <p>
-      Are we happy with either of the two <q> proofs </q> above?  </p> 
+      Are we happy with either of the two <q> proofs </q> in
+      <xref ref="example-roots1"/>?  </p> 
 
       <p> <ul>
  
         <li> <p> Since we are solving a very specific problem rather than a 
           more generic result, like the quadratic formula, it is better to 
-          call the explanations above solutions, examples or answers rather 
+          call the explanations above <q> solutions </q>, <q> examples </q> 
+          or <q> answers </q> rather 
           than <q> proofs </q>. </p>  </li>
           
           <li> <p> The question assumes that we know what a root is. 
@@ -51,48 +86,48 @@
               <m>x^2 = 27.953</m> etc.
             We usually use integers in examples rather than arbitrary 
             numbers like 27.953, indeed we could even use irrational numbers
-            but it's not particularly useful for examples meant to help 
-            understand a basic concept. Unless explicitly noted, even if 
+            but it's usually not particularly useful for examples read by humans. 
+            and meant to illustrate  a basic concept. Unless explicitly noted, even if 
             examples for illustration are integers, we need to consider more 
             general cases of real numbers or potentially even complex 
             numbers. </p>  </li>
             
-            <li> <p> The two answers both make an assumption that we have 
-              found 
-              all of the roots. We have found 2 roots, but maybe there 
-              could be 
-              3 or 4 or infinitely many. The second proof at least has some 
-              indication that there are only two roots as it essentially 
-              uses the Fundamental Theorem of Algebra.
-            Knowledge from calculus or referring to the Fundamental 
-            Theorem of 
-            Algebra shows that a quadratic polynomial cannot have more than 2 
-            roots. </p> 
-            
-            <p> The Fundamental Theorem of Algebra states that a polynomial 
-              of degree <m>n</m>, has, counting multiplicity, 
-              exactly <m>n</m> roots in the complex numbers. 
-              That is, can be written as <m>a(x-r_1)(x-r_2) \ldots (x-r_n)</m> 
-              where <m>r_1,r_2, \ldots, r_n</m> are the roots. In particular a 
-              degree 2 polynomial has 2 roots. </p>  </li> 
-
             <li> <p> The quadratic formula describes all roots.  We could ask 
-              for <q>a </q> root but it is incorrect to say <q> the </q> root since there is 
-              more than one.
+              for <q>a </q> root but it is incorrect to say <q> the </q> 
+              root since there is  more than one.
             For example, it doesn't make sense to ask <q> who is the student who 
-            gets an A in class?</q>   Hopefully there is more than A student so 
-            asking for <q>the</q> student is not correct. We could either ask to 
-            name <q>a</q> student or <q>all</q> students. </p> 
-          </li>
-    
+            gets an A in class?</q>   Hopefully there is more than student who gets
+            an A, so 
+            asking for <q>the</q> A student is not correct as <q> 
+            the </q>
+          implies that there is only 1 such student.  </p> 
+            </li> 
     </ul>
   </p> 
 
   </remark>
 
-  <remark>
+ 
+    <p> The two answers both make an assumption that we have 
+      found 
+      all of the roots. We have found 2 roots, but maybe there 
+      could be 
+      3 or 4 or infinitely many. The second proof at least has some 
+      indication that there are only two roots as it essentially 
+      uses the Fundamental Theorem of Algebra.
+    Knowledge from precalculus, calculus also could show that a quadratic polynomial cannot have more than 2 
+    roots.  </p>
+    
+    <p> The Fundamental Theorem of Algebra states that a polynomial 
+      of degree <m>n</m>, has, counting multiplicity, 
+      exactly <m>n</m> roots in the complex numbers. 
+      That is, can be written as <m>a(x-r_1)(x-r_2) \ldots (x-r_n)</m> 
+      where <m>r_1,r_2, \ldots, r_n</m> are the roots. In particular a 
+      degree 2 polynomial has 2 roots. </p>  
+
+
     <p>
-      Another assumption hidden in answer 2 is  that if the product of two 
+      Another assumption hidden in answer 2 of <xref ref="example-roots1"/> is  that if the product of two 
       numbers is zero then one or both is 0.
       We can take this for granted in this situation but in other contexts 
       we need to be careful. This will not be the case in modular 
@@ -115,18 +150,24 @@
       real numbers in <xref ref="example-roots1" />. However 
       <m> x^2 - x - 1 \equiv 0 \pmod{12} </m> has no solutions modulo 12 
         since <m> x^2 - x - 1</m> is always odd and hence cannot be a 
-        multiple of 12 while <m> x^2 - x - 1 = 0 </m> has two solutions 
-        as in  <xref ref="example-roots2" />. Also, 
+        multiple of 12 while  in the real numbers <m> x^2 - x - 1 = 0 </m> has two
+        as in  <xref ref="example-roots2" />. 
+    </p>
+    
+    <p> Also, 
         <m> x^2 - x - 6 \equiv 0 \pmod{12} </m> has four solutions,
-        <m> 3, 6, 7, 10 </m> as substituing each yields a multiple of 
-        <m> 12 </m> while in real numbers <m> x^2 - x - 6 = (x-3)(x+2) = 0 </m>
-        has two solutions <m> 3 </m> and <m> -2 \equiv 10 \pmod{12}</m>.
+        <m> 3, 6, 7, 10 </m>. Since <m> x^2 - x - 6 = (x-3)(x+2) </m>, 
+        we have real solutions 3 and -2 and correspondingly, modulo 12 we have solutions
+        3 and <m> -2 \equiv 10 \pmod{12}</m>. However, as <m>3 \cdot 8 \equiv 0 \pmod {12}</m>
+        we also get the solution 6 by setting <m> x-3 \equiv 3 </m> and 
+        <m>x+2 \equiv 8</m> and as <m>4 \cdot 9 \equiv 0 \pmod {12}</m>
+        we also get the solution 7 by setting <m> x-3 \equiv 4 </m> and 
+        <m>x+2 \equiv 9</m>.
     </p>
 
-  </remark>
 
   <p> If we change <xref ref="example-roots1" /> slightly, things appear more complicated. 
-  However the `complication' is because we, as humans, find it harder to 
+  However the <q> complication </q> is because we, as humans, find it harder to 
   multiply <m> \frac{1 + \sqrt{5}}{2} \cdot \frac{1 - \sqrt{5}}{2} </m> 
    in our heads or by hand than
   to multiply <m> (-1) \cdot 2 </m>. Conceptually, both problems and 
@@ -170,10 +211,11 @@
   </example>
 
   <p>
-    While we don't have a formal definition of `unsatisfying' in 
+    While we don't have a formal definition of <q> unsatisfying </q> in 
     mathematics, <xref ref="example-roots2" /> is. We did some messy 
     but elmentary arithmetic to check our answers.  However,  there is no 
-    motivation of how the roots were found. Such a `proof' or `example' is 
+    motivation of how the roots were found. Such a <q> proof </q> or
+     <q>example</q> is 
     not useful as it does not guide us to solving or understanding similar 
     problems. Technically it isn't incorrect but really we would hope for 
     more explanation. While such straightforward computations are necessary 
@@ -193,7 +235,7 @@
       linear combination <xref ref="definition-linearcombination"> 
         linear combination </xref> to get the initial conditions 
       <m> F_0 = 0 </m>  and  <m> F_1 = 1 </m> 
-      yields the Binet formula 
+      yields the Binet formula for Fibonacci numbers
       <m> F_n = \frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2}\right)^n - 
         \frac{1}{\sqrt{5}}\left(\frac{1 - \sqrt{5}}{2}\right)^n </m> . Yes, this is an integer. 
       Since the second term converges quickly to 0, the <m> n^{th}</m> 

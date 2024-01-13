@@ -1,22 +1,244 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="section-monotone-intro">
-  <title>Monot</title>
+  <title>Intro</title>
+
+ 
+      <p>
+        Consider the following list of 17 distinct integers:
+	
+        <me> {\bf 8},12,6,3,1,{\bf 9},5,4,15,13,2,11,10,7,17,{\bf 16},14. </me>
+        
+        The boldface numbers 8,9,16 form an <term> increasing subsequence </term>, a list in
+        the same order as the entire list whose entries are increasing. A
+        longer increasing subsequence is 3,5,11,16 indicated in bold
+        <me> 8,12,6,{\bf 3},1,9,{\bf 5},4,15,13,2,{\bf 11},10,7,17,{\bf 16},14. </me> 
+        Many other increasing subsequences of size 4 can easily be found.
+      </p>
+        
+      <p> We could check that there is no increasing subsequence of length 5.
+      </p>
+
+      <p> 
+      We can also check that there is a decreasing subsequuence of length 5.
+        There are two of them: 8,6,5,4,2
+      and 15,13,11,10,7 but none of length 6.
+      </p>
+
+      <exploration xml:id="es-example" >
+        <p> Informally pigeonhole principle shows that if <q> enough </q> 
+        pigeons are placed into a fixed number of boxes, we 
+        can force some box with a <q> large </q> number of pigeons.  
+        </p>
+        
+        <p> Is there a similar result for subsequences?  </p> 
+        
+        <p> That is, if a sequence is <q> long enough </q>  is it forced to 
+          have a long increasing subsequence?  </p> 
+
+          <solution>
+            <p>
+              No, for example the sequence 9,8,7,6,5,4,3,2,1 has no increasing 
+              subsequence of length 2.  
+        This can obviously be extended to any length sequence. 
+        Similarly an increasing sequence of any length has no decreasing subsequence of length 2. 
+            </p>
+          </solution>
+        
+        <p>
+        
+        However, a long sequence is guaranteed to have either a 
+        long increasing subsequence or a long decreasing subsequence. 
+        
+        The general area called <xref provisional="section-ramsey" > Ramsey Theory </xref>  can be viewed as extending 
+        the pigeonhole principle to showing that in the right circumstances, 
+        certain <q> patterns </q> are guaranteed to exist in <q> large enough </q> 
+        objects.
+        
+        </p> 
+      </exploration>
+
+<p> 
+
+  Before we can proceed to prove the results discussed above we need
+  some formal notation to describe what we are talking about.
+</p>
+
+<definition xml:id="def-montoneseq">
+  <statement>
+    <p>
+      Let <m>S = s_1,s_2, \ldots, s_n</m>  be a list of <m>n</m>  
+      numbers.
+      A <term> subsequence </term> <m>S_J</m>  is a subset of terms in the 
+      sequence with
+      indices in <m>J</m>. Its <term> size </term>is <m>|J|</m>, 
+      the number of terms.
+      Subsequence <m>S_J</m>  is <term> increasing </term> if for 
+      <m>i,j \in J</m>  with <m>i \lt j</m> 
+      we have <m>s_i \lt s_j</m>. It is <term> decreasing </term> 
+      if under the same conditions <m>s_i
+      \gt s_j</m>. It is <term> monotone </term>  if it is either increasing or
+      decreasing.
+    </p>
+  </statement>
+</definition>
+
+<definition xml:id="def-partition">
+  <statement>
+    <p>
+      A <term> partition </term> of a set <m>T</m>  is a collection of 
+      disjoint subsets with union <m>T</m>. A partition of size <m>k</m>  
+      into decreasing  subsequences of list <m>S = s_1,s_2, \ldots, s_n</m> 
+       is a collection
+      <m>S_{J_1},S_{J_2}, \ldots, S_{J_k}</m>  of decreasing subsequences such
+      that <m>J_1,J_2, \ldots, J_k</m>  is a partition of <m>[n] = \{1,2,
+      \ldots, n\}</m>  and similarly for a partition into increasing subsequences. 
+    </p>
+  </statement>
+</definition>
+  
+ <p>
+  The Erdos-Szekeres Theorem (1935) will establish the results discussed 
+  in <xref ref="es-example"/>. 
+The proof that we give here is due to Hammersley (1972). The original 1935
+proof of Erdos and Szekeres is a bit more complicated.
+To see the trick that we will use for a simple proof of the
+Erdos-Szekeres theorem we start by recording what little
+information we can easily gather about monotone subsequence sizes.
+ </p>
+
+ <exploration xml:id="expl-es">
+  <p>
+    Consider
+    <me>  s_1,s_2, \ldots, s_{10} = 10,4,8,6,7,5,2,9,1,3. </me>
+    For each term, <m>s_i</m>, let  <m>x_i</m>  denote the size of a longest
+    increasing subsequence ending in that term. In particular the subsequence must include that last term.
+    (So this is not the length of a longest increasing subsequence up to 
+    that term. It is the longest increasing subsequence up to that term and including it.) 
+  </p> 
+    
+    <p>  The only subsequence ending in <m>s_1= 10</m> 
+    is 10, so <m>x_1 = 1</m>. The are two subsequences ending in 4; 
+    <m>s_1,s_2 =
+    10,4</m>  and <m>s_2 = 4</m>. Only the second is increasing, 
+    so <m>x_2 = 1</m>.
+    The subsequences ending in <m>s_3 =8</m>  are 10,4,8 and 10,8 and 
+    4,8 and 8.
+    The longest increasing one is 4,8 and thus <m>x_3 = 2</m>. Similarly
+    <m>x_4 = 2</m>  etc. 
+
+    </p> 
+
+    <p> 
+    
+    We can do the same thing for decreasing subsequences ending 
+    in <m>s_i</m>  and write <m>y_i</m>  for these. 
+    Writing these sizes beneath the list we have 
+    
+    <me> 
+      \begin{array}{r|rrrrrrrrrr}
+      i  &amp; 1  &amp; 2  &amp; 3  &amp; 4  &amp; 5  &amp; 6  &amp; 7  &amp; 8  &amp; 9  &amp; 10 \\  
+      s_i  &amp;	10  &amp; 4  &amp; 8  &amp; 6  &amp; 7  &amp; 5  &amp; 2  &amp; 9  &amp; 1  &amp; 3  \\  \hline
+      x_i  &amp;	1   &amp; 1  &amp; 2  &amp; 2  &amp; 3  &amp; 2  &amp; 1  &amp; 4  &amp; 1  &amp; 2 \\
+       y_i  &amp;  1  &amp; 2  &amp; 2  &amp; 3  &amp;  3  &amp; 4  &amp; 5  &amp; 2  &amp; 6  &amp; 5 \end{array} </me> 
+    
+    In this particular example these values tell us that the longest increasing subsequence length is 4
+    and the longest decreasing subsequence length is 6.
+
+    </p> 
+
+    <p> 
+<ol>
+  <li>
+    <p>
+      Consider the sublists of terms with the same <m>x_i</m> value, 
+      for example those with <m>x_i = 1</m> or those with <m>x_i = 1</m>. 
+      Each of these is increasing. In general must sublists of terms with equal 
+      <m>x_i</m> value be increasing? Justify your answer by either
+      providing and example where the sublist is <em>not </em> increasing or
+      a proof that such sublists must be increasing.
+    </p>
+  </li>
+  <li>
+    <p>
+      Looking at the pairs <m>(x_i,y_i)</m> we see that they are 
+      disitinct. In general is it possible to see the same 
+      <m>(x_i,y_i)</m> more than once? Justify your answer by either providing
+      an example where the same pair does appear twice or a proof that this is impossible.
+    </p>
+  </li>
+</ol>
+</p> 
+
+    <solution>
+   
+      <p>
+Note that 
+for <m>i \lt j</m>  if <m>s_i \lt s_j</m>  then <m>x_j \gt x_i</m>  because any increasing
+subsequence ending in <m>s_i</m>  can be extended to a longer increasing subsequence ending
+in <m>s_j</m>  by adding <m>s_j</m>  at the end.  
+Similarly <m>i \lt j</m>  if <m>s_i \gt s_j</m>  then <m>y_j \gt y_i</m>  because any decreasing
+subsequence ending in <m>s_i</m>  can be extended to a longer decreasing subsequence ending
+in <m>s_j</m>  by adding <m>s_j</m>  at the end. 
+      </p>
+
+
+    <p> 
+        Thus, since the <m>s_i</m>  are distinct, either <m>x_j \gt x_i</m>  or <m>y_j \gt y_i</m>  for <m>i \lt j</m>. 
+        In particular, the order pairs <m>(x_i,y_i)</m>  are distinct. To illustrate,
+        if, for example we saw
+
+    </p>
+     <p>  
+         
+<me>
+  \begin{array}{lrrrrrrrrrr}
+    s_i  &amp; s_1  &amp; s_2  &amp; s_3  &amp; s_4  &amp; s_5  &amp; s_6  &amp; s_7  &amp; s_8  &amp; s_9  &amp; s_{10} \\ \hline
+    x_i  &amp;  *   &amp; *  &amp; *  &amp; 4  &amp; *  &amp;  *  &amp; 4  &amp; *  &amp; *  &amp; *  \\
+    y_i  &amp;  *  &amp; *  &amp; *  &amp; 2  &amp;  *  &amp; *  &amp; 2  &amp; *  &amp; *  &amp; *   \end{array}
+  </me>
+      </p>
+      <p>
+        then
+        since <m>x_4 = x_7= 4</m>  we must have <m>s_4 \gt s_7</m>  and since
+        <m>y_4 = y_7 = 2</m>  we must have <m>s_4 \lt s_7</m>. 
+        This is impossible. So the pairs are distinct. 
+      </p>
+
+    </solution>
+  </exploration>  
+
+      <p>
+        In <xref ref="es-example"/>
+      If the largest value of <m>x_i</m>  is 3 and the largest value of
+      <m>y_i</m>  is 3 then  there are at most <m>3 \cdot 3 = 9</m>  
+      possible pairs
+      <m>(x_i,y_i)</m>.  Since they must be distinct there are at most 9 terms.
+      This is an application of 
+      the contrapositive of the pigeonhole principle. 
+      </p>
+
+    <p> 
+
+      These ideas show that any list of 10 distinct numbers contains either an increasing subsequence with size at
+      least 4 or a decreasing subsequence with size at least 4. For the specific example
+      above we see that the maximum length of an increasing subsequence is 4
+      and there is a partition into 4 decreasing sublists. Similarly, the maximum length
+      of a decreasing sublist is 6 and there is a partition into 6 increasing sublists.
+      
+        
+      </p>
+   
 
   
-<exploration>
-    <statement>
-      <p>
-        A class has 15 students.
+ 
 
-        Is it possible that everyone has their birthday in a different month?
-      </p>
-    </statement>
-    <solution>
-      <p>
-        No, the are 15 people and 12  months. There must be a duplicate.
-      </p>
-    </solution>
-</exploration>
+ 
+<p>
+  
+</p>
+  
+  
+
 
 </section> 
