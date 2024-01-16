@@ -23,9 +23,8 @@ repeats infinitely often.
 
 Consider the long division
 
-<figure width="70%" xml:id="fig-longdiv">
-  <image source="longdiv.pdf"/>
-</figure>
+  <image source="./longdiv.pdf"/>
+
 
 <me>  \require{enclose}    7 \enclose{longdiv}{3.000000} 
  
