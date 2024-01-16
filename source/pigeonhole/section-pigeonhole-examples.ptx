@@ -10,11 +10,11 @@ Returning to the pigeonhole principle we illustrate with several examples.
  </p> 
 
 <p> Recall that we can use long division to represent a rational number 
-  as a decimal.
+  as a decimal, either as a terminating decimal or a reapeating decimal..
 
-For example <m> \frac{3}{24} = \frac{1}{8} = .125</m>  exactly, 
-a terminating decimal and 
-<m> \frac{3}{7} = .4285742857\ldots = \overline{.42857}</m>  
+For example <m> \frac{3}{24} = \frac{1}{8} = .125</m>  is a 
+ terminating decimal and
+<m> \frac{3}{7} = .4285742857\ldots =  \overline{.42857} </m> repeats 
 where the line over the <m> 42857</m>  indicate a pattern that 
 repeats infinitely often. 
 </p> 
@@ -22,6 +22,10 @@ repeats infinitely often.
 <p>
 
 Consider the long division
+
+<figure width="70%" xml:id="fig-longdiv">
+  <image source="longdiv.pdf"/>
+</figure>
 
 <me>  \require{enclose}    7 \enclose{longdiv}{3.000000} 
  
@@ -34,9 +38,10 @@ because the reminders are strictly less than the denominator.
 So if the denominator is <m> b</m> , the possible remainders are 
 <m> 0,1,2, \ldots, b-1</m> . If a remainder of 0 occurs by <m> b^{th}</m>  
 division the expansion terminates with at most <m> b-1</m>  decimals. 
-If no 0 occurs by the <m> b^{th}</m>  division there must be a repeat as 
-there are <m> b-1</m>  nonzero remainders. So  by the pigeonhole 
-principle the pattern repeats with at most <m> b-1</m>  terms.
+If no 0 occurs by the <m> b^{th}</m>  division, by the pigeonhole principle
+ there must be a repeat as 
+there are only <m> b-1</m>  nonzero remainders. So, if the division
+does not terminate, the pattern repeats with at most <m> b-1</m>  terms.
 
 </p> 
 

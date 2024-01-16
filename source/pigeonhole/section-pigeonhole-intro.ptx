@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="section-pigeonhole-intro">
-  <title>Pigeonhole Principle</title>
+  <title>Pigeonhole Principle  Introduction </title>
 
-  
+ <p>  
 <exploration>
     <statement>
       <p>
-        A class has 15 students.
+        A class has 15 students. </p>
 
-        Is it possible that everyone has their birthday in a different month?
+        <p> Is it possible that everyone has their birthday in a different month?
       </p>
     </statement>
     <solution>
@@ -18,6 +18,7 @@
       </p>
     </solution>
 </exploration>
+</p> 
 
 <p>
   This simple, intuitive idea is formalized in the 
@@ -33,10 +34,10 @@ notation to capture the general idea, not just for numbers
 
 <p>
 Note that with 12 months and anywhere from 13 to 24 students 
-we must have some month with 2 birthdays. More could happen. 
+we must have some month with at least 2 birthdays. More could happen. 
 Its quite possible that there are several such instances, 
 say two students  born in January and 2 others born in October, 
-or even 3 all born in the same month. However, neither of these is 
+or even 3 or more all born in the same month. However, neither of these is 
 guaranteed if there are 24 or fewer students. With 24 students 
 each month could have 2 shared birthdays or one month could have 
 all birthdays.   However with 25 or more students then some month 
@@ -73,7 +74,7 @@ To state the pigeonhole principle we need notation for rounding up.
 </theorem>
 
 <p>
-  A special case is: If more than <m>n</m> pigeons are placed 
+  A special case stated in different terminology is: If more than <m>n</m> pigeons are placed 
   into <m>n</m> pigeonholes then some pigeonhole has at least 2 pigeons.
 </p>
 
@@ -92,6 +93,14 @@ To state the pigeonhole principle we need notation for rounding up.
 <p>
   It is a matter of style as to which version is preferred. The alternate notation will be 
   more convenient for our short proofs. 
+</p>
+
+<p>
+  Note that the Pigeonhole Principle is called a <q>principle</q> rather than a theorem.
+  Technically it is a theorem but as it is immediately clear it is frequently stated without proof.
+  For our purposes in exploring proof writing, this provides a good opportunity 
+  to explore styles of writing proofs as the underlying idea
+  is <q>obvious</q>.
 </p>
 
 
@@ -117,10 +126,11 @@ using the <term> contrapositive </term>.
   
   <p>
     Let  <m> s_i</m>  denote the size of the <m> i^{th}</m>  part. 
+    So <m>s_1 + \cdots + s_n \geq kn+1</m>.
     Assume, for contradiction that all parts have size at most <m> k</m>. 
     That is, assume that <m> s_i \leq k</m>  for <m> i = 1,2, \ldots, n</m>. Then the set has size
 <m> s_1 + s_2 + \cdots + + s_n \leq kn</m> . This contradicts size 
-at least <m> kn+1</m>. So some <m> s)i \geq k+1</m> . <m> \Box</m> 
+at least <m> kn+1</m>. So some <m> s_i \geq k+1</m> . <m> \Box</m> 
   </p>
 </proof>
 

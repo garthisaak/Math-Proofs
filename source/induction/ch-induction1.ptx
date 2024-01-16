@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-induction1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Mathematical Induction</title>
+
+  <introduction>
+    <objectives>
+      <ul>
+        <li>
+          <p>
+            tt
+          </p>
+        </li>
+      </ul>
+
+    </objectives>
+    
+        <p>  zzzz  </p>
+
+        
+  </introduction>
+
+  <!-- include sections -->
+  <xi:include href="sec-induction-intro.ptx" />
+
+  <xi:include href="sec-ramsey.ptx" />
+  
+</chapter>

@@ -43,7 +43,7 @@ We also use additional notation.
 	
 <remark>
   This notation isn't necessary here. We could simply have used 
-  $p_1p_2 \ldots p_k$. However it is useful to start to get used to the alternate notation for situations where the more compact form will make the display easier to read.
+  <m> p_1p_2 \ldots p_k</m>. However it is useful to start to get used to the alternate notation for situations where the more compact form will make the display easier to read.
 </remark>
 
 <p> 

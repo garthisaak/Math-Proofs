@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-induction-ramsey">
+  <title>Ramsey Theory</title>
+
+  <p>
+    We next consider  a problem that can be viewed as a generalization of the pigeonhole principle, provides another illustration of induction.
+    In particular we will see how sometimes, in order to amke an induction work, we need to
+    prove a broader statement than we intially intended to. 
+  </p>
+
+ <example xml:id="expl-ramsey1">
+
+	<p> Assume that each pair in a group of people are either friends or non-friends.  Show that in any group of 6 people there is either a clique of 3 mutual friends or an independent set of 3 mutual non-friends and that there is
+	some group of 5 relationships that fails to have this property.
+    </p>
+	
+	<p> We illustrate an example of 5 people without the property  with the following graph:  
+
+ <figure> <image width="25%">
+    <latex-image>
+    
+    \begin{tikzpicture}[scale=.4,transform shape,vertx/.style={circle,fill,inner sep = .4mm}, vertc/.style={circle,draw,minimum size = 7mm, inner sep=.4mm} ]
+	
+	\node (2) at  (5,1) [vertc] {b};
+	\node (1) at  (1,1) [vertc] {a};
+	\node (3) at  (5,4) [vertc] {c};
+	\node (5) at  (1,4) [vertc] {e};
+	\node (4) at  (3,7) [vertc] {d};
+	
+	\path (1) edge (2) (2) edge (3) (3) edge (4) (4) edge (5) (5) edge (1);
+	
+	
+\end{tikzpicture}
+</latex-image>
+</image> 
+</figure>
+
+Here the pairs of friends  <m>ab,bc,cd,de,ea</m> have edges between them and the non friends <m>ac,ce,eb,bd,da</m> do not.
+	It is easy to check that no group of 3 are all friends and no group of 3 are all non-friends. 
+</p> 
+		
+</example>
+
+<p>
+    We next give an incomplete <q>proof</q> that any group of 6 people has a clique of 3 mutual friends or an independent set of 3 mutual non-friends. 
+</p>
+
+<proof xml:id="proof-ramsey2">
+    <title>Incomplete Proof for <xref ref="expl-ramsey1"/></title>
+    <p>
+        Consider adding a  6th person <m>f</m> to the group in Example \ref{ram1}. By the pigeonhole principle, <m>f</m> either has at least 3 friends or at least 3 non-friends.  
+        If <m>f</m> has 3 or more friends, then, since no triple is all non-friends, at least one pair is friends and together with <m>f</m> form a clique of 3 friends. Similarly, if <m>f</m> has at least 3 non-friends, since no triple is all friends, at least one pair is non-friends and together with <m>f</m> form an independent set of 3 non-friends.     
+    </p>
+</proof>
+
+<p>
+    What is wrong or incomplete with the proof of <xref ref="expl-ramsey1"/>? </p>
+	
+	<p> By adding <m>f</m> to the specific configuration we cannot be sure that we have covered all possible configurations of 6 people. It assumes that some group of 5 has the pattern given in <xref ref="expl-ramsey1"/>. We can easily make examples of 6 people that do not have a subgroup of 5 with such a pattern. Even though these other patterns do indeed have the property of 3 mutual 
+        friends or 3 mutual non-friends, our proof has not covered such 
+        possibilities. </p>
+	
+        <p> We consider 2 ways to fix the proof, one which will be useful to generalize to larger examples and one which will 
+            not. </p> 
+            
+            <p> Fix 1: It is not difficult to check that, up to relabeling of the names, the only pattern of 5 people that avoids 3 friends or 3 non-friends is that given in <xref ref="expl-ramsey1"/>. Hence we could complete the proof by saying first that if the first 5 have any pattern other than that given in  <xref ref="expl-ramsey1"/>, we already have 3 friends or 3 non-friends. Then if, not we proceed as above, adding the 6th person. </p>
+            
+            <p> Fix 1 is not ideal. First, if we wanted to formally write out the <q>not difficult to check</q>, it is a bit long to include all details. Second, if we wanted to extend to an example with a group of 17 people with no 4 mutual friends or 4 mutual non-friends (this is the right bound), it isn't <q>easy to check</q> that there is essentially a unique example like that we have for a group of 5. There is, but showing this is quite complicated. </p>
+            
+            <p> Fix 2: A key step in the proof in <xref ref="proof-ramsey2"/> was that a group of 3 that is not all non-friends, contains at least a pair of friends. Note that this fact and the analogous one with friends and non-friends swapped holds for any group of 3 people, not just those from  <xref ref="expl-ramsey1"/>. Thus, as the pigeonhole portion also only depends on there being 5 people,  we can fix the proof by not making any reference to 
+                adding to the specific pattern of <xref ref="expl-ramsey1"/>. </p>
+            
+            <p> Fix 2 will provide ideas to generalize to larger examples, but first we will need to develop additional notation. </p>    
+
+	<p>
+        We could ask more generally what size group ensures either a group of <m>n</m> mutual friends or <m>n</m> mutual non-friends. So for this value every pattern guarantees either a group of <m>n</m> mutual friends or <m>n</m> mutual non-friends and for a smaller group there is some (at least one), pattern that fails to have this property. 
+    </p>
+        <p> For 4 friends or non-friends it is known that this number is 18. That is, every pattern for 18 people has a subgroup of 4 mutual friends or 4 mutual non-friends and some group of 17 fails this property. 
+        </p>
+        <p> For 5 friends or non-friends, what is known is that the correct value is between 43 and 48. That is, 
+        there is a pattern with 42 people that avoids 5 mutual friends or non friends and all patterns with 48 or more people guarantee either a group of 5 mutual friends or 5 mutual non-friends. For 43,44,45,46,47 it is not known whether or not all patterns have  5 mutual friends or 5 mutual non-friends or if some pattern avoids this. It is quite striking that this problem of <q>size 5</q> is well beyond the computational power to simply have a computer check all cases. 
+        </p>
+        <p>For this to even make sense we first need to be sure that such a number even exists. Possibly for some larger value, say groups of <m>n=999</m> people there exist patterns for infinitely many people that avoid 999 mutual friends or 999 mutual 
+        non-friends. This is not the case as was shown by Frank Ramsey in the 1920's. We will denote the numbers described above <m>R(n,n)</m> and call them Ramsey numbers. The observations we have so far are that <m>R(3,3) = 6, R(4,4) = 18</m> and
+        <m>43 \leq R(5,5) \leq 48</m>. </p>
+        
+       <p> We will soon see why we use the notation <m>R(n,n)</m> rather 
+        than simply <m>R(n)</m>. It will turn out that in order to make an 
+        induction argument work we will need to allow the size of the 
+        friend and non-friend groups to be different.  This will illustrate another trick in inudction. Sometimes proving a stronger statement inductively is better or even necessary to make a particular argument work.
+       </p>
+
+<definition xml:id="def-graph">
+    <statement>
+        <p> A <term> Graph </term> <m>G = (V,E)</m> is a set <m>V</m> of vertices along with a set <m>E</m> of two element subsets of <m>V</m> called edges. 
+            Note, the singular is called vertex and plural is vertices.
+            </p>
+            
+            <p> Two vertices are <term> adjacent </term> if they form 
+                an edge and we say that they are <term> neighbors</term>. An edge and vertex are {\em incident} if 
+            the vertex is one of the pair that form the edge. </p>
+            
+            <p> A <term> clique</term> in a graph is a set of pairwise 
+                adjacent vertices. An <term> independent set </term> is a set of
+            pairwise non-adjacent vertices. </p> 
+    </statement>
+</definition>
+
+<p> In the graph model of friends, the vertices represent people, with an edge between a pair if they are friends. </p> 
+
+<p> Technically, we should only make the following definition after we prove that these numbers exist. However it is convenient to assume this and have the notation. </p> 
+
+<observation>
+    <ul>  <li>In order to establish that <m>R(p,q) \leq k</m> for some <m>k</m>, we need to show that <em> all </em> graphs on <m>k</m> vertices
+        has either a clique of size <m>p</m> or an independent set of size <m>q</m>.  </li>
+        
+        <li> 	In order to establish that <m>R(p,q) \gt k</m> for some <m>k</m>, we need to show that <em> some </em> graph on <m>k</m> vertices
+        has neither a clique of size <m>p</m> nor an independent set of size <m>q</m>. </li>
+        
+        </ul>
+</observation>
+
+<p> Looking back at the proof given in Fix 2 of <xref ref="expl-ramsey1"/> we can build toward an induction proof that the Ramsey numbers exist by providing an upper bound on their value. This bound is far from the best possible but gives us a proof that the Ramsey numbers exist. There are improved upper bounds using much more complicated methods but there still remains are large gap between the best known lower bounds and upper bounds for large values of <m>p+q</m>. </p>
+
+<example>  <p> Consider, for example aiming to show that <m>R(4,4) \leq 20</m>. This means that each person has a relationship with 19 others. In particular, by the pigeonhole principle, the `last person' has either at least 10 friends or 10 non-friends. Consider the case of 10 friends. The case of 10 non-friends can be covered by the same argument with the words friend and non-friend swapped as the words clique and independent set swapped.  If we can show that among the 10 friends there is either already a group of 4 non-friends or a group of 3 friends, who along with the `last' person form a group of 4 friends, then we are done. </p>
+
+<p> So, even though we started by aiming to bound the Ramsey number <m>R(4,4)</m> (number of friends and non-friends equal), we need to make use of an unbalanced case <m>R(3,4)</m> in our proof. This sort of thing, using a broader result, is sometimes useful for induction proofs. Note that we will show here that <m>R(3,4) \leq 10</m> and <m>R(4,4) \leq 20</m> while the exact values are 
+<m>R(3,4) = 9</m> and <m>R(4,4) = 18</m>. Our goal is to provide a proof of finite upper bound rather than exact results. As noted above, the exact value for <m>R(5,5)</m> is currently unknown so we might expect much  more in terms of bounds. </p>  
+</example>  
+
+zzz refer to pigeonhole with different sizes... remark...
+
+<example>  <p> We next show that <m>R(3,4) \leq 10</m> changing the notation from friends and non-friend to that of graphs, which we will use in the full proof. If <m>G</m> is a graph on 10 vertices then, by the generalized pigeonhole principle, either some vertex <m>v</m> is adjacent to at least 4 of them or non-adjacent to at least 6. (There are 9 other vertices so adjacent to at most 3 and non-adjacent to at most 5 yields only <m>3+5 = 8 \lt 9</m> other vertices.) If there are 4 neighbors then either these 4 neighbors are an independent set of size 4 or there is at least one edge among them, which along with <m>v</m> form a clique of size 3. In either case we are done.  If <m>v</m> has at 6 non-neighbors then, since <m>R(3,3) = 6</m> either there is a clique of size 3 or there is an independent set of size 3, which along with <m>v</m> forms an independent set of size 4. Again, in either case we are done.  </p> </example> 
+
+<p>
+    We need one more bit of notation and a fact. 
+</p>
+
+<definition xml:id="def-binomial">
+    <statement>
+        <p>
+            The <term> binomial coefficient</term> <m>{n \choose k}</m>, read as <q><m>n</m> choose <m>k</m> </q> is the number of size <m>k</m> subsets of a size <m>n</m> set.   
+        </p>
+    </statement>
+</definition>
+
+<p> The following is a well known recursion for the binomial 
+    coefficients.  We will skip the short proofs here. 
+    There is also a simple formula 
+    <m>{n \choose k} = \frac{n!}{k!(n-k)!}</m>. However we do not need or use this
+    fact here.
+</p> 
+
+zzz but as exercise and with formula ...
+
+<fact xml:id="fact-pascal">
+    <statement>
+        <p>
+            <me> {n \choose k} = {n-1 \choose k} + {n-1 \choose k-1} </me>   
+        </p>
+    </statement>
+</fact>
+
+<p> We state the following fact to understand the trivial 
+    Ramsey numbers cases. The <m>R(p,1)= R(1,q)</m> cases will be 
+    the basis for our induction. The <m>R(p,2)</m> and <m>R(2,q)</m> 
+    cases will follow from the induction but it useful for 
+    illustration to note this elementary fact directly.
+</p>
+
+<fact xml:id="fact-ramsey4">
+    <statement>
+        <p>
+            For integers <m>p,q \geq 1</m> the Ramsey numbers are <m>R(p,1) = R(1,q) = 1</m> and
+<m>P(p,2) = p</m> and <m>R(2,q) = q</m>.
+        </p>
+    </statement>
+</fact>
+	
+	
+<proof>
+    <p>
+ A single vertex by itself is both a clique and an independent 
+ set as there are no pairs. Herce as long as the graph has a vertex it has a clique and independent set of size 1. So <m>R(p,1) = R(1,q) = 1</m>.
+</p>
+
+<p> The complete graph on <m>p-1</m> vertices, with edges between all pairs of vertices has no independent set of size 2 and no clique of size <m>p</m>.  So <m>R(p,2) \gt p-1</m>. Any graph on <m>p</m> vertices either has a pair of non-adjacent vertices, hence a clique of size 2 or the graph is complete, so a clique of size <m>p</m>. So <m>R(p,2) \leq p</m>. Thus <m>R(p,2) = 2</m>.
+</p> 
+
+<p> 
+<m>R(2,q) = q</m> follows since <m>R(2,q) = R(q,2) = q</m>. <m>\Box</m>
+</p></proof>
+
+zzz exercise bound when both even is one less...
+
+<p> The first part of the following proof, while technically not induction can be viewed as an induction proof that the Ramsey numbers exist. It contains the key ideas of an induction, building on smaller values.
+</p> 
+
+<p> zzzintro note idea of needing stronger statement to make induction work
+
+    zzz erdos quote ramsey num
+</p> 
+
+<theorem xml:id="thm-ramsey5">
+    <statement>
+        <p>
+            The Ramsey Numbers <m>R(p,q)</m> exist and satisfy 
+            <me>  R(p,q) \leq R(p-1,q) + R(p,q-1) </me> 
+        for  <m>p \geq 2</m> and <m>q \geq 2</m>.
+            
+        </p>
+    </statement>
+</theorem>
+
+<proof> 
+    <p> By <xref ref="fact-ramsey4"/>, <m>R(p,1)</m>   and 
+        <m>P(1,q)</m> exist.  </p> 
+
+        <p> If <m>p \geq 2</m> and <m>q \geq 2</m> then consider any graph on <m>R(p-1,q) + R(p,q-1)</m> vertices. By induction these
+            smaller values exist.  
+        </p> 
+        <p> Consider  any vertex <m>v</m>. By the pigeonhole principle, among the remaining <m>R(p-1,q) + R(p,q-1)-1</m> vertices there are either <m>R(p-1,q)</m> neighbors or
+        <m>R(p,q-1)</m> non-neighbors. </p>
+        <p>  If <m>v</m> has <m>R(p-1,q)</m> neighbors then either these contain an independent set of size <m>q</m> or they contain  a clique of size <m>p-1</m> which along with <m>v</m> forms a clique of size <m>p</m>. In either case we are done.  
+        </p>
+        <p> If <m>v</m> has at <m>R(p,q-1)</m> non-neighbors then either  these contain a clique of size <m>p</m> or they contain  an independent set of size <m>q-1</m> which along with <m>v</m> forms an independent set of size <m>q</m>. 
+        In either case we are done.  <m>\Box</m> </p> 
+        
+        
+</proof>
+
+<corollary xml:id="cor-ramsey6">
+    <statement>
+        <p>
+         The Ramsey numbers satisfy   
+         <me>R(p,q) \leq {p+q-2 \choose p-1}</me>. 
+        </p>
+    </statement>
+</corollary>
+
+<proof>
+        
+        <p>  We use induction. The basis is all cases with <m>p=1</m> or <m>q=1</m>. For these we have
+        <m>R(p,1) = 1 = {p-1 \choose p-1} = {p + 1 - 2 \choose p-1}</m> and similarly <m>R(1,q) = q =  {q-1 \choose 0} =
+        {1 + q-2 \choose 1-1} </m>. </p> 
+        
+        <p> Then, for <m>p \geq 2</m> and <m>q \geq 2</m>  we have
+        <me> \begin{array}{rcll}
+            R(p,q) &amp; \leq &amp; R(p-1,q) + R(p,q-1) &amp; \text{ by the previous paragraphs} \\
+            &amp; \leq &amp; { (p-1) + q - 2 \choose (p-1)-1} + {p + (q-1) - 2 \choose p-1} 
+            &amp; \mbox{ by induction } \\
+            &amp; = &amp; {p+q-3 \choose p-2} + {p+q-3 \choose p-1} &amp; \text{ simplifying } \\
+            &amp; = &amp; {p + q - 2 \choose p-1} &amp; \text{ by the binomial identity } \Box
+        \end{array} 
+        </me> 
+        </p>  
+
+        
+</proof>
+
+  \</section> 

@@ -1,0 +1,1324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-induction-intro">
+  <title>Intro</title>
+
+  <p>
+    The <term> principle of mathematical induction </term>  is an important proof method in 
+    most areas of mathematics. Before foramlly defining it we will illustrate
+    with a simple example with two proofs using the same idea but different
+    terminology. 
+  </p>
+
+  <p> 
+ Formal defintions of these terms will come later. For now, simply aim to
+ follow the various proofs of </p> 
+
+ <fact xml:id="fact-3div4n-1">
+  <statement>
+    <p>
+      For  <m>n = 0,1,2, \ldots</m>, 3 divides <m>4^n - 1</m>.
+      That is <m>\frac{4^n - 1}{3}</m> is an integer.
+    </p>
+  </statement>
+ </fact>
+
+ 
+
+ <proof><title>Minimal counterexample proof of <xref ref="fact-3div4n-1"/> </title>
+
+  <p>
+    Assume that there is some integer for which the result does not hold.
+    Let <m>k</m> be the smallest value for which <m>\frac{4^k - 1}{3}</m> is 
+    <em>not </em> an integer. 
+    </p>
+    <p>
+      Since <m>\frac{4^0 - 1}{3} = 0</m> is an integer, <m>k</m> is not 0. 
+    </p>
+    <p>
+      Since <m>k</m> is smallest, <m>\frac{4^{k-1} - 1}{3}</m> is an integer.
+      Then 
+      <me>
+        \frac{4^k - 1}{3} = \frac{4(4^{k-1} - 1) + 3}{3} 
+        = 4 \, \frac{4^{k-1} - 1}{3} + 1
+      </me>
+      is an integer since <m>4, \frac{4^{n-1}-1}{3}</m>  and 1 are all integers. 
+      This contradicts the assumption that <m>\frac{4^k - 1}{3}</m> is 
+      <em>not </em> an integer. So there is no such <m>k</m> and the conclusion holds for all
+      <m>n = 0,1,2, \ldots</m>. <m>\Box</m>
+      
+    </p>
+ </proof>
+
+ <proof><title>Induction proof of <xref ref="fact-3div4n-1"/> </title>
+
+
+    <p>
+      Since <m>\frac{4^0 - 1}{3} = 0</m> is an integer the claim holds for <m>n=0</m>. 
+    </p>
+    <p> For <m>n \geq 1</m>, by induction, we may assume that 
+       <m>\frac{4^{n-1} - 1}{3}</m> is an integer.
+      Then 
+      <me>
+        \frac{4^n - 1}{3} = \frac{4(4^{n-1} - 1) + 3}{3} 
+        = 4 \, \frac{4^{n-1} - 1}{3} + 1
+      </me>
+      is an integer since <m>4, \frac{4^{n-1}-1}{3}</m>  and 1 are all integers. 
+      Thus, by induction  the claim holds for all
+      <m>n = 0,1,2, \ldots</m>. <m>\Box</m>
+      
+    </p>
+ </proof>
+
+ <p>
+  In the induction proof the first sentence, establishing the claim directly 
+  when <m>n=0</m> is called the <term>basis</term>. In general the basis will cover
+  all initial  values for which the general argument does not work. </p>
+  <p> In the second setence
+  the assumption that the claim holds for <m>\frac{4^{n-1}-1}{3}</m> is called the
+  <term>induction hypothesis</term>. In general the induction hypothesis allows us to 
+    assume that the claim holds for all values less than <m>n</m>.
+ </p>
+
+ <p>
+  Our purpose here was to start to illustrate induction. We can also
+  give a short proof of <xref ref="fact-3div4n-1"/> using partial sums
+  of geometric series as noted in <xref ref="rmk-geop"/>.
+ </p>
+
+ <p>
+  We consider a toy problem called  Golomb's Tromino Theorem. 
+  Consider tiling a <m>4 \times 4</m> chessboard with <m>L</m>-shaped
+   <q>trominos</q>, 3 squares in the shape of an <m>L</m>.
+ </p> 
+
+<figure xml:id="golomb1" ><image xml:id="golomb1i" width="80%">
+  <latex-image>
+  \begin{tikzpicture}
+  \color{reda}	\fill (0,0) rectangle (.5,.5);
+  \fill (0,.5) rectangle (.5,1);
+  \fill (.5,0) rectangle (1,.5); 
+  
+  \color{black} \fill (0,1.5) rectangle (.5,2);
+  \fill (0,1) rectangle (.5,1.5);
+  \fill (.5,1.5) rectangle (1,2);
+  
+  \color{bluea} \fill (.5,.5) rectangle (1,1);
+  \fill (.5,1) rectangle (1,1.5);
+  \fill (1,.5) rectangle (1.5,1);
+  
+  \color{purp} \fill (1,1) rectangle (1.5,1.5);
+  \fill (1,1.5) rectangle (1.5,2);
+  \fill (1.5,1) rectangle (2,1.5);
+  
+  \color{mgry} \fill (1,0) rectangle (1.5,.5);
+  \fill (1.5,0) rectangle (2,.5);
+  \fill (1.5,.5) rectangle (2,1);
+  
+  \color{reda}	\fill (4,0) rectangle (4.5,.5);
+  \fill (4,.5) rectangle (4.5,1);
+  \fill (4.5,0) rectangle (5,.5); 
+  
+  \color{black} \fill (4,1.5) rectangle (4.5,2);
+  \fill (4,1) rectangle (4.5,1.5);
+  \fill (4.5,1.5) rectangle (5,2);
+  
+  \color{bluea} \fill (4.5,.5) rectangle (5,1);
+  \fill (4.5,1) rectangle (5,1.5);
+  \fill (5,.5) rectangle (5.5,1);
+  
+  \color{purp} \fill (5,1) rectangle (5.5,1.5);
+  \fill (5.5,1.5) rectangle (6,2);
+  \fill (5.5,1) rectangle (6,1.5);
+  
+  \color{mgry} \fill (5,0) rectangle (5.5,.5);
+  \fill (5.5,0) rectangle (6,.5);
+  \fill (5.5,.5) rectangle (6,1);
+  
+  
+  \end{tikzpicture}
+  </latex-image>
+</image>
+</figure>
+ 
+ 
+<p> 
+Clearly we can't tile the entire board since each tromino has 3 tiles, so the total number of squares covered
+must be a multiple of 3. However, we can cover 15 of the 16 squares. 
+<xref ref="golomb1"/> shows two different tilings, each  missing one square. </p> 
+
+<p> Can we choose any square to miss? It is not hard to see, for example, by rotating the upper right tromino, that
+we can miss any of the 4 upper right squares. 
+Then by rotating or flipping the entire board we can miss any preselected 
+square. </p> 
+
+<p> In general we can ask what kind of tilings are possible. Here, 
+  to illustrate induction, we will
+aim to tile <m>2^n \times 2^n</m> boards, missing any one preselected square.  There is at least a chance that this is possible
+since we know from <xref ref="fact-3div4n-1"/>  that 3 divides <m>4^n-1</m>. Alternatively, our proof  that we can complete such tilings,
+ which will not explicitly use the divisibility, will imply this division result as a corollary. </p>
+
+<p> By rotating the large board, we may assume that the square missing a 
+tile is in the upper right quadrant. </p> 
+
+<p> Consider trying to tile an <m> 8 \times 8</m>  board with  the 
+  missing the square in the top row, second from the right. Assuming that 
+  we have already established tilings for <m>4 \times n</m> boards, we can 
+  make an appropriate choice of four of these start to build a tilin gof the larger board.
+  Then, by adding one more tromino we can complete the tiling of the larger board.
+</p>
+  
+  <p> We  inductively
+  use the board on the right in <xref ref="golomb1"/> and place this
+   in the upper right <m> 4 \times 4 </m> subboard. 
+   We then almost fill the remaining three
+  <m>4 \times 4</m> subboards; lower left, lower right and upper left. Each will leave a missing square. 
+  For the induction to work we need to line up the missing squares so that they can be covered by one more tromino.
+  So we  put the missing squares for these <q>in the middle </q> of
+   the large board. Each of these is a rotation of the board on the left in
+   <xref ref="golomb1"/>. Then we complete the tilin gof te large board by
+   adding one more tromino to cover the missing squares <q>in the center</q>.
+  </p> 
+  
+  <p> We illustrate this below:
+
+ </p>
+
+ 
+ <figure xml:id="golomb2" ><image xml:id="golomb2i" width="60%">
+  <latex-image>
+  \begin{tikzpicture}
+  
+  \color{reda}	\fill (0,0) rectangle (.5,.5);
+	\fill (0,.5) rectangle (.5,1);
+	\fill (.5,0) rectangle (1,.5); 
+	
+	\color{black} \fill (0,1.5) rectangle (.5,2);
+	\fill (0,1) rectangle (.5,1.5);
+	\fill (.5,1.5) rectangle (1,2);
+	
+	\color{bluea} \fill (.5,.5) rectangle (1,1);
+	\fill (.5,1) rectangle (1,1.5);
+	\fill (1,.5) rectangle (1.5,1);
+	
+	\color{purp} \fill (1,1) rectangle (1.5,1.5);
+	\fill (1,1.5) rectangle (1.5,2);
+	\fill (1.5,1) rectangle (2,1.5);
+	
+	\color{mgry} \fill (1,0) rectangle (1.5,.5);
+	\fill (1.5,0) rectangle (2,.5);
+	\fill (1.5,.5) rectangle (2,1);
+	
+	\color{reda}	\fill (2,2) rectangle (2.5,2.5);
+	\fill (2,2.5) rectangle (2.5,3);
+	\fill (2.5,2) rectangle (3,2.5); 
+	
+	\color{black} \fill (2,3.5) rectangle (2.5,4);
+	\fill (2,3) rectangle (2.5,3.5);
+	\fill (2.5,3.5) rectangle (3,4);
+	
+	\color{bluea} \fill (2.5,2.5) rectangle (3,3);
+	\fill (2.5,3) rectangle (3,3.5);
+	\fill (3,2.5) rectangle (3.5,3);
+	
+	\color{purp} \fill (3,3) rectangle (3.5,3.5);
+	\fill (3.5,3.5) rectangle (4,4);
+	\fill (3.5,3) rectangle (4,3.5);
+	
+	\color{mgry} \fill (3,2) rectangle (3.5,2.5);
+	\fill (3.5,2) rectangle (4,2.5);
+	\fill (3.5,2.5) rectangle (4,3);
+	
+		\color{mgry}	\fill (0,2) rectangle (.5,2.5);
+	\fill (0,2.5) rectangle (.5,3);
+	\fill (.5,2) rectangle (1,2.5); 
+	
+	\color{reda} \fill (0,3.5) rectangle (.5,4);
+	\fill (0,3) rectangle (.5,3.5);
+	\fill (.5,3.5) rectangle (1,4);
+	
+	\color{bluea} \fill (.5,2.5) rectangle (1,3);
+\fill (.5,3) rectangle (1,3.5);
+\fill (1,3) rectangle (1.5,3.5);
+
+\color{black} \fill (1.5,3.5) rectangle (2,4);
+\fill (1,3.5) rectangle (1.5,4);
+\fill (1.5,3) rectangle (2,3.5);
+
+\color{purp} \fill (1,2) rectangle (1.5,2.5);
+\fill (1,2.5) rectangle (1.5,3);
+\fill (1.5,2.5) rectangle (2,3);
+
+	\color{black}	\fill (2,0) rectangle (2.5,.5);
+\fill (2,.5) rectangle (2.5,1);
+\fill (2.5,0) rectangle (3,.5); 
+
+\color{purp} \fill (2.5,1) rectangle (3,1.5);
+\fill (2,1) rectangle (2.5,1.5);
+\fill (2.5,1.5) rectangle (3,2);
+
+\color{bluea} \fill (2.5,.5) rectangle (3,1);
+\fill (3,1) rectangle (3.5,1.5);
+\fill (3,.5) rectangle (3.5,1);
+
+\color{mgry} \fill (3.5,1.5) rectangle (4,2);
+\fill (3,1.5) rectangle (3.5,2);
+\fill (3.5,1) rectangle (4,1.5);
+
+\color{reda} \fill (3,0) rectangle (3.5,.5);
+\fill (3.5,0) rectangle (4,.5);
+\fill (3.5,.5) rectangle (4,1);
+  
+  \end{tikzpicture}
+  </latex-image>
+</image>
+</figure>
+
+<p>
+  We inductively used our smaller boards, each missing one square, placed so that 
+one square  is in the right location for the  missing one in the larger square and the other 3 abut and form an
+<m>L</m> that can be covered by one more tromino to complete the larger tiling. It should be
+clear that we can continue this process to tile, for any <m>n</m>, 
+<m>2^n \times 2^n</m> boards with any specified missing rectangle. </p>
+
+<p> 
+We will not write out the details. However this illustrates essence of 
+proofs by induction.  We show a basis, in this case it would be the trivial
+observation that we can tile <m>2 \times 2</m> boards with any missing square
+using a single tromino. Then we can build to any size by using smaller 
+boards, that we have already built, which we call the induction hypothesis. 
+The description of how we do this building is called the induction step. 
+</p>
+
+<subsection>
+
+ <p>  We have already seen an example of a proof by induction and a proof by
+  minimal counterexample. We describe these more formally now. It may still be best 
+  to not spend too much time of the formal definitions and instead jump to further examples that follow. 
+ </p> 
+
+  <fact xml:id="fact-wellorder">
+  <title>Well ordering principle</title>
+    
+    <statement>
+      <p>
+        Every nonempty set of nonnegative integers has a smallest element.
+      </p>
+    </statement>
+  </fact>
+
+<p> This seem obvious and we will take it as such. Whether it is 
+  considered an axiom or something proved from more basic axioms depends 
+  on details of which system of arithmetic is being used. </p> 
+
+<p> Despite its simplicity it is the basis a a fundamental proof technique. 
+It is the principle underlying proofs by minimal counterexample. In these, we assume that the claimed result is false and consider 
+a smallest counterexample. Then using the fact that for smaller examples 
+the claim is valid, we reach a contradiction and then conclude that the 
+claim is true.
+</p> 
+
+<p> The well Ordering Principle can be shown to be equivalent to the 
+  Principle of Mathematical Induction, which we will state here. 
+   We will skip a proof of the 
+equivalence of well ordering and induction.
+</p> 
+
+<fact xml:id="fact-pinduction">
+  <title>Principle of Mathematical Induction</title>
+  <statement>
+    <p>
+      Consider a statement <m>P(n)</m> depending on integer <m>n</m>.  
+      If for some <m>k</m>
+        <ul>
+          <li> <m>P(0), P(1), \ldots P(k)</m> are true (that is the statement is true for <m>k</m> initial values) </li>
+          
+          
+          
+          <li> For <m>n \gt k</m> truth is <m>P(0),P(1), \ldots, P(n-1)</m> implies the truth of <m>P(n)</m> </li> 
+          
+        </ul>
+      
+      Then <m>P(n)</m> is true for all integers <m>n = 0,1,2, \ldots</m>
+    </p>
+  </statement>
+</fact>
+	
+	
+<p> 
+Technically what we just stated is called strong induction. Ordinary induction only assumes
+a basis of <m>P(0)</m> being true and also only assumes the truth of <m>P(n-1)</m> in the second part. However these are equivalent. 
+</p>
+
+<remark>
+  <p> For induction we can shift the <q>starting point</q> </p>
+	
+	<p> That is, if the statement is only true for values of <m>n</m> greater than some fixed <m>t</m>, we can start 
+	with some initial values <m>P(t), P(t+1), \ldots, P(t+k)</m> and show that for <m>n \gt t+k</m> the truth
+	of <m>P((k), \ldots P(n-1)</m> implies the truth of <m>P(n)</m>
+	we get that the statement holds for all integers <m>k,k+1, \ldots</m>. </p>
+</remark>
+
+<remark>
+  <p>
+    The idea of mathematical induction is a common and extremely useful
+tool in mathematical proofs. As noted,  it is essentially equivalent to proofs
+based on the well ordering principle, 
+where we assume that there is a counterexample and by looking at one
+of minimum size reach a contradiction, showing that there is no
+counterexample. In addition, induction is closely related to recursive 
+algorithms. 
+  </p>
+
+  <p>
+    Learning mathematical induction may be a bit like learning to ride a
+bike. It seems almost impossible at first and you fall and scrape
+your knees a few times but eventually you get it and it turns out
+that it isn't hard and you can really do a lot once you figure it
+out.
+  </p>
+</remark>
+
+<example xml:id="expl-recurrence1">
+  <p>Consider the recurrence <m>B_n =
+    B_{n-1} + 6B_{n-2}</m> for <m>n \geq 2</m>  with initial conditions <m>B_0 = 1</m> and <m>B_1 = 8</m>.
+  </p>
+
+  <p>
+    This recurrence gives the sequence <m>1,8,14,62,146,518, \ldots</m>.
+  </p>
+
+  <p>
+    The
+general formula is <m>B_n = 2 \cdot 3^n + (-1) (-2)^n</m>. 
+ </p>
+
+ <p>
+  We will soon prove that the general formula is correct. 
+ </p> 
+
+<p>  If we have the formula, even without explanation or justification of how it was obtained, we can prove its correctness
+using induction. 
+</p>
+
+<p> There are standard methods to discover these formulas. One approach, given without details:  Note that if a solution 
+is for the form <m>x^n</m> for <m>x \not = 0</m>, then we have <m>x^n = x^{n-1} + 6x^{n-2} \Rightarrow x^2 - x - 6 = 0</m>.
+A linear combination of the roots <m>-2,3</m> of this quadratic provides 
+the solution with the multipliers <m>2</m> and <m>-1</m> chosen so that 
+the initial conditions hold. </p>
+
+<p> If the initial conditions change then the multipliers <m>2</m> and <m>-1</m> would change but the terms <m>3^n</m> and <m>(-2)^n</m> would 
+remain. </p>
+
+<p> Other recurrences of this form, linear, homogeneous with constant 
+  coefficients have solutions in a similar way related to initial 
+  conditions and roots of the corresponding characteristic polynomial. 
+  This holds and produces real solutions even if the roots are complex. 
+  The solution is a bit more complicated if there are repeated roots. 
+  We will leave that for elsewhere. </p>
+
+</example>
+
+<p> We restate the formula from <xref ref="expl-recurrence1"/> and then 
+give two proofs, with induction and minimal counterexamples for illustration.
+The proofs are somewhat more wordy and detailed than necessary since these
+are early examples. </p> 
+
+<fact xml:id="fact-recurrence1">
+  <statement>
+    <p>
+      If <m>B_n =
+        B_{n-1} + 6B_{n-2}</m> for <m>n \geq 2</m>  with initial conditions <m>B_0 = 1</m> and <m>B_1 = 8</m>.
+      then  <m>B_n = 2 \cdot 3^n + (-1) (-2)^n</m>. 
+     </p>
+  
+  </statement>
+</fact>
+
+<proof><title>Minimal counterexample proof of <xref ref="fact-recurrence1"/>
+   </title>
+  <p>
+    We prove that the formula is correct by contradiction.
+Assume that the formula is false. Then there is some smallest non-negative
+integer <m>n</m> for which it is false: the formula fails for <m>n</m> but holds for all smaller values.
+That is, we assume that <m>B_n \not = 2 \cdot 3^n + (-1) (-2)^n</m>
+but that <m>B_{n-1} = 2 \cdot 3^{n-2} + (-1) (-2)^{n-2}</m>,
+<m>B_{n-2} = 2 \cdot 3^{n-3} + (-1) (-2)^{n-3}, \ldots, B_0 = 2 \cdot
+3^{0} + (-1) (-2)^{0}</m>.  </p> <p> Note first that substituting <m>n = 0</m> and
+<m>n=1</m> into the formula we get <m>B_0 = 2 \cdot 3^0 + (-1)(-2)^0 = 1</m>
+and <m>B_1 = 2 \cdot 3^1 + (-1) (-2)^1 = 8</m>. So the formula works for
+<m>n = 0, 1</m>. Thus <m>n \geq 2</m> and we can apply the recursion to <m>B_n</m>.
+Using the recursion and the assumptions of the correctness of
+the formulas for <m>B_{n-1}</m> and <m>B_{n-2}</m> and some basic algebra 
+we get
+
+<men xml:id ="eq-recurrence1"> 
+  \begin{array}{rcl}
+	B_n &amp; = &amp; B_{n-1} + 6 B_{n-2} \\
+	&amp; = &amp; \left[ 2 \cdot 3^{n-1} + (-1) (-2)^{n-1} \right] +
+	6 \left[ 2 \cdot 3^{n-2} + (-1) (-2)^{n-2} \right] \\
+	&amp; = &amp; 2 \left(3 + 6 \right) 3^{n-2} + (-1) \left( -2 +
+	6\right)(-2)^{n-2} \\
+	&amp; = &amp; 2 \cdot 3^2 \cdot 3^{n-2} + (-1) \cdot (-2)^2 \cdot
+	(-2)^{n-2} \\
+	&amp; = &amp; 2 \cdot 3^n + (-1)(-2)^n
+\end{array} 
+</men>
+
+Thus the formula holds for <m>n</m>, contradicting the assumption that
+<m>n</m> is the smallest number for which the formula fails. So there
+can be no such number: the formula holds for all <m>n = 0,1,2,
+\ldots</m>. <m>\Box</m>
+  </p>
+</proof>
+
+<p>
+  The key to the proof was showing that if the formula is
+correct for <m>B_{n-2}</m> and <m>B_{n-1}</m> then it is correct for <m>B_n</m>.
+These are the equations <xref ref="eq-recurrence1"/> in the proof of 
+<xref ref="fact-recurrence1"/>. Those computations
+work for any choice of <m>n \geq 2</m>. So we could use them along with the easily
+checked fact that the formula is correct for <m>B_0</m> and <m>B_1</m> to
+show that it is correct for <m>B_2</m>. Then since it is correct for
+<m>B_1</m> and <m>B_2</m> we use the computations above to see that the
+formula is correct for <m>B_3</m>. Continuing this way we see that
+we can build up to showing that the formula is correct for any
+<m>B_n</m>.
+
+We display this as follows:
+</p>
+
+<tabular>
+  <row>
+    <cell>Formula holds for <m>B_0</m> and <m>B_1</m></cell>
+    <cell> <m>\Rightarrow </m></cell>
+    <cell>Formula holds for <m>B_2</m>
+    </cell>
+  </row>
+  <row>
+    <cell>Formula holds for <m>B_1</m> and <m>B_2</m></cell>
+    <cell> <m>\Rightarrow </m></cell>
+    <cell>Formula holds for <m>B_3</m>
+    </cell>
+  </row>
+  <row>
+    <cell>Formula holds for <m>B_2</m> and <m>B_3</m></cell>
+    <cell> <m>\Rightarrow </m></cell>
+    <cell>Formula holds for <m>B_4</m>
+    </cell>
+  </row>
+  <row>
+    <cell><m>\vdots </m> </cell>
+    <cell> <m>\vdots </m> </cell>
+    <cell><m> \vdots </m> </cell>
+  </row>
+  <row>
+    <cell>Formula holds for <m>B_{n-2}</m> and <m>B_{n-1}</m></cell>
+    <cell> <m>\Rightarrow </m></cell>
+    <cell>Formula holds for <m>B_n</m>
+    </cell>
+  </row>
+  <row>
+    <cell><m>\vdots </m> </cell>
+    <cell> <m>\vdots </m> </cell>
+    <cell><m> \vdots </m> </cell>
+  </row>
+</tabular>
+
+<p> It is apparent that this shows that this shows that the formula
+works for all <m>n = 0,1,2, \ldots</m>.
+
+</p>
+
+<p>
+  The terminology of mathematical induction is what succinctly captures
+  this process. 
+</p>
+
+<proof><title>Induction proof of <xref ref="fact-recurrence1"/>
+</title>
+<p>
+  We prove that the formula is correct using mathematical
+  induction. Since <m>B_0 =
+  2 \cdot 3^0 + (-1)(-2)^0 = 1</m> and <m>B_1 = 2 \cdot 3^1 + (-1) (-2)^1 =
+  8</m> the formula holds for <m>n = 0</m> and <m>n=1</m>. For <m>n \geq 2</m>, by
+  induction </p> 
+ <me> \begin{array}{rcl}
+  B_n &amp; = &amp; B_{n-1} + 6 B_{n-2} \\
+  &amp; = &amp; \left[ 2 \cdot 3^{n-1} + (-1) (-2)^{n-1} \right] +
+  6 \left[ 2 \cdot 3^{n-2} + (-1) (-2)^{n-2} \right] \\
+  &amp; = &amp; 2 \left(3 + 6 \right) 3^{n-2} + (-1) \left( -2 +
+  6\right)(-2)^{n-2} \\
+  &amp; = &amp; 2 \cdot 3^2 \cdot 3^{n-2} + (-1) \cdot (-2)^2 \cdot
+  (-2)^{n-2} \\
+  &amp; = &amp; 2 \cdot 3^n + (-1)(-2)^n
+  \end{array}
+ </me>
+ <p>  Hence the formula holds for all <m>n = 0,1, \ldots</m>. <m>\Box</m>
+</p>
+
+</proof> 
+
+<remark>
+  <p>The words <q>by induction</q> or sometime <q>by the induction 
+    hypothesis</q> 
+ are shorthand for the idea described above that we have
+already proved the statement for smaller values of <m>n</m> and are
+presenting the method to get to the next value and that this can
+be repeated to show the statement for all <m>n</m>. </p>
+
+<p> Checking the initial values, those for which the generic argument does not apply, <m>n =0</m> and <m>n=1</m> in the example
+above is called the basis of the induction. </p> 
+</remark>
+
+<p> Recall that the Fibonacci numbers satisfy the recurrence
+<m>F_n = F_{n-1} + F_{n-2}</m> for <m>n \geq 2</m> with
+<m>F_0 = 0</m> and <m>F_1 = 1</m>. This is similar to <xref ref="fact-recurrence1"/>
+ but with different coefficients. 
+A similar induction proof can be used to show that
+<m>F_n = \frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2}\right)^n - \frac{1}{\sqrt{5}}\left(\frac{1 - \sqrt{5}}{2}\right)^n</m>.
+Doing the algebra by hand seems more complicated due to the square roots, 
+but it is essentially the same as that in the proofs of <xref ref="fact-recurrence1"/>. 
+</p> 
+
+<p> Our next example to practice induction is an identity involving the 
+  Fibonacci numbers. </p>
+
+  <example>
+    <p>
+      We first illustrate how one might <q> discover </q> <xref ref="fact-finid1"/>.
+      Consider the first few Fibonacci numbers <me>
+        0,1,1,2,3,5,8,13,21,34,55,89, \ldots 
+      </me>
+      and look at sums of intial terms. For example, the sum of the first six terms is
+      <m>0+1+1+2+3+5 = 12</m>. Computing these we get the following sequence of partial sums
+      <me>
+        0,1,2,4,7,12,20,33,54,88, \ldots
+      </me>
+      The sums appear to be one less than another Fobonacci number. We can prove this by induction.
+    </p>
+  </example>
+
+  <p> The next example is a detailed description to illustrate the induction process.
+  readers already beginning to feel comfortable with induction might skip this and
+  proceed directly to the relatively compact induction proofs of <xref ref="fact-fibid1"/>.
+  </p> 
+
+  <example>
+   <p>  To again illustrate the ideas behind a mathematical induction proof
+we describe the process in detail. The final proof will hide all of
+this and be very short. </p> 
+
+<p> Substituting <m>n = 0</m> into the equation we get <m>1 + F_0 = F_2</m>. Since
+<m>F_0 = 0</m> and <m>F_2 = 1</m> this is <m>1 + 0 = 1</m> and clearly true. When
+<m>n=1</m> we get <m>1 + F_0 + F_1 = F_3</m>. With <m>F_0 = 0. F_1 = 1</m> and <m>F_3
+= 2</m> we have <m>1 + 0 + 1 = 2</m> and the statement is true. Using the
+recurrence for Fibonacci numbers we have <m>F_3 = F_2 + F_1</m> and
+substituting <m>F_2 = 1 + F_0</m> which we have just established we get
+<m>F_3 = F_2 + F_1 = (1 + F_0) + F_1</m> as needed. </p> 
+
+<p> For <m>n = 2</m> we need to establish <m>F_4 = 1 + F_0 + F_1 + F_2</m>. Using
+the Fibonacci recurrence and <m>F_3 = 1 + F_0 + F_1</m> which we have
+just shown to be true we get <m>F_4 = F_3 + F_2 = (1 + F_0 + F_1) +
+F_2</m> and the identity holds for <m>n = 2</m>. </p> 
+
+<p> Now imagine that we keep doing this and have shown the identity for
+<m>n = 0,1,2, \ldots, 11</m> and we want to show it for <m>n = 12</m>. That
+is, we already know the following:
+<me> \begin{array}{rcl}
+	F_2 &amp; = &amp; 1 + F_0 \\
+	F_3 &amp; = &amp; 1 + F_0 + F_1 \\
+	F_4 &amp; = &amp; 1 + F_0 + F_1 + F_2 \\
+	\vdots &amp; \vdots &amp; \vdots \\
+	F_{13} &amp; = &amp; 1 + F_0 + F_1 + \cdots + F_{11} \end{array} </me> </p> 
+
+<p> We want to know show that <m>F_{14} = 1 + F_0 + F_1 + \cdots + F_{11}
++ F_{12}</m>. Substituting the last line above (which we have already
+established to be true) and the recurrence we get
+<me> F_{14} = F_{13} + F_{12} = (1 + F_0 + F_1 + \cdots + F_{11}) +
+F_{12} = 1 + F_0 + F_1 + \cdots + F_{12} </me>. </p> 
+
+<p> So using the fact that the identity is known to be true for <m>n =
+0,1, \ldots, 11</m> we have shown that it is true for <m>n = 12</m>. In fact
+we really only needed the fact that the identity is known to be true
+for <m>n = 11</m>. That it is true for <m>n=0,1, \ldots, 10</m> is in this
+case extra unused information. (In some induction proofs we will
+need the truth of the statement for all smaller values.) </p> 
+
+<p> There was nothing to special about <m>n=11</m> so just use the symbol
+<m>n</m>. That is, we imagine that we have shown the identity true for
+<m>1,2, \ldots, (n-1)</m> and we want to show that it is true for <m>n</m>. So
+we assume that we already know the following:
+<me> \begin{array}{rcl}
+	F_2 &amp; = &amp; 1 + F_0 \\
+	F_3 &amp; = &amp; 1 + F_0 + F_1 \\
+	F_4 &amp; = &amp; 1 + F_0 + F_1 + F_2 \\
+	\vdots &amp; \vdots &amp; \vdots \\
+	F_{(n-1)+2} &amp; = &amp; 1 + F_0 + F_1 + \cdots + F_{n-1} \end{array} </me> We
+want to use these fact and anything else we know (in this case the
+Fibonacci recurrence) to show the identity for <m>n</m>. That is we need
+to show <m>F_{n+2} = 1 + F_0 + F_1 + \cdots + F_n</m> using the
+assumptions above. </p> 
+
+<p> We can do this fairly easily by substituting the last line of the
+values assumed to be true, where the left side is <m>F_{(n-1)+2} =
+F_{n+1}</m> and the recurrence to get
+<me> F_{n+2} = F_{n+1} + F_{n} = (1 + F_0 + \cdots + F_{n-1}) + F_n
+= 1 + F_0 + \cdots + F_{n-1} + F_n. </me> Observe that the second
+equality is simply using the associative property. We didn't really
+need to do this but include it to make sure things are clear. </p> 
+
+<p> So we have shown that the identity holds at <m>n</m> when it is assumed
+to be true for <m>1,2, \ldots, n-1</m>. This we can imagine a process of
+building up values for which we know it is true, <m>n=0</m> then <m>n=1</m>
+then <m>n=2</m> then <m>\cdots</m> then <m>n=11</m> then <m>n=12</m> <m>\cdots</m>. Clearly
+we can do this to get all numbers <m>0,1,2, \ldots </m> and this
+established that the identity is true for all <m>n</m>. </p> 
+
+<p> This is mathematical induction. The wording of a proof using
+mathematical induction is a way of describing the process we went
+through above without writing so much. If we all understand that
+this is what is meant by induction then we can present the proof
+ideas very succinctly. </p> 
+  </example>
+
+  <fact xml:id="fact-fibid1">
+    <statement>
+      <p>
+        For all <m>n</m> the Fibonacci numbers <m>F_n</m> satisfy 
+        <me> 1 + F_0 + F_1 + F_2 + \cdots + F_n = F_{n+2}. </me>
+      </p>
+    </statement>
+  </fact>
+
+  <p> We give two proofs, one writing out sums and one using 
+    <m>\sum</m> notation for the sums. </p> 
+
+  <proof>
+    <title> Induction proof of <xref ref="fact-fibid1"/> with sums </title>
+    <p>
+      Since <m>F_0 = 0</m> and <m>F_2 = 1</m> we have <m>F_2 = 1 = 1+0 = 1 + F_0</m>. So
+the identity holds for <m>n=0</m>. </p> <p> For <m>n \geq 1</m> by the Fibonacci
+recurrence we have <m>F_{n+2} = F_{n+1} + F_{n}</m> and by induction we
+can assume <m>F_{n+1} = 1 + F_0 + \cdots + F_{n-1}</m>. Then <m>F_{n+2} =
+F_{n+1} + F_n = (1 + F_0 + \cdots + F_{n-1}) + F_n</m> and the identity
+holds for <m>n</m>. </p> <p> Thus by mathematical induction <m>1 + F_0 + F_1 + F_2 +
+\cdots + F_n = F_{n+2}</m> for <m>n = 0,1,2, \ldots</m>. <m>\Box</m>
+    </p>
+  </proof>
+
+  <proof>
+    <title> Induction proof of <xref ref="fact-fibid1"/> with <m>\sum</m> nottaion</title>
+    <p>
+      The basis is <m>F_2 = 1 = 1+0 = 1 + F_0</m>. For <m>n \geq 1</m> we have
+<me> F_{n+2} = F_{n+1} + F_n = \left(1 + \sum_{i=0}^{n-1} F_i \right) + F_n =
+1 + \sum_{i=0}^{n} F_i </me> where the first equality is from the
+Fibonacci recurrence, the second by induction and the last by
+including <m>F_n</m> in the sum. So, by induction the identity holds for
+all <m>n</m>. <m>\Box</m>
+    </p>
+  </proof>
+
+  <p>
+    We continue with more induction examples.
+The first is partial sums of a geometric series. There is a short non inductive proof of this result but we 
+do the longer induction proof here to illustrate induction. </p>
+
+
+<proposition xml:id="prop-geop">
+  <statement>
+  <p>
+  For <m>r \not = 1</m> and all nonnegative integers <m>n</m>
+  <me> 1 + r + r^2 + \cdots + r^n = \frac{r^{n+1} -1 }{r-1}</me>.
+  </p>
+  </statement>
+  </proposition>
+
+  <proof>
+    <p>
+      The formula holds when <m>n=0</m> as <m>r^0 = 1 = \frac{r^{0+1}-1}{r-1}</m>.
+    </p>
+    <p>
+      For <m>n \geq 1</m> we have, by the induction hypothesis and basic algebra that 
+<m>  (1+ r + r^2 + \cdots + r^{n-1}) + r^n 
+= \frac{r^{(n-1)+1} - 1}{r-1} + r_n  </m> <m> =
+\frac{r^n -1}{r-1} + \frac{(r-1)r^n}{r-1} = \frac{r^n - 1 + r^{n+1} - r^n}{r-1} = \frac{r^{n+1} -1 }{r-1} </m>.
+</p> 
+<p> 
+So, by induction the formula holds for <m>n=0,1, \ldots </m>. <m>\Box</m>
+    </p>
+  </proof>
+
+  <remark xml:id="rmk-geop">
+    <p> Note that <xref ref="prop-geop"/> provides an alternate proof
+      of <xref ref="fact-3div4n-1"/>, that <m>\frac{4^n - 1}{3}</m> is an integer. 
+    </p> 
+    <p> 
+      Setting <m>r = 4</m> in <xref ref="prop-geop"/> with
+      <m>n-1</m> replacing <m>n</m>
+      we get 
+      <me>
+        1 + 4 + 4^2 + \cdots + r^{n-1} = \frac{4^n - 1}{4-1} 
+        = \frac{4^n-1}{3}
+      </me>.
+      Since the left side is an integer, so is the right.
+    </p> 
+      
+  </remark>
+
+  <example xml:id="expl-poisonp">
+    <p>
+      What is called a Poisson Process is often a good model for waiting times. For example 
+arrivals of customers to a shop or web site. </p> 
+
+<p> If customers arrive, on average, at a rate of <m>\lambda</m> per time unit 
+then the waiting time for the <m>n^{th}</m> arrival is modeled by the Gamma distribution 
+(actually by a special case of the Gamma distribution sometimes called 
+the Erlang distribution after Erlang who studied this in the context of 
+phone calls to an operator center in the early 1900s). </p>
+
+<p> In particular, the probability that the <m>n^{th}</m> arrival occurs by time <m>t</m> is
+<m>\int_0^t  \frac{\lambda e^{-\lambda x}(\lambda x)^{n-1}}{\Gamma (n)} \, dx</m>  
+
+where we define the Gamma function <m>\Gamma(n)</m> by
+ <m>\Gamma(n) = \int_0^{\infty}  e^{- x} x^{n-1} \, dx</m>.  </p> 
+ 
+ <p> When <m>n</m> is a nonnegative integer <m>\Gamma(n) = (n-1)! = (n-1)(n-2) \cdots (2)(1)</m>.
+    </p>
+  </example>
+
+  <p>
+    We will show the result about the Gamma function mentioned above by induction.
+To simplify notation we shift the <m>(n-1)</m> and <m>(n-1)!</m> that appear above to <m>n</m> and <m>n!</m>.
+  </p> 
+
+<fact xml:id="fact-gamma"> <title> 
+  Gamma function (shifted) for integral <m>n</m> </title> 
+	<me> \int_0^{\infty} e^{-x}x^{n} \, dx = n! </me> 
+</fact> 
+
+<p> By convention we use <m>0! =1</m>.This simplifies notation. </p> 
+
+<proof> 
+  <p> 
+By induction. For the basis, when <m>n=0</m> it is an easy exercise to check that  
+<m>\int_0^{\infty} e^{-x}x^{0} \, dx = \int_0^{\infty} e^{-x} \, dx = 1 = 0!</m>. </p> 
+	
+<p> We assume the induction hypothesis, that <m>\int_0^{\infty} e^{-x}x^{n-1} \, dx = (n-1)!</m> 
+and use it to prove <m>\int_0^{\infty} e^{-x}x^{n} \, dx = n!</m>.  Then by induction the result holds for all <m>n</m>. 
+</p> 
+
+<p> To show this use integration by parts with
+
+<m>u = x^n</m>, <m>du = nx^{n-1} \, dx</m> and 
+<m>dv = e^{-x} \, dx</m>, <m>v = -e^{-x}</m>. 
+
+Then
+
+<me> \begin{array}{rcll} \int_0^{\infty} e^{-x}x^{n} \, dx  &amp; = &amp; \left[ -e^{-x} x^n \right]^{\infty}_0
+	- \int_0^{\infty} -e^{-x} nx^{n-1} \, dx &amp; \mbox{integration by parts} \\
+	&amp;&amp;&amp; \\ 
+	&amp; = &amp; 0 + n \int_0^{\infty} e^{-x}x^{n-1} \, dx  &amp;  \mbox{1st term evalaution and algebra }   \\ 
+	&amp;&amp;&amp; \\
+	&amp; = &amp;  n(n-1)!  &amp;  \mbox{induction hypothesis }   \\  
+	&amp;&amp;&amp; \\
+	&amp; = &amp; n!
+	&amp; \mbox{}   \end{array}  </me> 
+</p>
+
+<p> So by induction  <m>\int_0^{\infty} e^{-x}x^{n} \, dx = n!</m>.  <m>\Box</m>
+
+</p> 
+
+</proof> 
+ 
+</subsection> 
+
+<subsection> <title>Inequalities </title>
+
+  <p> 
+We further illustrate induction by giving induction proofs of two important inequalities:
+The <xref ref="thm-agme">arithmetic-geometric mean inequalty </xref>
+and the <xref ref="thm-cauchy-schwarz">Cauchy-Schwarz inequality </xref>
+  </p> 
+
+  <remark>
+    <p>
+      The induction proofs of the inequalities contain 
+a slightly more complicated induction step than our previous examples. 
+In particular we will see this in the proof of the normalized arithmetic-geometric mean inequality
+and will see it in later examples where we use induction.
+    </p>
+
+    <p>
+      In previous examples for each <m>n</m> there was a single statement 
+to be shown, for example <m>\frac{4^n-1}{3}</m> is an integer,
+or <m>1 + r + r^2 + \cdots + r^n = \frac{r^{n+1}-1}{r-1}</m> etc. 
+For the arithmetic geometric mean inequality we are proving a 
+statement of the form <q> all sets of integers that satisfy a certain 
+property (the hypothesis) satisfy a second property (the conclusion). </q>
+    </p>
+
+    <p> So when we do the <q> reduction</q>  from size <m>n</m> to smaller sizes we need to careful to do two things
+      <ul>
+      <li> We must be sure that the `reduction' applies to all 
+      size <m>n</m> object that satisfy the hypothesis. </li>
+      
+      <li> We must be sure that the new size <m>n-1</m> example also satisfy the hypothesis in order that induction can be applied. </li>
+      </ul>
+      </p>
+  </remark>
+
+  <definition xml:id="def-amean">
+    <title>Arithmetic Mean</title>  
+    <statement>
+      <p>
+        The <term> arithmetic mean </term>  of a set <m>y_1, y_2, \ldots, y_n</m> of
+  numbers is <m>\frac{y_1 + y_2 + \cdots + y_n}{n}</m>.
+      </p>
+    </statement>
+  </definition>
+  
+  <p> This is the usual
+  notion of <q> average</q>.
+  Another notion of <q>average</q> is the following: </p> 
+  
+  <definition xml:id="def-gmean">
+    <title>Geometric Mean</title>
+    <statement>
+      <p>
+        The <term> geometric
+mean </term>  (which works for nonnegative numbers) is <m>(y_1y_2 \cdots
+y_n)^{1/n}</m>. 
+      </p>
+    </statement>
+  </definition>
+  
+  
+ <p>  That is, for the geometric mean we take the <m>n^{th}</m> root of the product of
+  the <m>n</m> numbers. </p>  
+  
+  <p>  One typical application of the geometric mean is in
+  averaging inflation rates or finding the <q>average</q> rate of return in
+  an investment. </p> 
+
+  <example xml:id="expl-gmean">
+  <p>   Say that you invest $100. During the first year your
+return is 10%, 
+ending the year with 110. During the second year
+you lose 7% and during the third year you lose 3%. What is your
+average rate of return?
+  </p> 
+  <p>  Using the arithmetic mean the average of of
+10%, -7% and -3% is 0. You should break even at the end of three
+years. </p>
+<p>  However, doing the calculations the amount, in dollars, after the first year is
+<m>100 \cdot (1.1) = 110</m>, after the second year
+<m>110 \cdot (.93) = 102.3</m> and after the third year
+<m>102.3 \cdot (.97) = 99.231</m>. This is <em> not </em> 
+breaking even, so the arithmetic mean does work to correctly
+compute avergae rate of return. </p>
+
+<p>
+ In this situation you multiply your principle by
+<m>(1.1)(.93)(.97)</m>. 
+The geometric mean of these three numbers is
+<m>\sqrt[3]{(1.1)(.93)(.97)} = \sqrt[3]{.99231} \approx .99743 = 1 -
+.00257</m>. The situation above would be the same as losing .257% each
+year. The geometric mean gives the correct interpretation for
+<q>average</q> in situation where you get a total by multiplying.
+</p> 
+  </example>
+
+<p>
+  In <xref ref="expl-gmean"/> we saw that the geometric mean gives the correct <q> average </q>
+  rate of return for an investment. If you incorrectly use the arithmetic mean,
+  how does your computation compare to the correct value? In the example
+  the arithmetic mean was an overestimate. This will always be the case.
+</p>
+
+  <theorem xml:id="thm-agme">
+    <title> Arithmetic-Geometric Mean Inequality </title> 
+    <statement>
+      <p> if <m>y_1, y_2,
+        \ldots, y_m </m> are non-negative numbers then
+        <me> \frac{y_1 + y_2 + \cdots + y_n}{n} \geq \left( y_1y_2 \cdots y_n
+          \right)^{1/n} </me>
+          with equality only if <m>y_1=y_2 = \cdots = y_n</m>.
+        </p>
+          
+        <p>  That is, the arithmetic mean is always at least the geometric 
+          mean, with equality only when the numbers are identical. 
+      </p>
+    </statement>
+  </theorem>
+  
+<p>
+  For our proof it turns out to simplify notation later if we
+ first transform the problem by letting <m>x_i =
+    \frac{y_i}{(y_1\cdots y_n)^{1/n}}</m> for <m>i = 1,2, \ldots, n</m>.
+    Note that <m>x_1x_2 \cdots x_n = 1</m>. Thus proving <m>x_1 + x_2 + \cdots +
+    x_n \geq n</m> whenever the product is 1 will prove the arithmetic-geometric mean inequality.
+    </p>
+    
+    <theorem xml:id="thm-nagme">
+      <title>Normalized arithmetic-geometric mean inequality</title>
+      
+      <statement>
+        <p>
+          If
+      <m>x_1, x_2, \ldots, x_n</m> are non-negative numbers such that 
+      <m>x_1x_2 \cdots x_n = 1</m> then 
+       <me>x_1 + x_2 + \cdots + x_n \geq n</me>
+          with equality only if <m>x_1 = \cdots = x_n = 1</m>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      It is natural to try to find a smaller instance by simply omitting one of the <m>y_i</m> and thus, 
+      for example, 
+      consider  <m>y_1,y_2, \ldots, y_{n-1}</m>. This approach fails 
+      because the product <m>y_1y_2 \cdots y_{n-1}</m> will no longer be 1 unless
+      <m>y_n=1</m>. So we would not be able to apply the induction hypothesis to the smaller list.
+    </p> 
+    <p>  For example, if our numbers are 
+      <m>\frac{7}{4},\frac{3}{2},\frac{2}{3}, \frac{4}{7}</m> then a new 
+      list <m>\frac{7}{4},\frac{3}{2},\frac{2}{3}</m> does not have the 
+      correct product. Instead, a trick that works is to take the product 
+      of 2 numbers as one new new number.  For example we could try 
+      smaller lists <m>\frac{7}{4},\frac{3}{2}, \frac{8}{21}</m> or 
+      <m>\frac{7}{4},1, \frac{6}{7}</m>. These both are smaller and 
+      have the right product so we can apply the induction hypothesis 
+      to the smaller list to conclude
+      that their sum is at least 3 (since the smaller list has <m>n=3</m>). 
+    </p> 
+    <p> 
+        While we could combine any pair in this way, it will turn out that 
+        we will need to be a little more careful with the selection in order
+        to use the induction hypothesis, the new list sum is at least <m>n-1</m>, 
+        to show that the original list has sum at least <m>n</m>.
+       numbers sum to at least 4 will not work. What will work is to 
+      combine the largest number and the smallest number, so that one of 
+      them is at least 1 and one is at most 1. For example, combining the 
+      largest and smallest in our example, the new list to use is  
+      <m>1,\frac{3}{2}, \frac{2}{3}</m>. 
+    </p>
+    
+    <proof>
+      <title> Proof of normalized AG mean inequality</title>
+      
+       <p> The proof is by induction. The inequality is trivial when <m>n=1</m>
+    since then <m>x_1 = 1</m> and clearly  <m>x_1 \geq 1 = n</m>. 
+    </p> 
+    
+    <p> For <m>n \geq 2</m> relabel the numbers
+    so that <m>x_1 \geq x_{2} \geq \cdots \geq x_n</m>. Note that since
+    <m>x_1x_2 \cdots x_n = 1</m> we have <m>x_1 \geq 1 \geq x_n</m>.
+    </p>
+    <p>
+    Consider the
+    <m>(n-1)</m> numbers <m>x_2, x_3, \ldots, x_{n-1}, x_1x_n</m>. Note that
+    <m>x_2 + \cdots + x_{n-1} + x_1x_n</m> satisfy <m>x_2x_3 \cdots x_{n-1}(x_1x_n)
+    = x_1x_2 \cdots x_n = 1</m>. So by induction
+    these numbers satisfy the inequality and sum to at most <m>(n-1)</m>. 
+    </p>
+    <p>  Then
+    <me> \begin{array}{rl}  &amp; x_1 + x_2 + \cdots + x_n  \\
+       = &amp;
+      (x_2 + \cdots + x_{n-1} + x_1x_n ) + [x_1 + x_n - x_1x_n] \\
+       \geq &amp; (n-1) + \left[ 1 + (x_1 - 1) - x_n(x_1 - 1) \right] \\
+       = &amp; n + (x_1 - 1)(1 - x_n) \\
+       \geq &amp; n \end{array}
+    </me> 
+    Here the last inequality follows from <m>(x_1 - 1)(1 - x_n) \geq 0</m>
+    since <m>x_1 \geq 1 \geq x_n</m>. 
+  This inequality is strict unless 
+    <m>x_1 =1</m> or <m>x_n=1</m>. However, since  <m>x_1x_2 \cdots x_n = 1</m>
+    and we assumed <m>x_1 \geq x_{2} \geq \cdots \geq x_n</m>
+    if either <m>x_1 =1</m> or <m>x_n=1</m> then all <m>x_i =1</m>.
+     <m>\Box</m>
+    </p>
+</proof>
+
+<p>
+  Our second induction proof of the Arithmetic-Geometric Mean inequality 
+  uses a trick that goes back to Cauchy. We first illustrate with some examples.
+</p>
+
+<example>
+  <p>
+    When <m>n=2</m>, which will become the basis for our induction, we need to show that <m>x_1 + x_2 \geq 2\sqrt{x_1x_2}</m>. 
+For scratch work we square both sides to get <m>x_1^2 + 2x_1x_2 + x_2^2 = (x_1 + x_2)^2  \geq 4x_1x_2</m>. Rearranging this becomes <m>x_1^2 - 2x_1x_2 + x_2^2 = (x_1 - x_2)^2 \geq 0</m>. 
+  </p>
+  <p>  Of course our proof should not start by assuming  <m>x_1 + x_2 \geq 2\sqrt{x_1x_2}</m>. Instead we need to reverse the steps and show that this
+     follows from the basic fact that <m>(x_1 - x_2)^2 \geq 0</m>. We need to use the fact that the <m>x_i</m> are nonnegative for one of the reverse steps to hold. 
+     We will write this out in the correct direction in the written proof
+     <xref ref="pr-agcauchyl"/> that follows.  </p> 
+    <p> 
+Consider next <m>n=4</m>. From the <m>n=2</m> case applied twice we have <m>(x_1 + x_2) + (x_3 + x_4)
+\geq 2\sqrt{x_1x_2} + 2\sqrt{x_3x_4}</m>. Then applying the <m>n=2</m> 
+case again with the numbers
+<m>2\sqrt{x_1x_2}</m> and  <m>2\sqrt{x_3x_4}</m> we get 
+<me>  2\sqrt{x_1x_2} + 2\sqrt{x_3x_4} \geq 2\left(\sqrt{ 2\sqrt{x_1x_2} \cdot 2\sqrt{x_3x_4} }\right) = 4 \sqrt[4]{x_1x_2x_3x_4}</me>.  Hence
+we get the <m>n=4</m> case <m>x_1 + x_2 + x_3 + x_4 \geq 4(x_1x_2x_3x_4)^{1/4}</m>. 
+</p>
+<p> For the <m>n=8</m> case, splitting into two parts of size 4, applying the <m>n=4</m> case to each of these and then the <m>n=2</m> case to the resulting 2 numbers shows the formula for <m>n=8</m>. Repeating will yield and induction proof of 
+  the inequality for all powers of <m>2</m>. 
+  </p>
+  <p>
+    A final additional step will then be to use the result for powers of 2 to prove it
+    in general.
+  </p>
+</example>
+
+<lemma xml:id="lem-agcauchyl">
+  <title>Cauchy's AG mean inequality for powers of 2</title>
+  <statement>
+    <p>
+      For <m>n = 2^k</m> non-negative numbers <m>x_1,x_2, \ldots, x_n</m>
+<me> x_1 + x_2 + \cdots + x_n \geq n(x_1x_2 \cdots x_n)^{1/n}  
+ </me> 
+with equality only if <m>x_1 = x_2 = \cdots = x_n</m>.
+    </p>
+  </statement>
+</lemma>
+
+<p>In the following we are proving a result powers of 2, <m>n = 2^k</m>. So our induction
+parameter will be <m>k</m> rather than <m>n</m>. Notice also that for the basis we need
+to consider both <m>k=0</m> and <m>k=1</m> as the induction step will not work
+to show the <m>2 = 2^1</m> case from the <m>1 = 2^0</m> case. 
+</p> 
+
+<proof xml:id="pr-agcauchyl">
+  
+  <p>
+    The proof is by induction on <m>k</m>. The basis is the cases <m>k=0</m> and <m>k=1</m>. For <m>k=0</m>, so <m>n=1</m> the statement is simply <m>x_1 \geq x_1</m> which holds trivially.
+  </p> 
+  <p> 
+For <m>k=1</m>, so <m>n=2</m> we have
+<m>x_1^2 - 2x_1x_2 + x_2^2 = (x_1 - x_2)^2 \geq 0</m> which implies <m>x_1^2 + 2x_1x_2 + x_2^2 = (x_1 + x_2)^2  \geq 4x_1x_2</m>.
+Since the <m>x_i</m> are nonnegative we can take roots and get
+ <m>x_1 + x_2 \geq 2\sqrt{x_1x_2}</m>. Note that equality holds throughout only if <m>x_1 = x_2</m>. 
+  </p>
+  <p> For <m>n = 2^k</m> with <m>k \geq 2</m> let <m>Y_1 =  x_1 + \cdots + x_{n/2}</m> and 
+  <m>Y_2 = x_{n/2+1} + \cdots + x_{n}</m>. Then by induction
+    <me> \begin{array}{rl} &amp; 
+      \left( x_1 + \cdots + x_{n/2} \right) + \left( x_{n/2+1} + \cdots + x_{n} \right) \\
+    &amp; = Y_1 + Y_2 \\
+     &amp; \geq 2\left(Y_1Y_2\right)^{1/2} \\
+      &amp; \geq 2 \left( \frac{n}{2}(x_1 \cdots x_{n/2})^{2/n} \cdot \frac{n}{2}(x_{n/2+1} \cdots x_{n})^{2/n}
+      \right)^{1/2} \\
+   &amp; = n(x_1x_2 \cdots x_n)^{1/n}
+   \end{array} 
+    </me> 
+  The inequalities follow by induction, from the <m>n=2</m> case for the first inequality and two applications
+  of the <m>n/2</m> case for the second inequality. 
+  </p> 
+  
+  <p> To get equality throughout we need <m>Y_1 = Y_2</m> and the <m>x_i</m>'s in <m>Y_1</m> equal as well as the <m>x_i</m>s in <m>Y_2</m> all equal. Hence we need all <m>x_i</m> equal. <m>\Box</m> 
+  
+  </p>
+</proof>
+
+<p>
+  Now to cover the cases where <m>n</m> is not a power of 2 we use <term> backward induction </term>. 
+  We assume the result holds for larger values and use these as the induction
+  hypothesis to  show it for smaller values. 
+</p>
+
+<p> We illustrate the idea with an example first. </p> 
+
+<example>
+  <p> To illustrate the trick used here we do a small example, with <m>n = 3</m>. For <m>x_1 = 3, x_2 = 4, x_3 =8</m> we have arithmetic mean <m>5 = (3 + 4 + 8)/3</m> and geometric mean <m>4.58 \approx \sqrt[3]{96} = \sqrt[3]{3 \cdot 4 \cdot 8}</m>. 
+We can assume by <xref ref="lem-agcauchyl"/> that the inequality holds for <m>n= 4</m>, a power of 2. We need to construct a new instance with 4 numbers, apply the inequality and use this to show the inequality for the 3 given numbers. The trick is to add a new number equal to the arithmetic mean of the given numbers. In this case 5. 
+  </p> 
+  <p> 
+By <xref ref="lem-agcauchyl"/> we know that <m>\frac{3 + 4 + 8 + 5}{4} \geq \sqrt[4]{3 \cdot 4 \cdot 8 \cdot 5}</m> 
+ and want to show that
+<m>\frac{3 + 5 + 8}{3} \geq \sqrt[3]{3 \cdot 4 \cdot 8}</m>. 
+  </p> 
+  <p>
+Adding the arithmetic mean to a set of numbers does not change the mean. So the left side in both inequalities is 5.
+Assuming this we get <m>5 \geq \sqrt[4]{3 \cdot 4 \cdot 8 \cdot 5} \Rightarrow 5^{3/4} \geq (3 \cdot 4 \cdot 8)^{1/4}</m> and by raising to the <m>4^{th}</m> power we get <m>\frac{3 + 5 + 8}{3} = 5 \geq \sqrt[3]{3 \cdot 4 \cdot 8}</m>. 
+  </p>
+</example>
+
+<lemma xml:id="lem-agcauchyb">
+  <statement>
+    <p>
+      If
+    </p>  <p> <me> \frac{y_1 + y_2 + \cdots + y_{n+1}}{n+1} \geq \left( y_1y_2 \cdots y_{n+1}
+        \right)^{1/(n+1)} </me>
+           for all nonnegative numbers  <m> y_1, y_2,
+        \ldots, y_{n+1} </m>
+         with equality only if <m>y_1 = y_2 = \ldots = y_{n+1}</m> 
+           </p>
+           <p>  then 
+        <me> \frac{x_1 + x_2 + \cdots + x_n}{n} \geq \left( x_1x_2 \cdots x_n
+        \right)^{1/n} </me>   for all nonnegative numbers  <m> x_1, x_2,
+        \ldots, x_n </m>
+        with equality only if  <m>x_1=x_2 = \cdots = x_n</m>.
+    </p>
+  </statement>
+</lemma>
+
+<proof>
+  <p>
+    Given <m>x_1,x_2, \ldots, x_n</m>  let
+    <m> a = \frac{x_1 + x_2 + \cdots + x_n}{n}</m>. Applying the inequality with the <m>n+1</m> numbers
+     <m>y_i = x_i</m> for <m>i = 1,2, \ldots, n</m> and <m>y_{n+1} = a</m> we get
+     <m> \frac{x_1 + \cdots + x_n + a}{n+1} \geq \left( x_1 x_2 \cdots x_n a \right)^{1/n+1}</m>.
+     Using <m>x_1 + \cdots + x_n = na</m> this becomes <m>a \geq \left( x_1 x_2 \cdots x_n a \right)^{1/n+1}
+     \Rightarrow a^{n+1} \geq x_1x_2 \cdots x_n \cdot a \Rightarrow a^n \geq x_1x_2 \cdots x_n</m>.
+     Since the numbers are nonnegative taking the <m>n^{th}</m> root preserves the inequality and we get
+     <m>\frac{x_1 + x_2 + \cdots + x_n}{n} \geq \left( x_1x_2 \cdots x_n
+     \right)^{1/n}</m>.
+     </p>
+     <p>
+     We get equality only if <m>a = y_i</m> for all <m>i</m> which is only if all <m>x_i</m> are the same. <m>\Box</m>
+  </p>
+</proof>
+
+Now the two lemmas immediately yield 
+<proof>
+  <title>Cauchy's induction proof of AG mean inequality</title>
+  
+  <p>
+    Given <m>n</m>, pick <m>k</m> such that <m>2^k \geq n</m> then apply <xref ref="lem-agcauchyl"/> followed by 
+    backward induction down to <m>n</m> using <xref ref="lem-agcauchyb"/>. <m>\Box</m>
+  </p>
+</proof>
+
+
+    <p> The Cauchy-Schwarz inequality shows up in various forms in many areas of mathematics.
+    It also holds in a more general setting called inner product spaces. We state the version
+    for real numbers here.
+    </p> 
+
+    <theorem xml:id="thm-cauchy-schwarz">
+      <title>Cauchy-Schwarz inequality</title>
+      
+      <statement>
+        <p>
+          For real numbers <m>x_i</m> and <m>y_j</m> 
+          <me>
+             \left(x_1y_1 + x_2y_2 + \cdots + x_ny_n\right)^2  
+            \leq \left(x_1^2 + x_2^2 + \cdots + x_n^2\right) \left(y_1^2 + y_2^2 + 
+              \cdots + y_n^2\right)
+          </me>
+          
+        </p>
+      </statement>
+
+  
+    </theorem>
+
+    <p>
+      
+      The result hold trivially when <m>n=1</m>. However for the basis we also need to
+      directly check the <m>n=2</m> case. That is, our induction step 
+      will only work starting at <m>n=3</m>. While it is also 
+      straightforward to check the <m>n=2</m> case we will assume it here in order to focus on
+      the induction process. 
+    </p>
+
+  
+      
+   <proof><title>Induction proof of Cauchy-Schwarz inequality: version 1</title>
+   
+   
+    <p> As noted above, we will assume  that the inequality holds for <m>n=1</m> and <m>n=2</m>.
+    </p>
+    
+    <p>
+      For <m>n \geq 3</m>, by induction
+      <me>
+         \left(x_1y_1 + x_2y_2 + \cdots + x_{n-1}y_{n-1} \right)^2
+        \leq (x_1^2 + \cdots + x_{n-1}^2)(y_1^2 + \cdots + y_{n-1}^2)
+      </me>
+      and taking square roots
+      <me>
+        x_1y_1 + x_2y_2 + \cdots + x_{n-1}y_{n-1} 
+       \leq \sqrt{x_1^2 + \cdots + x_{n-1}^2}\sqrt{y_1^2 + \cdots + y_{n-1}^2}
+     </me>.
+      Using this for the first inequality below and using the <m>n=2</m>
+      case for the second inequality we get
+    
+      <me>
+        \begin{array}{rl}
+        \amp  \left(x_1y_1 + \cdots + x_ny_n\right)^2  \\ 
+         = \amp
+        \left( \left(x_1y_1 + x_2y_2 + \cdots + x_{n-1}y_{n-1} \right)  
+        + x_ny_n \right)^2 \\
+          \leq  \amp \left( \sqrt{x_1^2 + \cdots + x_{n-1}^2 }
+          \sqrt{y_1^2 +  
+            \cdots + y_{n-1}^2 } + x_ny_n \right)^2 \\
+          \leq \amp \left( \sqrt{x_1^2 + \cdots + x_{n-1}^2}^2 + x_n^2 \right)
+           \left(\sqrt{y_1^2 + \cdots + y_{n-1}^2}^2 + y_n^2  \right)\\ 
+           = \amp \left(x_1^2 + x_2^2 + \cdots + x_n^2\right) \left(y_1^2 + y_2^2 + 
+            \cdots + y_n^2\right)
+        \end{array}
+      </me>.
+      Hence, by induction the inequality holds for all <m>n</m>. <m>\Box</m>
+    </p> 
+
+</proof> 
+
+<p>
+  The algebra in the proof above can look a little messy. An alternative is to define
+  some extra terminology to reaarange to style of the computations. Which version is <q>better</q>
+  is a matter of taste and context of who might be reading the proof. They are both
+  equally valid. 
+</p>
+
+<proof><title>Induction proof of Cauchy-Schwarz inequality: version 2</title>
+
+  <p>
+    As noted above, we will assume that  the inequality holds for <m>n=1</m> and <m>n=2</m>.
+  </p>
+
+  <p>
+    For <m>n \geq 3</m>, by induction
+    <me>
+       \left(x_1y_1 + x_2y_2 + \cdots + x_{n-1}y_{n-1} \right)^2
+      \leq (x_1^2 + \cdots + x_{n-1}^2)(y_1^2 + \cdots + y_{n-1}^2)
+    </me>
+    and taking square roots
+    <me>
+      x_1y_1 + x_2y_2 + \cdots + x_{n-1}y_{n-1} 
+     \leq \sqrt{x_1^2 + \cdots + x_{n-1}^2}\sqrt{y_1^2 + \cdots + y_{n-1}^2}
+   </me>.
+   Let <m>X = \sqrt{x_1^2 + \cdots + x_{n-1}^2}</m> 
+   and <m>Y = \sqrt{y_1^2 + \cdots + y_{n-1}^2}</m>. Then
+   <m> X^2 + x_n^2 = x_1 + \cdots = x_n^2 </m> 
+   and <m> Y^2 + y_n^2 = y_1 + \cdots = y_n^2 </m>. 
+  </p>
+
+  <p> 
+   The inequality from induction is 
+   <m> x_1y_1 + x_2y_2 + \cdots + x_{n-1}y_{n-1} 
+    \leq  XY </m>.   
+  Using this for the first inequality below and using the <m>n=2</m>
+    case for the second inequality we get
+  
+    <md>
+      <mrow> 
+       \amp \left(x_1y_1 + \cdots + x_ny_n\right)^2  </mrow>
+       <mrow>  = \amp \left( \left(x_1y_1 + x_2y_2 + \cdots + x_{n-1}y_{n-1} \right)  
+      + x_ny_n \right)^2  </mrow> 
+      <mrow>   \leq \amp  \left( XY + x_ny_n \right)^2  </mrow> 
+        <mrow>  \leq \amp  \left( X^2 + x_n^2 \right)
+         \left(Y^2 + y_n^2  \right) </mrow>
+         <mrow> 
+          = \amp \left(x_1^2 + x_2^2 + \cdots + x_n^2\right) \left(y_1^2 + y_2^2 + 
+          \cdots + y_n^2\right)  </mrow>
+    </md>.
+    Hence, by induction the inequality holds for all <m>n</m>. <m>\Box</m>
+  </p> 
+    
+</proof>
+
+</subsection> 
+
+</section>
