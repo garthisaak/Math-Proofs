@@ -5,7 +5,7 @@
   <xi:include href="./docinfo.ptx" />
 
   <book xml:id="IntroMRW">
-    <title>Introduction to Mathematical Reasoning and Writing ..</title>
+    <title>Introduction to Mathematical Reasoning and Writing</title>
 
 
     <!-- Include frontmatter -->
