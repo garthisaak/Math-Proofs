@@ -20,6 +20,8 @@
 
     <xi:include href="./induction/ch-induction1.ptx" />
 
+    <xi:include href="./induction/ch-induction2.ptx" />
+
 
     <!-- Include backmatter -->
     <xi:include href="./backmatter.ptx" />

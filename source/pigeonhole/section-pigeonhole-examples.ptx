@@ -5,12 +5,13 @@
 
  <p>
   
-Returning to the pigeonhole principle we illustrate with several examples. 
+Returning to the pigeonhole principle we illustrate its use 
+with several examples. 
 
  </p> 
 
 <p> Recall that we can use long division to represent a rational number 
-  as a decimal, either as a terminating decimal or a reapeating decimal..
+  as a decimal, either as a terminating decimal or a reapeating decimal.
 
 For example <m> \frac{3}{24} = \frac{1}{8} = .125</m>  is a 
  terminating decimal and
@@ -23,17 +24,16 @@ repeats infinitely often.
 
 Consider the long division
 
-  <image source="./longdiv.pdf"/>
-
 
 <me>  \require{enclose}    7 \enclose{longdiv}{3.000000} 
  
  </me>
 
+
 The key idea is that either a reminder of 0 is reached, 
 in which case the expansion terminates or some remainder repeats, 
-after which the pattern repeats. We guarantee that there is a repeat 
-because the reminders are strictly less than the denominator. 
+after which the pattern repeats. We must terminate or have a repeat
+because the possible reminders are all strictly less than the denominator. 
 So if the denominator is <m> b</m> , the possible remainders are 
 <m> 0,1,2, \ldots, b-1</m> . If a remainder of 0 occurs by <m> b^{th}</m>  
 division the expansion terminates with at most <m> b-1</m>  decimals. 
@@ -49,7 +49,7 @@ While we haven't formally written out a full proof this gives an
  outline of a proof of the following based on the pigeonhole principle.
 </p> 
 
- <proposition xml:id="prop-longdiv">
+ <fact xml:id="fact-longdiv">
   <statement>
     <p>
       The decimal expansion of any rational number either 
@@ -62,13 +62,13 @@ While we haven't formally written out a full proof this gives an
   length at most <m> b-1</m>.
     </p>
   </statement>
- </proposition>
+</fact>
 
  
 
 <exploration xml:id="expl-pigeon-div">
-  Pick any 6 numbers from <m> \{1,2,3, \ldots, 10\}</m>  
-  and show that at least one divides another.
+   Pick any 6 numbers from <m> \{1,2,3, \ldots, 10\}</m>  
+  and show that at least one divides another. 
   <solution>
     <p>
       
@@ -107,7 +107,8 @@ While we haven't formally written out a full proof this gives an
 
     <p>
       We need another strategy, especially if we hope this to extend 
-      to a general result, picking from <m> 1,2,,3, \ldots, 2n</m>.
+      to prove a general result, picking from <m> 1,2,,3, \ldots, 2n</m> for any 
+      <m>n</m>.
     </p>
   
     
@@ -135,7 +136,7 @@ While we haven't formally written out a full proof this gives an
       
     We have partitioned <m> \{1,2, \ldots, 10\}</m>  into 5 sets 
     (pigeonholes) with the property that if two numbers are selected 
-    from any part , one divides another. 
+    from any part, one divides another. 
     
     By the pigeonhole principle, if we pick <em>any </em> 6 numbers, 
     2 must be picked from some set. So we get our result
@@ -184,7 +185,7 @@ For each set we pick an odd number and keep doubling. Note that
 
 <p>
   To build toward a pigeonhole proof of a general result note the context. 
-  We are picking {\em any} subset of a given size from some larger set. 
+  We are picking <em> any </em> subset of a given size from some larger set. 
   We want to partition the larger set first and use this partition to 
   define a partition of the smaller selected set. The partition of the 
   larger set should have an appropriate property. 
@@ -218,27 +219,32 @@ For each set we pick an odd number and keep doubling. Note that
 
 <p> Note that we have in addition stated that the result is 
   <term> best possible </term>.
-  By this we mean that we cannot reduce the <m>2n+1</m> in the statement 
-  to <m>2n</m>. We can pick a subset of <m>[2n] </m> with size <m>n</m>
+  By this we mean that we cannot reduce the <m>n+1</m> in the statement 
+  to <m>n</m>. We <em>can </em>  pick a subset of <m>[2n] </m> with size <m>n</m>
   for which no number divdes another. 
 </p>
 
 <proof> <p>
- Write each integer as <m> 2^km</m>  for some <m> k</m>  and odd integer 
- <m> m</m>. Note that <m> m \leq n-1</m>  for any integer 
- at most <m> 2n</m>.  Partition the integers <m> \{1,2, \ldots, 2n\}</m>  
-into <m> P_1,P_3, \ldots, P_{2n-1}</m>  with <m> i \in P_m</m>  
-if <m> i = 2^km</m>.  Since any two integers in <m> P_m</m> 
+  Given <m>n+1</m> integers from <m>[2n]</m> partition them into
+  <m>n</m> parts
+  <m> P_1,P_3, \ldots, P_{2n-1}</m>  with <m> i \in P_m</m> 
+  if <m> i = 2^km</m>. That is, place each integer into the part indexed by
+  its largest odd divisor. This divisor is at most <m>2n-1</m> so each interger is
+  placed in one of the <m>P_m</m>.  Since there are <m> n</m>  parts  and <m> n+1</m>  integers, 
+ some part has size at least 2 by the pigeonhole principle. 
+</p> 
+
+  <p> Since any two integers in <m> P_m</m> 
 are of the form <m> 2^{k_1}m</m>  and <m> 2^{k_2}m</m>, one divides 
 the other. </p> 
 
-<p> Given any <m> n+1</m>  integers from <m> \{1,2,3, \ldots, 2n \}</m>, 
-  partition them based on the partitions <m> P_i</m>  for <m> i</m>  odd. 
-Since there are <m> n</m>  parts  and <m> n+1</m>  integers, 
-some part has size at least 2 by the pigeonhole principle. 
-Such a pair has the smaller dividing the larger. <m> \Box</m> 
-
+<p>
+  To show that the bound is best possible consider the set of <m>n</m> numbers
+  <m>\{ n+1, n+2 \ldots, 2n \} \subseteq [2n]</m>. 
+  None divides another as twice any of the numbers is greater than <m>2n</m>.
+ <m> \Box</m> 
 </p>
+
 </proof> 
 
 
@@ -259,13 +265,125 @@ Such a pair has the smaller dividing the larger. <m> \Box</m>
 
 </remark>
 
+<p> We conclude with one more example that covers a special case of the Remainder
+Theorem that we will examine later in <xref provisional="ch-remainder"/>.
+</p> 
+
+<example xml:id ="expl-remainder1">
+  <p>
+  If <m>x</m> is a number between 1 and 20 that leaves a remainder
+  of 2 when divided by 5 and a remainder of 1 when divided by 4 what is it?
+  </p>
+  
+  <p>
+  This is small enough that we could check it by trial and error. However,
+  one question we might ask is if the number is unique. We might also ask
+  if there such a number is guarenteed to exist for any choice of remainders.
+  In each case the answer is yes. Indeed this will be true for any pair of numbers
+  that we divide by, replacing 5 and 4, as long as the numbers are <term> relatively prime </term>. 
+  That is, as long as they share no common divisor.  
+  </p>
+  <solution>
+  <p>
+  As noted, this problem is small enough that we could find the answer by trial an error.
+  However, we will follow a more systematic approach that will lead to 
+  a proof in the more general setting.
+  </p>
+  
+  <p> Consider the 4 numbers <m>2, 2+5, 2+10, 2+15</m> that leave a remainder
+  of 2 when divided by 5.  One of them, <m>2 + 15 = 17</m>, <q>works</q>
+  leaving a remainder of 1 when divided by 4.  
+  </p>
+  
+  <p> Note that here we listed 4 numbers with the right remainder when 
+  divided by 4. Could it have been the case that none of them
+  had a remainder of 1 when divided by 4? If not, then since there
+  are 3 other possible remainders, by the pigeonhole principle, some pair would have the same remainder.
+  This possibly will lead us to a contradiction so that we will be able to conslude
+  that we will always find a solution.
+  </p> 
+  </solution>
+  </example>
+
+<p> Recalling notation from <xref ref="ch-quadratic-formula" />  
+we write <m>x \equiv a \pmod{n}</m> and say that <m>x</m> is congruent to
+  <m>a</m> modulo <m>n</m> if <m>x</m> and <m>a</m> leave the same remainder when
+  divided by <m>n</m>.
+</p> 
+
 <p>
-  In <xref provisional="ch-montone"/> we will look 
-    at monotone sequences. One of the result will require a non trivial application of the pigeonhole principle.
+  We will say that two numbers are <term>relatively prime</term> if their greatest
+  common divisor is 1. That is, the primes in thier prime factorizations 
+  are different. 
+</p>
+
+<p>
+  We can now state a general version of <xref ref="expl-remainder1" />.
+</p>
+
+<proposition xml:id="prop-remainder2">
+      <title>Remainder Theorem, <m>n=2</m> case</title>
+
+  <statement>
+    <p>
+      Let <m>m</m> and <m>n</m> be relaively prime natural numbers. For any 
+      <m>a,b </m> with  <m>0 \leq a \lt m</m> and <m>0 \leq b \lt n</m>
+      there exists a unique integer <m>x</m> with <m>0 \leq x \lt mn</m>
+      such that <m>x \equiv a \pmod{m}</m> and <m>x \equiv b \pmod{n}</m>.
+    </p>
+  </statement>
+</proposition>
+
+<p> That is, if <m>m</m> and <m>n</m>   have greatest common divisor 1
+and we pick any pair of remainders <m>a,b </m> from division by <m>m</m>
+and <m>n</m> repspectively there is a unique number less that <m>mn </m>
+that has these remainders. 
+</p> 
+
+<p> We will not prove uniqueness here. </p> 
+<p> In the proof we will use the fact, which can be easily checked
+  that if <m>m</m> and <m>n</m> are relatively prime (share no divisors other than 1)
+  then their least common mulitple is <m>mn</m>. 
+</p>
+
+<proof>
+  <p>
+    Consider the <m>n</m> numbers <m>z_i = a + im</m>   for <m>i = 0,1, \ldots, n-1</m>. 
+    That is, the numbers <m>a, a+m, a+2m, \ldots, a + (n-1)m</m>. Note that each
+     <m>z_i \equiv a \pmod{m} </m> and hence each <m>z_j - z_i</m> is a multiple of <m>m</m>.
+      If any <m>z_i</m> is also congruent to <m>b</m> modulo <m>n</m>,
+     it has the needed property and
+     we are done. 
+  </p>
+
+  <p>
+    Assume that no <m>z_i</m> is congruent to <m>b</m> modulo <m>n</m> and reach a contradiction. 
+    This will show that some <m>z_i</m> must have this property. </p>  
+    
+    <p> Partition the <m>z_i</m> based on the remainder 
+    modulo <m>n</m>. Since we are assuming the remainder is not <m>b</m>, it is one of the
+    remaining <m>n-1</m> values, other than <m>b</m> from <m>0,1, \ldots, n-1</m>. By the pigeonhole principle
+    there must be two values with the same remainder. So we can assume
+    <m> z_i \equiv z_j \equiv r \pmod{n}</m> for some <m>r</m> and some <m>(n-1) \geq j \gt i \geq 0</m>. 
+    Thus <m>y = z_j - z_i</m> is a mulitple of <m>n</m>.  
+    Also as noted above, <m>y</m> is also multiple of <m>m</m>. Since <m>m</m> and <m>n</m> are relatively prime, their least common multiple 
+    is <m>mn</m>. Hence <m>y</m> is a multiple of <m>mn</m>. This is a contradiction since <m>y = (j-i)m</m> with
+    <m>0 \lt j-i \leq n-1</m>. <m>\Box</m>
+  </p>
+
+  
+
+</proof>
+
+
+<p>
+  In <xref ref="ch-monotone"/> we will look 
+    at monotone sequences and one of the results will 
+    follow from an application of 
+    the pigeonhole principle. In <xref ref="sec-induction-ramsey"/>
+    we will explore Ramsey Theory which can be viewed as a generalization
+    of the pigeonhole principle. 
     
 </p>
 
-
-
-  
 </section>

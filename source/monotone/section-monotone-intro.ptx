@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="section-monotone-intro">
-  <title>Intro</title>
+  <title>Erdos-Szekeres Theorem</title>
 
  
       <p>
@@ -20,13 +20,13 @@
       </p>
 
       <p> 
-      We can also check that there is a decreasing subsequuence of length 5.
+      We can also check that there is a decreasing subsequence of length 5.
         There are two of them: 8,6,5,4,2
       and 15,13,11,10,7 but none of length 6.
       </p>
 
       <exploration xml:id="es-example" >
-        <p> Informally pigeonhole principle shows that if <q> enough </q> 
+        <p> Informally, the pigeonhole principle shows that if <q> enough </q> 
         pigeons are placed into a fixed number of boxes, we 
         can force some box with a <q> large </q> number of pigeons.  
         </p>
@@ -50,7 +50,7 @@
         However, a long sequence is guaranteed to have either a 
         long increasing subsequence or a long decreasing subsequence. 
         
-        The general area called <xref provisional="section-ramsey" > Ramsey Theory </xref>  can be viewed as extending 
+        The general area called <xref ref="sec-induction-ramsey" > Ramsey Theory </xref>  can be viewed as extending 
         the pigeonhole principle to showing that in the right circumstances, 
         certain <q> patterns </q> are guaranteed to exist in <q> large enough </q> 
         objects.
@@ -71,7 +71,7 @@
       numbers.
       A <term> subsequence </term> <m>S_J</m>  is a subset of terms in the 
       sequence with
-      indices in <m>J</m>. Its <term> size </term>is <m>|J|</m>, 
+      indices in <m>J</m>. Its <term> size </term> is <m>|J|</m>, 
       the number of terms.
       Subsequence <m>S_J</m>  is <term> increasing </term> if for 
       <m>i,j \in J</m>  with <m>i \lt j</m> 
@@ -225,20 +225,99 @@ in <m>s_j</m>  by adding <m>s_j</m>  at the end.
       above we see that the maximum length of an increasing subsequence is 4
       and there is a partition into 4 decreasing sublists. Similarly, the maximum length
       of a decreasing sublist is 6 and there is a partition into 6 increasing sublists.
-      
         
       </p>
    
-
-  
- 
-
  
 <p>
-  
+  We take the ideas of the previous example
+for the following proof. We will repeat the discussion above about distinct pairs in the proof  for completeness.  
+We will defer discussion of <q> best possible </q> to later.
 </p>
-  
-  
 
+<theorem xml:id="thm-erdossz">
+ <title>Erdos-Szekeres Theorem</title>
+  <statement>
+    <p>
+      Any list of <m>pq+1</m>  distinct numbers contains either
+      an increasing subsequence of size <m>p+1</m>  or a decreasing subsequence of size <m>q+1</m>. 
+    </p> <p> This is best possible:
+      there are lists of <m>pq</m>  distinct numbers with no increasing subsequence of size <m>p+1</m>  and no
+      decreasing subsequence of size <m>q+1</m>.
+    </p>
+  </statement>
+</theorem>
+
+<proof>
+<p>
+  For each term, <m>s_i</m>, let  <m>x_i</m>  denote the size of a longest increasing
+subsequence ending in (and including) that term and let <m>y_i</m>  denote the size of a longest
+decreasing subsequence ending in (and including) that term. If the longest increasing subsequence has size
+at most <m>p</m>  the and the longest decreasing subsequence has size at most <m>q</m>  then
+<m>x_i \leq p</m>  and <m>y_i \leq q</m>  for <m>i = 1,2, \ldots, pq+1</m> . Since there are <m>pq</m>  possible
+pairs <m>(x_i,y_i)</m>, by the pigeonhole principle,  <m>(x_i,y_i) = (x_j,y_j)</m>  for some <m>i \lt j</m>.
+Since <m>x_i = x_j</m>  then <m>s_i \gt s_j</m>  since if <m>s_i \lt s_j</m> 
+any increasing subsequence ending in <m>s_i</m>  could be extended to a longer increasing
+subsequence ending in <m>s_j</m>. Similarly, <m>y_i = y_j</m>  implies <m>s_i \lt s_j</m> . This is a contradiction.
+So either some <m>x_i \geq p+1</m>  or some <m>y_i \geq q+1</m>. That is, either there is an increasing subsequence of length at least <m>p+1</m>  or a decreasing subsequence of length at least <m>q+1</m>. <m>\Box</m> 
+</p>
+
+</proof>
+
+<p>
+  While the Erdos-Szekeres Theorem is not usually stated in the contrapaotive, it is useful
+  for illustrating the contrapositive to do so.
+</p>
+
+<theorem xml:id="thm-erdosszc">
+  <title>Erdos-Szekeres Theorem - Contrapositive form</title>
+  <statement>
+    <p>
+      If a list of distinct numbers has longest increasing subsequence size <m>p</m>  and longest increasing
+	subsequence size <m>q</m>  then the list has at most <m>pq</m>  terms.
+    </p>
+  </statement>
+</theorem>
+
+<p>
+  The Erdos-Szekeres Theorem guarantees that a sequence of <m>16 = 3 \cdot 5 + 1</m>  distinct numbers contains either an increasing subsequence of length <m>3+1 = 4</m>  or a decreasing subsequence of length <m>5+ 1 = 6</m> .
+</p>
+
+<p>
+  To show that the bound is best possible we need to exhibit a specific sequence of length 15 in which neither of these occur.  We give the following example a name <m>S_{3,5}</m>  to indicate that it shows the bound is best possible when <m>p=3</m>  and <m>q=5</m>. 
+  We also shift indices to start at 0 rather than 1 as it ends up being more covenient notation in a general proof. 
+	<me>  S_{3,5} = s_0,s_1, \ldots, s_{14} = 5,4,3,2,1,10,9,8,7,6,15,14,13,12,11 </me>
+	Observe that this partitions into 3 decreasing subsequences 
+<m>D_0 = s_0,s_1, \ldots s_4 = 5,4,3,2,1</m>  and <m>D_1 = s_5,s_6, \ldots, s_9 = 10,9,8,7,6</m> 
+and <m>D_2 = s_{10},s_{11}, \ldots, s_{14} = 15,14,13,12,11</m>.
+Any increasing subsequence can use at most 1 term from each of the <m>D_i</m>  and hence has length at most 3.
+</p>
+
+<p>
+  Similarly, this partitions into  5 increasing subsequences 
+  <m>I_0  = s_0,s_5,s_{10} = 5,10,15</m>  and <m>I_1 = s_1,s_6,s_{11} = 4,9,14</m>  and 
+  <m>I_2  = s_2,s_7,s_{12} = 3,8,13</m>  and <m>I_4 = s_3,s_8,s_{13} = 4,9,12</m>  and
+  <m>I_5 = s_4,s_9,s_{14} = 1,6,11</m>. 
+  
+  Any decreasing subsequence can use at most 1 term from each of the <m>I_i</m>  hence can have length at most 5. 
+</p>
+
+<p>
+  Other examples would be 
+<me> S_{7,10} = s_0,s_1, \ldots, s_{69} = 10,9,8,\ldots, 3,2,1, 20,19, \ldots, 11, \ldots, 70,69, 68, 
+\ldots, 63,62,61 </me>
+with no increasing subsequence of length 8 and no decreasing subsequence of length 11 and
+<me> S_{5,3} = s_0,s_1, \ldots, s_{14} = 3,2,1,6,5,4,9,8,7,12,11,10,15,14,13 </me>
+with no increasing subsequence of length 6 and no decreasing subsequence of length 4. 
+</p>
+
+<p>
+  In general, to show that the Erdos-Szekeres bound is best possible for all <m>p,q</m>  we could define  the sequence <m>S_{p,q} = s_0,s_1, \ldots, s_{pq-1}</m> 
+by <m>s_i = q(a+1)-b</m>  where <m>a</m>  is the quotient and <m>b</m>  the remainder when <m>q</m> 
+divides <m>i</m>. By the <term> division algorithm </term> <m>a,b</m>  are the unique integers <m>a \geq 0</m>  and
+<m>0 \leq b \leq q-1</m>  such that <m>i = qa + b</m> . Showing that <m>D_0,D_1, \ldots, D_{p-1}</m>  (with <m>s_i</m>  in <m>D_j</m>  if the quotient when <m>i</m>  is divided by <m>q</m>  is <m>j</m> ) is a partition into decreasing subsequences and
+that <m>I_0,I_1, \ldots, I_{q-1}</m>  (with <m>s_i</m>  in <m>I_j</m>  if the remainder when <m>i</m>  is divided by <m>q</m>  is <m>j</m> ) 
+	is a partition into increasing subsequences shows that the bound is best possible. The details are left as an exercise. 
+</p>
 
 </section> 

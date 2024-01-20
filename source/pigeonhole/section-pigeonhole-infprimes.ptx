@@ -11,10 +11,10 @@
   
   <p>  The proof will assume an understanding of 
     prime numbers, positive integers greater than 1 with no 
-    divisors other than 1 and the number itself and will also 
+    divisors other than 1 and the number itself. It will also 
     assume the fact that that every non 
-    prime is a product of primes.  
-Also we assume the following which can easily be checked.
+    prime is a product of primes as well as  
+the following which can easily be checked.
 
   </p>
 
@@ -64,8 +64,9 @@ The result is attributed to Euclid who first published a proof over
     <p>
       Assume that there are finitely many primes, 
       <m> p_1,p_2, \ldots, p_k</m>.
- Consider the number  <m> m = 1 + \prod_{i=1}^k p_i</m>. 
- If <m> m</m>  is not prime, it is a product of primes so <m> p_i</m>  
+ Consider the number  <m> m = 1 + \prod_{i=1}^k p_i</m>. It is a product 
+ of primes
+ so <m> p_i</m>  
  divides <m> m</m>  for at least one of the primes <m> p_i</m>. However,  by
  <xref ref="fact-ababplus1"/>, <m> p_i</m>  does not divide <m> m</m>, 
  a contradiction. So there must be infintely many primes. <m> \Box</m> 

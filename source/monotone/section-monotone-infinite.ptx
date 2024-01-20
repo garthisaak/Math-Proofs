@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-monotone-infinite">
+  <title>Infinite Sequence example</title>
+
+  <p>We next move toward infinite sequences and a place where the Erdos-Szekeres Theorem can be used as a Lemma in a proof of a result in this setting. </p>
+
+<p>There are other proofs that use different approaches. </p>
+
+<p>We will be considering infinite sequences and will allow repeated values. It is not difficult to see that the Erdos-Skekeres Theorem still holds if we allow repeated values and replace increasing and decreasing with nondecreasing (i.e., weakly decreasing, ties allowed) and nonincreasing (i.e., weakly increasing, ties allowed). </p>
+
+<p>To avoid extra details we will also leave some terms defined informally. These should be examined carefully and precisely in the right setting. We just do not have space here. </p>
+
+<p>The goal will be to outline a proof of the following. As indicated in the name, the full result holds in more general settings.  </p>
+
+<theorem xml:id="thm-bolzano">
+  <title>Bolzano-Weierstrass Theorem (for real numbers in one dimension)</title>
+  <statement>
+    <p>
+      Every bounded infinite sequence of real numbers has a convergent subsequence.  
+    </p>
+  </statement>
+</theorem>
+
+<p>
+  Rather than formally defining convergent, we give an informal (and old) example. The formal definition is interesting in its own right but requires quite a bit of extra work and is left for elsewhere. 
+</p>
+
+<example xml:id="expl-zeno">
+  <statement>
+    <p> We present a slight variant of an old paradox to the ancient Greeks. With modern mathematical definitions and terminology it isn't really a paradox anymore. </p>
+	
+    <p> The fast runner Atalanta must first complete half of her race, then half of the remaining half, then half the remaining quarter then <m>\ldots </m>. </p>  
+    
+    <p> This can repeat infinitely. The distance she runs is <me> (1/2) + (1/2)^2 + (1/2)^3 + \cdots
+    = \sum_{k=1}^{\infty} \left( \frac{1}{2} \right)^k </me> </p>
+    
+    <p>This should be 1 but how can an infinite sum be finite? </p>
+    
+    <p>Students who have taken calculus already are familiar with the ideas of how we now handle this. A quick review follows. </p>
+    
+    <p>The sum above is a <term> geometric series </term>, the ratio of one term to the next is a fixed value <m>r</m> , in this case <m>r = 1/2</m> .  </p>
+    
+    <p> To consider the infinite sum we look at  partial sums   <me>S_n = \sum_{k=1}^{n} \left( \frac{1}{2} \right)^k
+    = 1 - \left( \frac{1}{2} \right)^n</me>. 
+    Using  <xref ref="prop-geop"/>,
+    we have <m>1 + S_n = \frac{(1/2)^{n+1} - 1}{1 - 1/2}</m>
+    from which <m>S_n = 1 - (1/2)^n</m>.
+  </p>
+    
+    <p> Informally <m>1 - (1/2)^n</m>  converges to <m>1</m>  since <m>(1/2)^n</m>  is arbitrarily small for large <m>n</m>. That is the sequence of partial sums converges to <m>1</m>  because the sequence <m>(1/2),(1/2)^2, (1/2)^3, (1/2)^4, \ldots</m>  converges to 0. </p>
+  </statement> 
+</example>
+
+    <p> As noted before, a formal definition of convergence is important and should be studied, but we will skip it here.
+    In general, an infinite sequence (even if it doesn't have the nice pattern of this example) converges to some number <m>c</m>  if terms get arbitrarily close to <m>c</m>  (and stay close) for large <m>n</m>  (indices on the terms).
+    </p>
+
+<p>
+  To get to the Bolzano-Weierstrass Theorem we will put together several results.
+	The first we state without formal definitions and omit its proof.
+</p>
+
+<theorem xml:id="thm-monotonec">
+  <title>{Monotone Convergence Theorem  (for real numbers in one dimension)</title>
+  <statement>
+    <p> Every nondecreasing infinite sequence of real numbers that is bounded above converges to its least upper bound. </p>
+		
+		<p> Every nonincreasing infinite sequence of real numbers that is bounded below converges to its greatest lower bound. </p> 
+  </statement>
+</theorem>
+
+<p> The following follows from the <xref ref="thm-erdosszc">Erdos-Szekeres Theorem </xref>.
+To see this: If, for some finite <m>p,q</m>, the longest nondecreasing subsequence has length <m>p</m>  and the longest nonincreasing subsequence has length <m>q</m> , then by the (contrapositive version) of the Erdos-Szekeres Theorem the sequence length is at most <m>pq</m>, contradicting the fact that it is infinite. 
+</p> 
+
+<corollary xml:id="cor-erdossz">
+  <statement>
+    <p>
+      Every infnite sequence of real numbers has either a nondecreasing infinite subsequence or a
+      nonincreaing infinite subsequence.  
+    </p>
+  </statement>
+</corollary>
+
+<p>
+  Now the proof of the <xref ref="thm-bolzano"> Bolzanao-Weierstrass Theorem </xref> follows from applying the 
+  <xref ref="thm-monotonec"> Monotone Convergence Theorem </xref>   and the <xref ref="cor-erdossz"> 
+    Corollary of the Erdos-Szerkeres Theorem </xref>.  
+</p>
+
+</section> 

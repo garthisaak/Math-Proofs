@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<chapter xml:id="ch-monotone" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Monotone Sequences</title>
+<chapter xml:id="ch-induction2" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>More Mathematical Induction</title>
 
   <introduction>
     <objectives>
@@ -21,10 +21,8 @@
   </introduction>
 
   <!-- include sections -->
-  <xi:include href="section-monotone-intro.ptx" />
+  <xi:include href="sec-induction-trees.ptx" />
 
-  <xi:include href="section-monotone-infinite.ptx" />
-
-  <xi:include href="section-monotone-patience.ptx" />
+  
   
 </chapter>

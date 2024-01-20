@@ -122,8 +122,9 @@
       will write <m>3 \cdot 4 \equiv 0 \pmod {12}</m> and say that <m>3 </m> 
       times <m>4</m> is 
       congruent to <m>0 </m> modulo <m>12 </m>.
-      (Technically what we are describing here is the ring of integers modula 12,
-      but we will leave this distinction to later.)
+      Technically, if we only allow values <m>0,1,\ldots, 11</m> 
+      what we are describing is the ring of integers modula 12,
+      but we will ignore this distinction for now.
     </p>
 
     <p>
@@ -233,7 +234,7 @@
 
   <p>
     To further illustrate how considering a basic result like the quadratic formula
-    starts us n a path to a much broader exploration of mathematics, 
+    starts us on a path to a much broader exploration of mathematics, 
     consider: </p> 
     <question>
       <p> Is there a formula, analogous to the quadratic formula
@@ -264,8 +265,5 @@
     in history, both Abel and Galois led short and tragic lives, Galois 
     being killed in a duel at the age of 20. 
   </p>
-  
-
- 
   
 </section>

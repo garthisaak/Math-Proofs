@@ -109,6 +109,14 @@ Principle, one using a proof by <term> contradiction </term>  and one
 using the <term> contrapositive </term>. 
 </p>
 
+<p>
+  We will the word contrapositive without defining it. The statements
+  in <xref ref="thm-pigeonhole-alt"/>  and   <xref ref="thm-pigeonhole-contrapositive"/>
+  are equivalent, either both are true or both or false. We will see this more
+  formally soon but consider these examples and their proofs as an illustration
+  of the more general results about the contrpositive. 
+</p> 
+
 <theorem xml:id="thm-pigeonhole-contrapositive">
   <title>Pigeonhole Principle Contrpositive </title>
   
@@ -144,10 +152,7 @@ set size <m> s_1 + s_2 + \cdots + + s_n \leq k+ k + \cdots + k \leq kn</m>.  <m>
   </p>
 </proof>
 
-<p>
-  We used the word contrapositive without defining it. We can use this 
-  example as a guide
-</p> 
+
 
 <p> The intuition from the examples above shows that we can prove a 
   statement directly or via the contrapositive.

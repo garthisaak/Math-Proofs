@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-patience">
+  <title>A Minimax Theorem</title>
+
+  <p>
+    We will show that the <xref ref="thm-erdossz">Erdos-Szekeres Theorem </xref> is
+    itself a corollary of a broader <term> minimax theorm </term>. Here we a
+    quantity to be maximized and another to be minimized, with the maximum <q> easily </q>
+    seen to be at most the minimum. We get a minimax theorem when equality holds.
+  </p>
+
+<p> 
+We will prove the minimax thorem for monotone sequences by 
+slightly modifying the pigeonhole proof for the Erdos-Szekeres Theorem.
+A second proof will use the idea behind a solitaire card game that itself 
+play a role in a fast algorithm for sorting a list of numbers.
+</p> 
+
+<p>
+  Recall from the discussion of the best possible part of the Erdos-Szekeres Theorem
+   that each partition of a list into decreasing subsequences provides
+an upper bound on the maximum size of an increasing subsequence.
+The minimax theorem for monotone sublists states that we in fact
+get equality in this bound. </p> 
+
+<p> Note that <q> size </q> here has two different meanings. 
+  The size of the
+partiton into decreasing subsequences is the number of parts (sublists) in the partition. The
+size of an increasing subsequence is the number of terms in the subsequence.
+</p>
+
+<p>
+  We first state and prove the observation above about an upper bound,
+  formalizing the idea that at most 1 term in an increasing subsequence
+  can come from each decreasing subsequence in a partition. 
+</p>
+
+<lemma xml:id="lem-monotoneub">
+  <statement>
+    <p>
+      Let <m> S = s_1,s_2, \ldots, s_n </m> be a list of <m>n</m> distinct numbers.
+      The maximum size of an increasing subsequence in <m>S</m>
+      is at most the minimum size of a partition of <m>S </m> into decreasing subsequences.
+    </p>
+  </statement>
+
+</lemma>
+
+<proof>
+<p>  Let <m>M</m> denote the maximum size of an increasing subsequence
+  and <m>m</m> denote the minimum size of a partition into decreasing
+  subsubsequences.
+</p> 
+
+<p>
+  Let <m>S_{J_1},S_{J_2}, \ldots,
+S_{J_m}</m> be a minimum size partition into decreasing subsequences and
+let <m>T_I</m> be an increasing subsequence of size <m>t</m>. 
+Observe that <m>
+ I = \cup_{i=1}^m (I \cap J_i) </m> since <m>J_1, J_2,
+\ldots, J_m </m> is a partition of <m> \{1,2, \ldots, n\}</m> and <m>I \subseteq \{1,2, \ldots, n\}</m>. Note
+also that <m>|I \cap J_i| \leq 1</m> since the increasing subsequence has
+at most one term from each decreasing part. Then 
+<m> M = |I| \leq \sum_{i=1}^m |I \cap J_i| \leq \sum_{i=1}^m 1 = m</m>. <m>\Box </m>
+</p>
+
+</proof>
+
+<p>
+  Our goal is to prove that equality holds in 
+  <xref ref="lem-monotoneub"/>. The first proof will
+  be essentially the same as the pigeonhole proof of
+  the Erdos-Szekeres Theorem.
+</p>
+
+<theorem xml:id="thm-monotoneminimax">
+  <title>Minimax Theorem for Monotone Subsequences</title>
+  <statement>
+    <p>
+      Let <m> S = s_1,s_2, \ldots, s_n </m> be a list of <m>n</m> distinct numbers.
+      The maximum size of an increasing subsequence in <m>S</m>
+      equals the minimum size of a partition of <m>S </m> into decreasing subsequences.
+    </p>
+  </statement>
+</theorem>
+
+<proof>
+<p>
+  Let <m>M</m> denote the maximum size of an increasing subsequence
+  and <m>m</m> denote the minimum size of a partition into decreasing
+  subsubsequences. We have <m>M \leq m </m> by <xref ref="lem-monotoneub"/>.
+</p>
+
+<p>
+  To complete the proof we need to show <m>M \geq m</m>. For each <m>i</m> 
+  let
+<m>x_i</m> be the size of a longest increasing sublist ending
+in <m>s_i</m>. If <m>i \lt j</m> and <m>s_i \lt s_j</m> then appending
+ <m>s_j</m> to a
+ longest increasing sublist ending at <m>s_i</m> makes a longer sublist.
+ So in this case <m>x_i \lt x_J</m>. That is, <m>i \lt j</m> and 
+ <m>x_i = x_j</m>
+ implies <m>s_j \gt s_i</m>. So if <m>J_t</m> is the set of indices 
+ with label
+ <m>t</m> (i.e., <m>J_t = \{i | L(i) = t\}</m>), then <m>S_{J_t}</m> 
+ is a
+ decreasing sublist. Now the largest label is <m>M</m>, so <m>J_1, J_2,
+ \ldots, J_M</m> is a partition of <m>\{1,2, \ldots, n \}</m> and
+  <m>S_{J_1},S_{J_2}, \ldots, S_{J_M}</m> is a partition into decreasing
+  sublists. Hence <m>m \leq M</m>.
+  <m>\Box</m>
+</p>
+
+</proof>
+
+<p>
+  The Erdos-Szekeres Theorem is a Corollary of the minimax theorem.
+ That is, if we assume the minimax theorem we can easily prove the Erdos-Szekeres Theorem. Showing this is left as an exercise.
+</p>
+
+<p>
+  Patience sorting is a solitaire card game (the British use the word
+patience games where Americans use the word solitaire). Its origins
+are a practical method of sorting a real deck.
+In this game a deck of cards labeled <m>1,2, \ldots, n</m> 
+(for regular playing cards an ordering can be based on values and an ordering of the suits) is shuffled and the cards are placed in piles one by one so that the new card is smaller than the top card of the pile it is placed on
+or it starts a new pile.
+ The object is to get as few piles as possible.
+</p>
+
+<p>
+  One strategy is a <em> greedy </em> strategy. We place each card on the first pile that we can do so under the rules.
+  As we shall soon see, using the greedy strategy results in piles
+   that form a minimum partition into decreasing sublists.
+ From the piles we can also construct an increasing sublist of maximum size.
+</p>
+
+<p>
+  To illustrate patience sorting using the greedy strategy we will use rows instead of piles.
+Slightly more formally (we avoid a formal detailed description) do the following for a list <m>s_1,s_2, \ldots, s_n</m>:
+If we have processed <m>s_1,s_2, \ldots, s_{t-1}</m>, finding decreasing sublists <m>S_{J_1}, S_{J_2}, \ldots, S_{J_r}</m> 
+consider next <m>s_t</m>.
+Find the smallest <m>k</m> such that <m>s_t</m> is less than the last term in the sublist 
+<m>S_{J_k}</m> and add <m>s_t</m> to that sublist. If there is no such
+<m>k</m> form a new sublist <m>S_{J_{r+1}}</m> with the single term <m>s_t</m>.
+</p>
+
+<p>
+  Greedy patience sorting applied to the list
+<me> 8,12,6,3,1, 9,5,4,15,13,2,11,10,7,17,16,14 </me>
+results in the partition 
+<me> \begin{array}{ccccccccccccccccc}
+  8 &amp; &amp; 6 &amp; 3 &amp; 1 &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp;  \\
+	&amp; 12 &amp; &amp; &amp; &amp; 9 &amp; 5 &amp; 4 &amp; &amp; &amp; 2 &amp; &amp; &amp; &amp; &amp; &amp;  \\
+	&amp; &amp; &amp; &amp; &amp; &amp; &amp;  &amp; 15 &amp; 13 &amp; &amp; 11 &amp; 10 &amp; 7 &amp; &amp; &amp; \\
+	&amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; 17 &amp; 16 &amp; 14
+  \end{array} </me>.
+For example, when we look at 4 we can't add it to the first row since
+it ends in <m>1 \lt 4</m> but we can add it to the second row which ends in <m>5 \gt 4</m>. When we look next at 15 we cannot add 
+it to either the first or second row and keep those decreasing so we form a new row.
+</p>
+
+<p>
+  Using this process we can now give a second proof of the
+  <xref ref="thm-monotoneminimax">Minimax Theorem for Monotone 
+    Sequences </xref>. </p>
+    <p>
+  We first state a result about patience sorting. </p> 
+
+  <theorem xml:id="thm-patsort">
+    <statement>
+      <p>
+        Let <m>S= s_1, s_2, \ldots, s_n</m> be a list of <m>n</m> 
+        distinct numbers. Let <m>L(S)</m> be the size of a longest increasing subsequence 
+        in <m>S</m>. Patience sorting with a greedy strategy applied 
+        to this list produces <m>L(S)</m> piles.
+      </p>
+    </statement>
+  </theorem>
+  
+<proof>
+  <p>
+    Let <m>S_{J_1}, S_{J_2}, \ldots, S_{J_k}</m> be the piles that 
+    are produced. We need to show that <m>k = L(S)</m>. 
+    Since the piles are decreasing sublists by the patience sorting 
+    rule and since the maximum size
+    of an increasing sublists is at most the minimum size of a partition into decreasing parts 
+    that is, <m>L(S) \leq k</m>, it is enough to produce
+    an increasing sublist of size <m>k</m>.
+  </p>
+
+  <p>
+    If <m>s_i</m> is placed into pile <m>S_{J_t}</m> there is an index <m>f(i)</m> in
+<m>J_{t-1}</m> such
+that <m>f(i) \lt i</m> and <m>s_{f(i)} \lt s_i</m> as otherwise 
+<m>s_i</m> would have been placed into sublist <m>S_{J_{t-1}}</m> 
+by the greedy strategy.
+For any <m>i \in J_k</m> consider the sublist <m>S</m> with indices
+<m>f^{k-1}(i), f^{k-2}(i), \ldots, f^2(i),f(i),i</m>. Write <m>i = f^0(i)</m>.
+From the observations
+above, for <m>j = 1,2, \ldots, k-1</m> we have <m>f^j(i) = f(f^{j-1}(i)) \lt f^{j-1}(i)</m> 
+and <m>s_{f^j(i)} \lt s_{f^{j-1}(i)}</m>. Hence <m>S</m> is an 
+increasing sublist with size <m>k</m>. <m>\Box</m>
+  </p>
+</proof>
+ 
+<p>
+  Note that the increasing sublist formed in the proof above does not simply take the top card from each pile (i.e., the last entry in each sublist). 
+  This does happen to work in the example above but
+patience sorting with list <m> 8,9,4,5,3,7,6,1,2 </m>
+yields the partition
+<me> \begin{array}{ccccccccc}
+	8 &amp;  &amp;4 &amp;  &amp;3 &amp;  &amp;  &amp;1 &amp;  \\
+	&amp;9 &amp;  &amp;5 &amp;  &amp;  &amp;  &amp;  &amp;2 \\
+	&amp;  &amp;  &amp;  &amp;  &amp;7 &amp;6 &amp;  &amp;  \end{array}
+</me>
+Here the increasing sublist produced by the proof
+starting with <m>i=6</m> (<m>s_i = 7</m>) is
+<m>4,5,7</m> and the increasing sublist starting with 
+<m>i = 7</m> (<m>s_i = 6</m>) is <m>4,5,6</m>.
+</p>
+
+
+
+
+</section>

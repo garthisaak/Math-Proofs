@@ -180,7 +180,7 @@
         Quadratic polynomials can be written in several forms.
         Recall function transformations. The graph of <m>f(x) = (x+5)^2 - 3</m>
         is the basic parabola <m>y = x^2</m> shifted left 5 units and down 3
-        units. Obsevre that in this form we can quickly find its roots, solving
+        units. Observe that in this form we can quickly find its roots, solving
         <m>(x+5)^2 - 3 = 0 \Rightarrow (x+5)^2 = 3 \Rightarrow
             x+5 = \pm \sqrt{3} \Rightarrow x = -5 \pm \sqrt{3}
         </m>.
@@ -319,7 +319,7 @@ would <em> not </em> be part of a formal proof.
                 \end{array} 
             </me>
             Certainly <m> \Downarrow </m> is correct here but
-            <m>\Updownarrow</m> is <em>not</em> as 
+            <m>\Updownarrow</m> is <em>not</em> correct as 
             <m>x^2 = 4 \Rightarrow x = -2</m> is false, since <m>x</m> could be 2. 
             It is safest to add the extra detail for implications to avoid any ambiguity.
         </p>
@@ -357,7 +357,7 @@ would <em> not </em> be part of a formal proof.
             </li>
             <li>
                 <p>
-                    DO NOT MEMORIZE PROOFS. Why not? you will quickly forget, if you try to recreate on exam likely you make a minor mistake and it is all wrong. For example, in the quadratic formula derivation, attempting to memorize line by line and then recreate this on a quiz or exam is highly likely o end up with minor mistakes that clearly indicate memorization instead of understanding. For this example, remembering the key idea, complete the square along with some practice doing it yourself should suffice. A student in a math class at this level can trust your basic algebra skills to carry you through the steps without memorization.  
+                    DO NOT MEMORIZE PROOFS. Why not? you will quickly forget, if you try to recreate on exam likely you make a minor mistake and it is all wrong. For example, in the quadratic formula derivation, attempting to memorize line by line and then recreate this on a quiz or exam is possible you end up with minor mistakes that clearly indicate memorization instead of understanding and make the answer incorrect. For this example, remembering the key idea, complete the square along with some practice doing it yourself should suffice. A student in a math class at this level can trust your basic algebra skills to carry you through the steps without memorization.  
                 </p>
             </li>
         </ul>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-induction-trees">
+  <title>Intro</title>
+
+<p>
+    We need a few more definitions about 
+    <xref ref="def-graph"> graphs
+    </xref>. 
+
+    <definition xml:id="def-degree">
+        <statement>
+            <p> The <term> degree </term> of a vertex <m>d(v)</m> is the number of edges containing the vertex, with a loop contributing 2 to the vertex degree. A <term> leaf </term> is a vertex with degree 1. </p>
+	
+            <p> Note, the singular is called vertex and plural is vertices. </p> 
+        </statement>
+    </definition>
+</p> 
+
+<p> For the induction examples we will use a few additional definitions and facts. We provide neither formal definitions or the short proofs of the facts as they are not necessary for the examples. All that we need to to apply the facts. </p>
+
+<p> A  <term> tree  </term>  is a connected acyclic graph. </p>
+
+<p> The following seem `obvious' by example and would be elementary to prove if we had provided formal definitions of all of the terms. We omit these proofs here.
+</p> 
+
+<fact xml:id="fact-tree0">
+    <statement>
+        <p>
+            If <m>T</m> is a tree then <m>T</m> has a leaf.   
+        </p>
+    </statement>
+</fact>
+
+<p> It is easy to show that every tree on at least 2 vertices has at least 2 leaves. 
+</p>
+
+<fact xml:id="fact-tree1">
+    <statement>
+        <p>
+            If <m>T</m> is a tree and <m>v</m> is a leaf then the graph <m>T - v</m> obtained by deleting <m>v</m> and all edges containing <m>v</m>
+            is a tree.   
+        </p>
+    </statement>
+</fact>
+
+<fact xml:id="fact-tree2">
+    <statement>
+        <p>
+            If <m>T</m> is a tree then the graph <m>T + u</m> formed by adding a new leaf is a tree. Here <m>V(T +u) = V(T) \cup \{u\}</m> 
+            for some <m>u \not \in V(T)</m> and <m>E(T+u) = E(T) \cup \{ \{u,w \}\}</m> for <m>w \in V(T)</m>.   
+        </p>
+    </statement>
+</fact>
+
+<p>
+    From the examples it seems that the number of edges in a tree is one less than the number of vertices. We can use induction to proves this. 
+</p>
+
+<proposition xml:id="prop-treen">
+    <statement>
+        <p>
+            If <m>T</m> is a tree with <m>n</m> vertices then <m>T</m> has <m>n-1</m> edges.  
+        </p>
+    </statement>
+</proposition>
+
+<p> To illustrate one of the pitfalls with induction proofs
+we first give An incorrect proof that <xref ref="prop-treen"> 
+    trees have <m>n-1</m> edges 
+ </xref> and then give a corrected proof. Pay attention to
+ the use  of <xref ref="fact-tree2"/> in the incorrect proof
+ and the use of  <xref ref="fact-tree1"/> in the corrected proof.
+</p> 
+
+<assemblage xml:id="assemblage-">
+    <title>An incorrect proof that  
+        trees have <m>n-1</m> edges </title>
+        <p> The basis is when <m>n=1</m>. The only tree on 1 vertex is the trivial tree with 0 edges. </p> 
+
+        <p> For induction, assume the induction hypothesis, that a tree on <m>n-1</m> vertices has <m>n-2</m> edges. Form
+        <m>T</m> by adding a new vertex as in <xref ref="fact-tree2"/> to get a new tree with <m>n</m> vertices and <m>(n-2)+1 = n-1</m> edges. 
+        So the result follows by induction. <m>\Box</m>   </p> 
+</assemblage>
+
+<p> The idea in the preceding proof contains some correct key ideas but as written it is 
+    incomplete. The statement is to show that <em> all </em> 
+     trees on <m>n</m> vertices have <m>n-1</m> edges. The construction in the proof took <em> some </em> tree on <m>n-1</m> vertices and formed a new tree on <m>n</m> vertices. 
+</p> <p> What is missing is a guarantee that <em> all </em>  trees can be formed by this construction.
+    While it is possible to argue directly that this <q> building up </q> process constructs all trees, it is more straightforward to start with an arbitrary tree on <m>n</m> vertices and use induction to show that it has <m>n-1</m> edges. </p> 
+
+<proof>
+    <title>Corrected proof that  trees have <m>n-1</m> edges
+    </title>
+    <p> The basis is when <m>n=1</m>. The only tree on 1 vertex is the trivial tree with 0 edges. </p>
+
+<p> For induction, assume the induction hypothesis, that a tree on <m>n-1</m> vertices has <m>n-2</m> edges. </p>
+
+<p> Consider an arbitrary tree <m>T</m> on <m>n</m> vertices. By <xref ref="fact-tree0"/>, <m>T</m> has a leaf <m>v</m>. By <xref ref="fact-tree1"/>, 
+<m>T - v</m> is a tree. <m>T-v</m> has <m>n-1</m> vertices and is a tree, so by induction has <m>n-2</m> edges. <m>T-v</m> has one less edge than <m>T</m> so <m>T</m> has <m>n-1</m> edges and the result follows by induction. <m>\Box</m>  
+</p> 
+</proof>
+
+<p> Observe how the incomplete proof used <xref ref="fact-tree2"/> while the correct proof instead used
+    <xref ref="fact-tree1"/>. We will see how 
+    <xref ref="fact-tree2"/> can be used to prove a result that is, in a sense, a converse to <xref ref="prop-treen"/>. </p> 
+
+<p>
+    To work towards a possible converse of <xref ref="prop-treen"/> we first
+    restate the proposition as </p>
+    
+    <assemblage> 
+        <title> Restated version of <xref ref="prop-treen"/> </title> 
+        <p> Let <m>G</m> be a graph with <m>n</m> vertices. If <m>G</m> is a tree then
+    <m>G</m> has <m>n-1</m> edges. </p>
+    </assemblage> 
+
+<p>
+    Now the statement of the converse is clear
+</p>
+
+<assemblage >
+    <title>Statement of Converse of <xref ref="prop-treen"/></title>
+    <p>
+        Let <m>G</m> be a graph on <m>n</m> vertices. If <m>G</m> has <m>n-1</m> edges then <m>G</m> is a tree. 
+    </p>
+</assemblage>
+
+<p> As stated this converse is false. See Figure zzz. However, if we had
+instead <q> Let <m>G</m> be a <em> connect </em> graph with <m>n</m> vertices. If <m>G</m> is a tree then
+    <m>G</m> has <m>n-1</m> edges. </q> then the converse <q>
+    Let <m>G</m> be a <em> connected </em> graph on <m>n</m> vertices. If <m>G</m> has <m>n-1</m> edges then <m>G</m> is a tree.
+</q> would be true. 
+
+</p>
+
+<p>
+    However, while elementary, showing this takes us into results and definitions in graph theory that we have not introduced. 
+    Instead we proceed in a different direction for something like a converse to further illustrate induction.
+</p>
+
+<p>
+    Recall the definition of degree and 
+    note that since each edge contains two vertices, it contributes 1 to the degree of 2 vertices and we get the following.    
+</p>
+
+<lemma xml:id="lem-handshake">
+    <title>The Handshaling Lemma</title>
+    <statement>
+        <p>
+            If <m>G</m> is a graph with vertex degrees <m>d(v)</m> then <m>\displaystyle \sum_{v \in V} d(v) = 2|E|</m>.  
+        </p>
+    </statement>
+</lemma>
+
+<p> The term handshaking lemma comes from representing the people at a party as vertices and edges indicating handshakes.
+    If everyone states the number of handshakes and these are added the result is twice the number of handshakes. </p>
+    
+    <p> So a corollary to <xref ref="prop-treen"/> is <q> 
+        If <m>T</m> is a tree on <m>n</m> vertices then the sum of the degrees is <m>2(n-1) = 2n-2</m> </q>.
+    Again the example of Figure zzz shows that the converse is false. However
+    </p> 
+    <question> <p> A tree has a <term> degree sequence </term> with sum <m>2n-2</m>. That is, the vertex degrees form list of <m>n</m> positive integers with sum <m>2n-2</m>. 
+    Does each such list arise from some tree? </p>  </question> 
+
+
+
+
+
+</section>

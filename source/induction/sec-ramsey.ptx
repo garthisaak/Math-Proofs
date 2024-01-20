@@ -107,6 +107,7 @@ Here the pairs of friends  <m>ab,bc,cd,de,ea</m> have edges between them and the
     </statement>
 </definition>
 
+
 <p> In the graph model of friends, the vertices represent people, with an edge between a pair if they are friends. </p> 
 
 <p> Technically, we should only make the following definition after we prove that these numbers exist. However it is convenient to assume this and have the notation. </p> 

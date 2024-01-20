@@ -586,7 +586,7 @@ but it is essentially the same as that in the proofs of <xref ref="fact-recurren
 
   <example>
     <p>
-      We first illustrate how one might <q> discover </q> <xref ref="fact-finid1"/>.
+      We first illustrate how one might <q> discover </q> <xref ref="fact-fibid1"/>.
       Consider the first few Fibonacci numbers <me>
         0,1,1,2,3,5,8,13,21,34,55,89, \ldots 
       </me>
@@ -708,7 +708,7 @@ holds for <m>n</m>. </p> <p> Thus by mathematical induction <m>1 + F_0 + F_1 + F
   </proof>
 
   <proof>
-    <title> Induction proof of <xref ref="fact-fibid1"/> with <m>\sum</m> nottaion</title>
+    <title> Induction proof of <xref ref="fact-fibid1"/> with <m>\sum</m> notation</title>
     <p>
       The basis is <m>F_2 = 1 = 1+0 = 1 + F_0</m>. For <m>n \geq 1</m> we have
 <me> F_{n+2} = F_{n+1} + F_n = \left(1 + \sum_{i=0}^{n-1} F_i \right) + F_n =
@@ -1247,16 +1247,16 @@ Now the two lemmas immediately yield
     
       <me>
         \begin{array}{rl}
-        \amp  \left(x_1y_1 + \cdots + x_ny_n\right)^2  \\ 
-         = \amp
+        &amp;  \left(x_1y_1 + \cdots + x_ny_n\right)^2  \\ 
+         = &amp;
         \left( \left(x_1y_1 + x_2y_2 + \cdots + x_{n-1}y_{n-1} \right)  
         + x_ny_n \right)^2 \\
-          \leq  \amp \left( \sqrt{x_1^2 + \cdots + x_{n-1}^2 }
+          \leq  &amp; \left( \sqrt{x_1^2 + \cdots + x_{n-1}^2 }
           \sqrt{y_1^2 +  
             \cdots + y_{n-1}^2 } + x_ny_n \right)^2 \\
-          \leq \amp \left( \sqrt{x_1^2 + \cdots + x_{n-1}^2}^2 + x_n^2 \right)
+          \leq &amp; \left( \sqrt{x_1^2 + \cdots + x_{n-1}^2}^2 + x_n^2 \right)
            \left(\sqrt{y_1^2 + \cdots + y_{n-1}^2}^2 + y_n^2  \right)\\ 
-           = \amp \left(x_1^2 + x_2^2 + \cdots + x_n^2\right) \left(y_1^2 + y_2^2 + 
+           = &amp; \left(x_1^2 + x_2^2 + \cdots + x_n^2\right) \left(y_1^2 + y_2^2 + 
             \cdots + y_n^2\right)
         \end{array}
       </me>.
@@ -1304,15 +1304,15 @@ Now the two lemmas immediately yield
   
     <md>
       <mrow> 
-       \amp \left(x_1y_1 + \cdots + x_ny_n\right)^2  </mrow>
-       <mrow>  = \amp \left( \left(x_1y_1 + x_2y_2 + \cdots + x_{n-1}y_{n-1} \right)  
-      + x_ny_n \right)^2  </mrow> 
-      <mrow>   \leq \amp  \left( XY + x_ny_n \right)^2  </mrow> 
-        <mrow>  \leq \amp  \left( X^2 + x_n^2 \right)
-         \left(Y^2 + y_n^2  \right) </mrow>
-         <mrow> 
-          = \amp \left(x_1^2 + x_2^2 + \cdots + x_n^2\right) \left(y_1^2 + y_2^2 + 
-          \cdots + y_n^2\right)  </mrow>
+        &amp; \left(x_1y_1 + \cdots + x_ny_n\right)^2  </mrow>
+        <mrow>  = &amp; \left( \left(x_1y_1 + x_2y_2 + \cdots + x_{n-1}y_{n-1} \right)  
+       + x_ny_n \right)^2  </mrow> 
+       <mrow>   \leq &amp;  \left( XY + x_ny_n \right)^2  </mrow> 
+         <mrow>  \leq &amp;  \left( X^2 + x_n^2 \right)
+          \left(Y^2 + y_n^2  \right) </mrow>
+          <mrow> 
+           = &amp; \left(x_1^2 + x_2^2 + \cdots + x_n^2\right) \left(y_1^2 + y_2^2 + 
+           \cdots + y_n^2\right)  </mrow>
     </md>.
     Hence, by induction the inequality holds for all <m>n</m>. <m>\Box</m>
   </p> 
