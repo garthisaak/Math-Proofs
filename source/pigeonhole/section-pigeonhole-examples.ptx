@@ -25,11 +25,6 @@ repeats infinitely often.
 Consider the long division
 
 
-<me>  \require{enclose}    7 \enclose{longdiv}{3.000000} 
- 
- </me>
-
-
 The key idea is that either a reminder of 0 is reached, 
 in which case the expansion terminates or some remainder repeats, 
 after which the pattern repeats. We must terminate or have a repeat
