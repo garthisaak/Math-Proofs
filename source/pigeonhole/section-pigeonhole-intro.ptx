@@ -110,7 +110,7 @@ using the <term> contrapositive </term>.
 </p>
 
 <p>
-  We will the word contrapositive without defining it. The statements
+  We will  use the word contrapositive without defining it. The statements
   in <xref ref="thm-pigeonhole-alt"/>  and   <xref ref="thm-pigeonhole-contrapositive"/>
   are equivalent, either both are true or both or false. We will see this more
   formally soon but consider these examples and their proofs as an illustration
